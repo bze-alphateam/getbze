@@ -1,21 +1,24 @@
-import { Card, CardBody, CardFooter, CardHeader,  Heading } from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, CardHeader,  Heading, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import { colors } from "../common";
 
 interface InfoCardProps {
-  title: any,
-  body: any,
-  footer: any,
+  icon: any,
+  bodyText: string,
+  footerText: string,
 }
 
 export const InfoCard = (props: InfoCardProps) => (
   <Card align="center" size={'sm'} minWidth={'250px'}>
     <CardHeader>
-      <Heading size='xl'> {props.title}</Heading>
+      <Heading size='xl'>
+        <Icon as={props.icon} color={colors.colorLight}/>
+      </Heading>
     </CardHeader>
     <CardBody>
-      {props.body}
+      <Text fontSize={'md'} fontWeight={'semibold'}>{props.bodyText}</Text>
     </CardBody>
     <CardFooter>
-      {props.footer}
+      <Text fontSize={'lg'} fontWeight={'bold'} color={useColorModeValue(colors.colorDark, colors.colorLight)}>{props.footerText}</Text>
     </CardFooter>
   </Card>
 )
