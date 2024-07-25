@@ -4,7 +4,7 @@ import { colors } from "../common";
 
 export const Intro = () => {
   return (
-    <Flex padding={5} margin={5} flex={1} flexDirection={{sm: 'column-reverse', md: 'row'}} alignItems={'center'} justifyContent={'space-evenly'} gap={5}>
+    <Flex flex={1} margin={5} flexDirection={{sm: 'column-reverse', md: 'row'}} alignItems={'center'} justifyContent={'space-evenly'} gap={5}>
       <Box>
         <Heading as={'h1'} size='xl' textColor={useColorModeValue(colors.colorDark, colors.colorLight)}>BeeZee Network</Heading>
         <Heading as={'h2'} size='md'>The hub of Simplified DeFi</Heading>
