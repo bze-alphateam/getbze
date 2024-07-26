@@ -29,45 +29,6 @@ export const CosmosLogo: React.FC<CosmosLogoProps> = ({
       <circle r="31.3505" transform="matrix(0.5 -0.866025 -0.866025 -0.5 227.181 419.466)" fill={color}/>
       <circle r="31.3505" transform="matrix(0.5 0.866025 0.866025 -0.5 734.794 312.039)" fill={color}/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M512.012 457.433C542.156 457.433 566.592 481.869 566.592 512.012C566.592 542.156 542.156 566.592 512.012 566.592C481.869 566.592 457.433 542.156 457.433 512.012C457.433 481.869 481.869 457.433 512.012 457.433Z" fill={color}/>
-      {/* <defs>
-        <linearGradient id="paint0_linear" x1="523.415" y1="949.2" x2="646.591" y2="578.394" gradientUnits="userSpaceOnUse">
-          <stop offset="0.377307" stop-opacity="0.6"/>
-          <stop offset="0.992239" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint1_linear" x1="514.347" y1="74.8003" x2="669.74" y2="430.828" gradientUnits="userSpaceOnUse">
-        <stop offset="0.634963" stop-opacity="0.81"/>
-        <stop offset="1" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint2_linear" x1="445.936" y1="364.438" x2="445.936" y2="806.055" gradientUnits="userSpaceOnUse">
-        <stop stop-opacity="0.81"/>
-        <stop offset="0.646422"/>
-        </linearGradient>
-        <linearGradient id="paint3_linear" x1="229.563" y1="423.989" x2="407.868" y2="576.347" gradientUnits="userSpaceOnUse">
-        <stop stop-opacity="0.6"/>
-        <stop offset="1" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint4_linear" x1="911.58" y1="730.321" x2="493.597" y2="675.119" gradientUnits="userSpaceOnUse">
-        <stop offset="0.60731" stop-opacity="0.81"/>
-        <stop offset="1" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint5_linear" x1="668.579" y1="507.036" x2="114.217" y2="314.695" gradientUnits="userSpaceOnUse">
-        <stop stop-opacity="0.81"/>
-        <stop offset="0.478389"/>
-        </linearGradient>
-        <linearGradient id="paint6_linear" x1="734.481" y1="310.134" x2="495.931" y2="396.239" gradientUnits="userSpaceOnUse">
-        <stop stop-opacity="0.6"/>
-        <stop offset="1" stop-opacity="0"/>
-        <stop offset="1" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint7_linear" x1="121.321" y1="732.321" x2="395.976" y2="429.675" gradientUnits="userSpaceOnUse">
-        <stop offset="0.54518" stop-opacity="0.81"/>
-        <stop offset="1" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="paint8_linear" x1="903.894" y1="284.152" x2="448.987" y2="679.287" gradientUnits="userSpaceOnUse">
-        <stop offset="0.518582"/>
-        <stop offset="1" stop-opacity="0.81"/>
-        </linearGradient>
-      </defs> */}
     </svg>
   );
 };
