@@ -4,7 +4,7 @@ import { Subtitle, Title, colors } from "../common";
 
 export const Intro = () => {
   return (
-    <Flex flex={1} margin={5} flexDirection={{sm: 'column-reverse', md: 'row'}} alignItems={'center'} justifyContent={'space-evenly'} gap={5}>
+    <Flex flex={1} margin={5} flexDirection={{base: 'column-reverse', sm: 'column-reverse', md: 'row'}} alignItems={'center'} justifyContent={'space-evenly'} gap={5}>
       <Box>
         <Title text="BeeZee Network" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
         <Subtitle text="The hub of Simplified DeFi" />

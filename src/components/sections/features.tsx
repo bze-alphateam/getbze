@@ -19,7 +19,6 @@ interface ExternalButtonProps {
 }
 
 const FeatureIcon = ({icon}: {icon: React.ElementType}) => (<Icon as={icon} boxSize={50} color={useColorModeValue(colors.colorDark, colors.colorLight)}/>);
-// const FeatureIcon = (icon: any) => (<Text>da</Text>);
 
 const ExternalButton = (props: ExternalButtonProps) => (<Button as={'a'} variant='outline' href={props.url} target="_blank" rightIcon={<MdOutlineArrowOutward/>}>{props.text}</Button>)
 
@@ -27,11 +26,11 @@ const FeaturesItem = (props: FeaturesItemProps) => {
   const { icon, title, description, footer, ...rest } = props; 
   return (
     <Card
-      direction={{ base: 'column', sm: 'row' }}
+      direction={{ base: 'column', sm: 'column', md: 'column', lg: 'row' }}
       overflow='hidden'
       variant='outline'
       alignItems={'center'}
-      width={{sm: '100%', md: '50%'}}
+      width={{base: '100%', sm: '100%', md: '100%', lg: '50%'}}
       {...rest}
     >
       <Box p={15} m={15}> 
@@ -42,7 +41,7 @@ const FeaturesItem = (props: FeaturesItemProps) => {
           <Heading size='md'>{title}</Heading>
           <Text py='2'>{description}</Text>
         </CardBody>
-        <CardFooter>
+        <CardFooter flexDirection={{base: 'column', sm: 'column', md: 'row'}} justifyContent={{base: 'center', sm: 'center', md: 'normal'}} flex={1} gap={5}>
           {footer}
         </CardFooter>
       </Stack>
@@ -53,11 +52,11 @@ const FeaturesItem = (props: FeaturesItemProps) => {
 export const Features = () => {
 
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} gap={5} flexWrap={'wrap'}>
+    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
       <Box mt={45} mb={5}>
         <Subtitle text="Features" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
-      <Flex flexDirection={{sm: 'column', md: 'row'}} gap={5}>
+      <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
         <FeaturesItem 
           icon={<FeatureIcon icon={MdOutlineFactory} />}
           title="Token Factory" 
@@ -71,7 +70,7 @@ export const Features = () => {
           footer={<ExternalButton url="https://app.getbze.com" text="Check Out The DEX" />}
         />
       </Flex>
-      <Flex flexDirection={{sm: 'column', md: 'row'}} gap={5}>
+      <Flex flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
         <FeaturesItem 
           icon={<FeatureIcon icon={FaMoneyBillTrendUp} />}
           title="Earn & Rewards" 
@@ -85,7 +84,7 @@ export const Features = () => {
           footer={<ExternalButton text="Visit CoinTrunk.io" url="https://cointrunk.io" />}
         />
       </Flex>
-      <Flex flexDirection={{sm: 'column', md: 'row'}} gap={5}>
+      <Flex flexDirection={{base: 'column', sm: 'column', md: 'column',  lg: 'row'}} gap={5}>
         <FeaturesItem 
           icon={<FeatureIcon icon={MdOutlineLocalFireDepartment} />}
           title="Periodical Burnings" 
@@ -97,23 +96,19 @@ export const Features = () => {
           title="Decentralized News" 
           description="BeeZee blockchain supports content sharing from trusted internet domains through its web and mobile applications, with the shared content saved on the blockchain. The allowed internet domains, publishers, and cost of paid articles are determined by blockchain parameters set by the community via governance proposals."
           footer={
-            <Flex gap={5}>
+            <>
               <ExternalButton text="More Details" url="https://cointrunk.io" />
               <ExternalButton text="Docs" url="https://docs.cointrunk.io" />
-            </Flex>
+            </>
           }
         />
       </Flex>
-      <Flex flexDirection={{sm: 'column', md: 'row'}} gap={5}>
+      <Flex flexDirection={{base: 'column', sm: 'column', md: 'column',  lg: 'row'}} gap={5}>
         <FeaturesItem 
           icon={<CosmosLogo width={50}/>}
           title="IBC Enabled" 
           description="BeeZee is a sovereign blockchain built with the Cosmos SDK, leveraging the full power of the interchain by connecting with other blockchains that support IBC. The BZE coin and all tokens minted on BeeZee can be sent to connected blockchains, allowing users to take advantage of their features in a permissionless and secure way."
-          footer={
-            <Flex gap={5}>
-              <ExternalButton text="About IBC" url="https://www.ibcprotocol.dev/" />
-            </Flex>
-          }
+          footer={<ExternalButton text="About IBC" url="https://www.ibcprotocol.dev/" />}
         />
         <FeaturesItem 
           icon={<FeatureIcon icon={GiMining} />}

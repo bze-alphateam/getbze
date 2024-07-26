@@ -8,7 +8,7 @@ interface InfoCardProps {
 }
 
 export const InfoCard = (props: InfoCardProps) => (
-  <Card align="center" size={'sm'} minWidth={'200px'}>
+  <Card align="center" size={'sm'} minWidth={['140px', '140px', '200px']}>
     <CardHeader>
       <Heading size='xl'>
         <Icon as={props.icon} color={colors.colorLight}/>
