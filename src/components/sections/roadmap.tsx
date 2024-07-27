@@ -13,15 +13,15 @@ interface RoadmapItemProps {
 }
 
 const RoadmapItem = (props: RoadmapItemProps) => {
-  let color = 'red.300';
+  let color = colors.status.fail;
   let icon = MdOutlineAccessTime;
   switch (props.status) {
     case statusSuccess:
-      color = 'green.300';
+      color = colors.status.success;
       icon = MdCheckCircle;
       break;
     case statusInProgress:
-      color = 'orange.300';
+      color = colors.status.inProgress;
       icon = MdBuild;
       break;
   }
