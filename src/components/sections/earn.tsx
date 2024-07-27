@@ -25,12 +25,12 @@ const EarnItem = ({heading, body, url}: EarnItemProps) => {
 
 export const Earn = () => {
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
-      <Box mt={45} mb={5}>
+    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={2} flexWrap={'wrap'}>
+      <Box mt={45}>
         <Subtitle text="Earn Crypto" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
       <Box textAlign={'center'} maxW={'700px'}>
-        <Text py={5}>Join us on our journey and explore the earning possibilities. Discover how you can earn $BZE and use your coins to earn other cryptocurrencies as well.</Text>
+        <Text py={2}>Join us on our journey and explore the earning possibilities. Discover how you can earn $BZE and use your coins to earn other cryptocurrencies as well.</Text>
       </Box>
       <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
         <EarnItem 

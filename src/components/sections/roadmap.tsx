@@ -45,12 +45,12 @@ const partnershipQuery = 'Partnerships:'
 
 export const Roadmap = () => {
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
+    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={2} flexWrap={'wrap'}>
       <Box mt={45}>
         <Subtitle text="Roadmap" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
       <Box textAlign={'center'} maxW={'700px'}>
-        <Text py={5}>The roadmap contains a list of completed tasks, ongoing projects, and future plans. Some of our work remains undisclosed to ensure its success and to keep an element of surprise for upcoming announcements.</Text>
+        <Text py={2}>The roadmap contains a list of completed tasks, ongoing projects, and future plans. Some of our work remains undisclosed to ensure its success and to keep an element of surprise for upcoming announcements.</Text>
       </Box>
       <Card variant='outline'>
         <Tabs variant='enclosed' p={2} isFitted defaultIndex={1}>

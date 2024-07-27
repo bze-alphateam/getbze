@@ -46,12 +46,12 @@ const WalletItem = (props: WalletItemProps) => {
 
 export const Wallets = () => {
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
-      <Box mt={45} mb={5}>
+    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={2} flexWrap={'wrap'}>
+      <Box mt={45}>
         <Subtitle text="Wallets" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
       <Box textAlign={'center'} maxW={'700px'}>
-        <Text py={5}>$BZE and its tokens can be used anywhere, from mobile apps to browser extensions and other applications. Choose a wallet that best fits your needs, and remember to keep it secure and backed up.</Text>
+        <Text py={2}>$BZE and its tokens can be used anywhere, from mobile apps to browser extensions and other applications. Choose a wallet that best fits your needs, and remember to keep it secure and backed up.</Text>
       </Box>
       <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} alignItems={'baseline'} gap={[2, 2, 5, 150]}>
         <WalletItem 
