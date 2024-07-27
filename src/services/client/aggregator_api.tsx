@@ -1,4 +1,8 @@
 
+const getMediumArticlesUrl = (): string => {
+  return `${getHost()}/articles/medium`;
+}
+
 const getCirculatingSupplyUrl = (): string => {
   return `${getHost()}/supply/circulating`;
 }
@@ -36,6 +40,30 @@ export const getCirculatingSupply = async (): Promise<string|null> => {
     return resp.text();
   } catch (e) {
     console.log("error on getCirculatingSupply: ", e);
+
+    return null;
+  }
+}
+
+export interface Article {
+  title: string;
+  url: string;
+  picture_url: string;
+  description: string;
+  publish_date: string;
+  author_name: string;
+}
+
+export const getMediumArticles = async (): Promise<Article[]|null> => {
+  try {
+    const resp = await fetch(getMediumArticlesUrl());
+    if (resp.status !== 200) {
+      return null;
+    }
+  
+    return resp.json();
+  } catch (e) {
+    console.log("error on getMediumArticlesUrl: ", e);
 
     return null;
   }

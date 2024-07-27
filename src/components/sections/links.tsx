@@ -50,19 +50,19 @@ export const UsefulLinks = () => {
       <Box mt={45}>
         <Subtitle text="Useful Links" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
-      <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 20, 25]}>
+      <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 5, 25]} justifyContent={'center'}>
         <LinkItem button={<LinkItemButton text="BZE dApp" url="https://app.getbze.com"/>} logo={"bze_icon.png"}/>
         <LinkItem button={<ExplorersMenu />} logo={"logos/ping_pub_logo.svg"}/>
         <LinkItem button={<LinkItemButton text="GitHub" url="https://github.com/bze-alphateam"/>} logo={useColorModeValue("logos/github_logo_dark.svg", "logos/github_logo_light.svg")}/>
         <LinkItem button={<LinkItemButton text="CoinTrunk.io" url="https://cointrunk.io"/>} logo={"logos/cointrunk_logo.svg"}/>
-      </Flex>
-      <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 20, 25]}>
+      {/* </Flex> */}
+      {/* <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 20, 25]}> */}
         <LinkItem button={<LinkItemButton text="Medium" url="https://medium.com/bzedge-community"/>} logo={useColorModeValue("logos/medium_logo_dark.png", "logos/medium_logo_light.png")}/>
         <LinkItem button={<LinkItemButton text="X (Twitter)" url="https://x.com/BZEdgeCoin"/>} logo={useColorModeValue("logos/x_logo_dark.png", "logos/x_logo_light.png")}/>
         <LinkItem button={<LinkItemButton text="Discord" url="https://discord.gg/wb68JV3QhZ"/>} logo={"logos/discord_logo_blue.svg"}/>
         <LinkItem button={<LinkItemButton text="Telegram" url="https://t.me/BZEdgeOfficial"/>} logo={"logos/telegram_logo.svg"}/>
-      </Flex>
-      <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 20, 25]}>
+      {/* </Flex> */}
+      {/* <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 20, 25]}> */}
         <LinkItem button={<LinkItemButton text="Osmosis" url="https://app.osmosis.zone/pool/856"/>} logo={"logos/osmosis_logo.png"}/>
         <LinkItem button={<LinkItemButton text="CoinGecko" url="https://www.coingecko.com/en/coins/beezee"/>} logo={"logos/cg_logo.svg"}/>
         <LinkItem button={<LinkItemButton text="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE"/>} logo={"logos/lcw_logo.svg"}/>

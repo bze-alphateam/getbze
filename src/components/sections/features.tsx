@@ -53,7 +53,7 @@ export const Features = () => {
 
   return (
     <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
-      <Box mt={45} mb={5}>
+      <Box mt={45}>
         <Subtitle text="Features" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
       <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
