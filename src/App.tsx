@@ -34,7 +34,7 @@ export const App = () => (
       <Divider />
       <Flex m={15} flex={1} justifyContent={'space-evenly'} alignItems={'center'}>
         <Box>
-          <Image height='50px' width='120px' src={useColorModeValue('beezee-light.svg', 'beezee-dark.svg')} />
+          <Image height='50px' width='120px' src={useColorModeValue('beezee-dark.svg', 'beezee-light.svg')} />
         </Box>
         <Box>
           <Text p={2} fontWeight={'bold'} color={useColorModeValue(colors.colorLight, colors.colorDark)}>Developed by BZE Alpha Team</Text>
