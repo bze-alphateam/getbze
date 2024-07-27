@@ -27,7 +27,7 @@ const NewsItem = ({article}: {article: Article}) => {
   }
 
   return (
-    <Card>
+    <Card variant={'outline'}>
       <CardBody>
         <Flex justifyContent={'center'}>
           <Image
@@ -39,7 +39,7 @@ const NewsItem = ({article}: {article: Article}) => {
         </Flex>
         <Stack mt='6' spacing='3' alignItems={'center'}>
           <Heading size='md' textColor={useColorModeValue(colors.colorDark, colors.colorLight)}>{article.title}</Heading>
-          <Text size={'xs'}>
+          <Text size={'xs'} fontStyle={'italic'}>
             {date()}
           </Text>
           <Text size={'sm'} textAlign={'center'}>
