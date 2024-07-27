@@ -7,6 +7,7 @@ import {
   Flex,
   Text,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import { Navbar, colors } from "./components/common";
 import { Earn, Features, Info, Intro, Roadmap, Wallets } from "./components/sections";
@@ -31,7 +32,10 @@ export const App = () => (
     </Box>
     <Box>
       <Divider />
-      <Flex m={15} flex={1} justifyContent={'space-evenly'}>
+      <Flex m={15} flex={1} justifyContent={'space-evenly'} alignItems={'center'}>
+        <Box>
+          <Image height='50px' width='120px' src={useColorModeValue('beezee-light.svg', 'beezee-dark.svg')} />
+        </Box>
         <Box>
           <Text p={2} fontWeight={'bold'} color={useColorModeValue(colors.colorLight, colors.colorDark)}>Developed by BZE Alpha Team</Text>
         </Box>
