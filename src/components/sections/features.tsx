@@ -107,13 +107,13 @@ export const Features = () => {
         <FeaturesItem 
           icon={<CosmosLogo width={50}/>}
           title="IBC Enabled" 
-          description="BeeZee is a sovereign blockchain built with the Cosmos SDK, leveraging the full power of the interchain by connecting with other blockchains that support IBC. The BZE coin and all tokens minted on BeeZee can be sent to connected blockchains, allowing users to take advantage of their features in a permissionless and secure way."
+          description="BeeZee is a sovereign blockchain built with the Cosmos SDK, leveraging the full power of the interchain by connecting with other blockchains that support IBC. The $BZE coin and all tokens minted on BeeZee can be sent to connected blockchains, allowing users to take advantage of their features in a permissionless and secure way."
           footer={<ExternalButton text="About IBC" url="https://www.ibcprotocol.dev/" />}
         />
         <FeaturesItem 
           icon={<FeatureIcon icon={GiMining} />}
           title="Minable Tokens" 
-          description="Create your own CPU-minable token and enable users to join the mining process by selling mining power, which can be purchased with a token of your choice or directly with BZE. The mining software and other necessary tools are developed and ready to use out of the box, requiring no technical background."
+          description="Create your own CPU-minable token and enable users to join the mining process by selling mining power, which can be purchased with a token of your choice or directly with $BZE. The mining software and other necessary tools are developed and ready to use out of the box, requiring no technical background."
           footer={<Button variant='outline' isDisabled={true}>Coming soon</Button>}
         />
       </Flex>

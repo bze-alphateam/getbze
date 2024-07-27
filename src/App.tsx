@@ -5,7 +5,7 @@ import {
   theme,
 } from "@chakra-ui/react";
 import { Navbar } from "./components/common";
-import { Features, Info, Intro, Roadmap, Wallets } from "./components/sections";
+import { Earn, Features, Info, Intro, Roadmap, Wallets } from "./components/sections";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -19,6 +19,7 @@ export const App = () => (
       <Features />
       <Roadmap />
       <Wallets />
+      <Earn />
     </Box>
   </ChakraProvider>
 )

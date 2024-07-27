@@ -1,6 +1,6 @@
 import { Box, Card, Flex, Highlight, List, ListIcon, ListItem, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useColorModeValue } from "@chakra-ui/react";
 import { Subtitle, colors } from "../common";
-import { MdBuild, MdCheckCircle, MdClose, MdOutlineAccessTime, MdSettings } from "react-icons/md";
+import { MdBuild, MdCheckCircle, MdOutlineAccessTime } from "react-icons/md";
 
 const statusSuccess = 2;
 const statusInProgress = 1;
