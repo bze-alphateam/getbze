@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Spacer, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Spacer, useColorModeValue } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
 export const Navbar = () => {
@@ -9,6 +9,7 @@ export const Navbar = () => {
       </Box>
       <Spacer/>
       <Box>
+        <Button as={'a'} href="https://app.getbze.com" target="_blank" colorScheme="blue">Open App</Button>
         <ColorModeSwitcher/>
       </Box>
     </Flex>
