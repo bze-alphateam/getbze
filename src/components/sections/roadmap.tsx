@@ -105,7 +105,7 @@ export const Roadmap = () => {
                 <RoadmapItem query={bzeWebsiteQuery} status={statusSuccess} text={`${bzeWebsiteQuery} New website release`}/>
               </ListItem>
               <ListItem>
-                <RoadmapItem query={bzeDappQuery} status={statusInProgress} text={`${bzeDappQuery} Open DEX Trading`}/>
+                <RoadmapItem query={bzeDappQuery} status={statusSuccess} text={`${bzeDappQuery} Open DEX Trading`}/>
               </ListItem>
               <ListItem>
                 <RoadmapItem query={bzeDappQuery} status={statusInProgress} text={`${bzeDappQuery} Open Trading Rewards`}/>
