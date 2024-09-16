@@ -114,7 +114,10 @@ export const Roadmap = () => {
                 <RoadmapItem query={cointrunkQuery} status={statusInProgress} text={`${cointrunkQuery} Mobile App Release for iOS`}/>
               </ListItem>
               <ListItem>
-                <RoadmapItem query={blockchainQuery} status={statusInProgress} text={`${blockchainQuery} v7.1 Upgrade - Burning Raffles & SDK Upgrade`}/>
+                <RoadmapItem query={blockchainQuery} status={statusSuccess} text={`${blockchainQuery} v7.1 Upgrade - Burning Raffles & DEX improvements`}/>
+              </ListItem>
+              <ListItem>
+                <RoadmapItem query={bzeDappQuery} status={statusInProgress} text={`${bzeDappQuery} Open Burning Raffles`}/>
               </ListItem>
               <ListItem>
                 <RoadmapItem query={cointrunkQuery} status={statusWaiting} text={`${cointrunkQuery} New website release`}/>
