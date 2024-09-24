@@ -67,6 +67,7 @@ export const UsefulLinks = () => {
         <LinkItem button={<LinkItemButton text="CoinGecko" url="https://www.coingecko.com/en/coins/beezee"/>} logo={"logos/cg_logo.svg"}/>
         <LinkItem button={<LinkItemButton text="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE"/>} logo={"logos/lcw_logo.svg"}/>
         <LinkItem button={<LinkItemButton text="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807"/>} logo={"logos/dextools_logo.png"}/>
+        <LinkItem button={<LinkItemButton text="DEX Screener" url="https://dexscreener.com/osmosis/8567"/>} logo={"logos/dexscreener.svg"}/>
       </Flex>
     </Flex>
   );
