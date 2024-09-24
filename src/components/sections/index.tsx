@@ -4,3 +4,4 @@ export * from './features';
 export * from './roadmap';
 export * from './wallets';
 export * from './earn';
+export * from './partners';

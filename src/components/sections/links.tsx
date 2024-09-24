@@ -50,7 +50,7 @@ const LinkItem = ({button, logo, height}: LinkItemProps) => {
       <Image 
         p={2}
         src={logo}
-        height={height ?? 50}
+        height={height ?? 65}
       />
       {button}
     </Flex>
@@ -100,7 +100,7 @@ export const UsefulLinks = () => {
           <LinkItem button={<LinkItemButton text="Telegram" url="https://t.me/BZEdgeOfficial"/>} logo={"logos/telegram_logo.svg"}/>
         </LinksSection>
         <LinksSection title={'Trade BZE'}>
-          <LinkItem button={<LinkItemButton text="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze"/>} logo={useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg")}/>
+          <LinkItem button={<LinkItemButton text="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze"/>} logo={useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg")} />
           <LinkItem button={<LinkItemButton text="Osmosis" url="https://app.osmosis.zone/pool/856"/>} logo={"logos/osmosis_logo.png"}/>
           <LinkItem button={<LinkItemButton text="BZE DEX" url="https://app.getbze.com"/>} logo={"bze_icon.png"}/>
         </LinksSection>
@@ -108,7 +108,7 @@ export const UsefulLinks = () => {
           <LinkItem button={<LinkItemButton text="CoinGecko" url="https://www.coingecko.com/en/coins/beezee"/>} logo={"logos/cg_logo.svg"}/>
           <LinkItem button={<LinkItemButton text="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE"/>} logo={"logos/lcw_logo.svg"}/>
           <LinkItem button={<LinkItemButton text="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807"/>} logo={"logos/dextools_logo.png"}/>
-          <LinkItem button={<LinkItemButton text="DEX Screener" url="https://dexscreener.com/osmosis/8567"/>} logo={"logos/dexscreener_logo.svg"}/>
+          <LinkItem button={<LinkItemButton text="DEX Screener" url="https://dexscreener.com/osmosis/8567"/>} logo={useColorModeValue("logos/dexscreener_black_logo.svg", "logos/dexscreener_logo.svg")}/>
         </LinksSection>
       </Flex>
     </Flex>

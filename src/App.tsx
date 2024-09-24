@@ -6,7 +6,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { Footer, Navbar } from "./components/common";
-import { Earn, Features, Info, Intro, Roadmap, Wallets } from "./components/sections";
+import {Earn, Features, Info, Intro, Partners, Roadmap, Wallets} from "./components/sections";
 import { UsefulLinks } from "./components/sections/links";
 import { News } from "./components/sections/news";
 
@@ -26,6 +26,7 @@ export const App = () => {
         <Wallets />
         <News />
         <UsefulLinks />
+        <Partners />
       </Box>
       <Box>
         <Divider />
