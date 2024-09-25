@@ -9,6 +9,7 @@ import { Footer, Navbar } from "./components/common";
 import {Earn, Features, Info, Intro, Partners, Roadmap, Wallets} from "./components/sections";
 import { UsefulLinks } from "./components/sections/links";
 import { News } from "./components/sections/news";
+import {Buy} from "./components/sections/buy";
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
         <Intro />
         <Info />
         <Features />
+        <Buy />
         <Roadmap />
         <Earn />
         <Wallets />

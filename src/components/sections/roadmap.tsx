@@ -29,7 +29,7 @@ const RoadmapItem = (props: RoadmapItemProps) => {
   return (
     <>
     <ListIcon as={icon} color={color} />
-    <Highlight query={props.query} styles={{ px: '1', py: '1', rounded: 'full', fontWeight: 'bold', color: useColorModeValue(colors.colorDark, colors.colorLight)}}>  
+    <Highlight query={props.query} styles={{ px: '1', py: '1', rounded: 'full', fontWeight: 'bold', color: useColorModeValue(colors.colorDark, colors.colorLight)}}>
       {props.text}
     </Highlight>
     </>
@@ -117,7 +117,7 @@ export const Roadmap = () => {
                 <RoadmapItem query={blockchainQuery} status={statusSuccess} text={`${blockchainQuery} v7.1 Upgrade - Burning Raffles & DEX improvements`}/>
               </ListItem>
               <ListItem>
-                <RoadmapItem query={bzeDappQuery} status={statusInProgress} text={`${bzeDappQuery} Open Burning Raffles`}/>
+                <RoadmapItem query={bzeDappQuery} status={statusSuccess} text={`${bzeDappQuery} Open Burning Raffles`}/>
               </ListItem>
               <ListItem>
                 <RoadmapItem query={cointrunkQuery} status={statusWaiting} text={`${cointrunkQuery} New website release`}/>

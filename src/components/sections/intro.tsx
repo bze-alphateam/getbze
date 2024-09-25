@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import {Box, Button, Flex, Image, Text, useColorModeValue} from "@chakra-ui/react";
 import { Subtitle, Title, colors } from "../common";
 
 
@@ -12,6 +12,9 @@ export const Intro = () => {
           <Text maxWidth={{sm: '100%', md: '450px'}}>
             Powered by $BZE Coin, BeeZee Network offers users access to decentralized services through a variety of applications built on a fast and cost-efficient blockchain.
           </Text>
+          <Box flex={1} pt={2} display={'flex'}>
+            <Button as={'a'} href={'#join-us'} flex={1} variant='outline' colorScheme='blue'>Buy BZE</Button>
+          </Box>
         </Box>
       </Box>
       <Box>
