@@ -56,7 +56,7 @@ export const Earn = () => {
         <EarnItem 
           heading="Burning Raffles"
           body='Keep an eye out for active Burning Raffles! Occasionally, we invite people to participate in a burning event. Burn some $BZE for a chance to win a portion of the burned coins.'
-          url="https://app.getbze.com/burner"
+          url="https://medium.com/bzedge-community/bze-burning-raffles-a02d4b40e4eb"
         />
       </Flex>
     </Flex>

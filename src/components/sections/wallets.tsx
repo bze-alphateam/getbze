@@ -27,7 +27,7 @@ const WalletItem = (props: WalletItemProps) => {
           {walletFeaturesList.map(item => {
             const isEnabled = props.items.find(s => s === item) ? true : false;
             return (
-              <ListItem>
+              <ListItem key={item}>
                 <ListIcon as={isEnabled ? MdCheck : MdClose} color={isEnabled ? colors.status.success: colors.status.fail} />
                 {item}
               </ListItem>

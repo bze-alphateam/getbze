@@ -85,7 +85,7 @@ export const News = () => {
       </Box>
       <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5} overflow={'scroll'}>
         {!loading && 
-          articles.map((item: Article )=> (<NewsItem article={item}/>))
+          articles.map((item: Article )=> (<NewsItem key={item.url} article={item}/>))
         }
       </Flex>
     </Flex>

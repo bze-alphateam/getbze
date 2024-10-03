@@ -10,8 +10,24 @@ import {Earn, Features, Info, Intro, Partners, Roadmap, Wallets} from "./compone
 import { UsefulLinks } from "./components/sections/links";
 import { News } from "./components/sections/news";
 import {Buy} from "./components/sections/buy";
+import {useEffect, useState} from "react";
+import {getBZERaffle, RaffleSDKType} from "./services/client";
+import {RaffleDetails} from "./components/sections/raffle";
 
 export const App = () => {
+  const [raffle, setRaffle] = useState<RaffleSDKType|null>(null);
+
+  useEffect(() => {
+    const fetchRaffle = async () => {
+      const raff = await getBZERaffle();
+      if (raff !== null) {
+        setRaffle(raff);
+      }
+    };
+
+    fetchRaffle();
+  }, []);
+
   return (
     <ChakraProvider theme={theme}>
       <Box 
@@ -19,12 +35,13 @@ export const App = () => {
         margin={5}
       >
         <Navbar />
-        <Intro />
+        <Intro raffle={raffle} />
         <Info />
         <Features />
         <Buy />
         <Roadmap />
         <Earn />
+        { raffle && <RaffleDetails raffle={raffle}/>}
         <Wallets />
         <News />
         <UsefulLinks />
