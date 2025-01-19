@@ -36,7 +36,7 @@ export const Earn = () => {
         <EarnItem 
           heading="Stake $BZE"
           body="Delegate your $BZE to one or multiple validators participating in the BeeZee network. Be sure to claim and stake your rewards periodically to maximize your earnings."
-          url="https://explorer.getbze.com/beezee/staking"
+          url="https://staking.getbze.com"
         />
         <EarnItem 
           heading="Provide Liquidity on Osmosis"
