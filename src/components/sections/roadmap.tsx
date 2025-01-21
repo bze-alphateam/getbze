@@ -164,7 +164,7 @@ export const Roadmap = () => {
                   </List>
                 </ListItem>
                 <ListItem>
-                  <RoadmapItem query={othersQuery} status={statusInProgress} text={`${othersQuery} Staking Page`}/>
+                  <RoadmapItem query={othersQuery} status={statusSuccess} text={`${othersQuery} Staking Page`}/>
                 </ListItem>
                 <ListItem>
                   <RoadmapItem query={bzeDappQuery} status={statusWaiting} text={`${bzeDappQuery} Enable Ledger`}/>
