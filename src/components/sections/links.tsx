@@ -102,6 +102,7 @@ export const UsefulLinks = () => {
           <LinkItem button={<LinkItemButton text="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze"/>} logo={useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg")} />
           <LinkItem button={<LinkItemButton text="Osmosis" url="https://app.osmosis.zone/pool/856"/>} logo={"logos/osmosis_logo.png"}/>
           <LinkItem button={<LinkItemButton text="BZE DEX" url="https://app.getbze.com"/>} logo={"bze_icon.png"}/>
+          <LinkItem button={<LinkItemButton text="NonKYC.io" url="https://nonkyc.io/market/BZE_USDT?ref=66ef24ed678488447ea9b8cb"/>} logo={useColorModeValue("logos/nonkyc_logo_light.svg", "logos/nonkyc_logo_dark.svg")}/>
         </LinksSection>
         <LinksSection title={'Market Tracking'}>
           <LinkItem button={<LinkItemButton text="CoinGecko" url="https://www.coingecko.com/en/coins/beezee"/>} logo={"logos/cg_logo.svg"}/>
