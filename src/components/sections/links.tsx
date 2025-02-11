@@ -7,9 +7,8 @@ import {
     Button,
     MenuItem,
     MenuList,
-    Text,
     useColorModeValue,
-    Card, CardBody, Stack, Heading, Divider, CardFooter, ButtonGroup
+    Card, CardBody, Heading, Divider, CardFooter
 } from "@chakra-ui/react"
 import { Subtitle, colors } from "../common"
 import { ChevronDownIcon } from "@chakra-ui/icons";
@@ -109,6 +108,7 @@ export const UsefulLinks = () => {
           <LinkItem button={<LinkItemButton text="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE"/>} logo={"logos/lcw_logo.svg"}/>
           <LinkItem button={<LinkItemButton text="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807"/>} logo={"logos/dextools_logo.png"}/>
           <LinkItem button={<LinkItemButton text="DEX Screener" url="https://dexscreener.com/osmosis/8567"/>} logo={useColorModeValue("logos/dexscreener_black_logo.svg", "logos/dexscreener_logo.svg")}/>
+          <LinkItem button={<LinkItemButton text="CoinCodex" url="https://coincodex.com/crypto/bzedge/"/>} logo={useColorModeValue("logos/coincodex-logo-light.svg", "logos/coincodex-logo-dark.svg")}/>
         </LinksSection>
       </Flex>
     </Flex>

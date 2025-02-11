@@ -1,6 +1,6 @@
 import { Box, Card, CardBody, CardHeader, Flex, Heading, Stack, StackDivider, Text, useColorModeValue } from "@chakra-ui/react";
 import { MdOutlineShield, MdOutlineAccessTime } from "react-icons/md";
-import { InfoCard } from "../info/InfoCard";
+import { InfoCard } from "../info";
 import { useEffect, useState } from "react";
 import { bigNumberToPrettyString, calculateAPR, getBzeBondedAmount, getBzeCirculatingSupply, getBzeInflation, getBzeTotalSupply } from "../../services";
 import { Subtitle, colors } from "../common";
@@ -106,6 +106,12 @@ export const Info = () => {
                   headingSize='md'
                   description="The total amount of $BZE that currently exist and are either in circulation or locked in some manner, excluding coins that have been burned."
                 />
+                <InfoItem
+                  headingText="Max Supply"
+                  headingAmount={new BigNumber(400_000_000)}
+                  headingSize='md'
+                  description="The maximum amount of $BZE that will ever exist."
+              />
               </Stack>
             </CardBody>
           </Card>
