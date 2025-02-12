@@ -170,7 +170,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={GiMining}/>}
                     title="Minable Tokens"
                     description="Create your own CPU-minable token and enable users to join the mining process by selling mining power, which can be purchased with a token of your choice or directly with $BZE. The mining software and other necessary tools are developed and ready to use out of the box, requiring no technical background."
-                    footer={<Button variant='outline' isDisabled={true}>Coming soon</Button>}
+                    footer={<Button variant='outline' isDisabled={true}>Coming in 2025</Button>}
                 />
             </Flex>
         </Flex>
