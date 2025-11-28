@@ -56,7 +56,7 @@ const BuyItem = ({url, logo, title, description, logoSize, buttonText}: BuyItemP
                         'linear(to-r, blue.50, cyan.50)',
                         'linear(to-r, blue.900, cyan.900)'
                     ),
-                    transform: 'translateX(8px)',
+                    transform: 'translateY(-8px)',
                     boxShadow: 'xl'
                 }}
             >

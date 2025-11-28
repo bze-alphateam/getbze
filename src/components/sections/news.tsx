@@ -50,7 +50,7 @@ const NewsItem = ({article}: {article: Article}) => {
       boxShadow="xl"
       transition="all 0.3s ease"
       _hover={{
-        transform: 'translateY(-8px) scale(1.02)',
+        transform: 'translateY(-8px)',
         boxShadow: '2xl',
         borderColor: useColorModeValue('blue.300', 'blue.500'),
         bgGradient: useColorModeValue(
@@ -142,7 +142,7 @@ export const News = () => {
       <Box mt={45}>
         <Subtitle text="News" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
       </Box>
-      <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5} overflow={'scroll'}>
+      <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5} overflow={'scroll'} p={5}>
         {!loading && 
           articles.map((item: Article )=> (<NewsItem key={item.url} article={item}/>))
         }

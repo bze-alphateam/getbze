@@ -74,7 +74,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ title, children }) => {
       boxShadow="xl"
       transition="all 0.3s ease"
       _hover={{
-        transform: 'translateY(-5px)',
+        transform: 'translateY(-8px)',
         boxShadow: '2xl',
         borderColor: useColorModeValue('blue.300', 'blue.500')
       }}

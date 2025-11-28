@@ -133,7 +133,7 @@ const RoadmapItemCard = ({item, onClick}: RoadmapItemProps) => {
             boxShadow="md"
             transition="all 0.3s ease"
             _hover={{
-                transform: 'translateY(-4px)',
+                transform: 'translateY(-8px)',
                 boxShadow: '2xl',
                 borderColor: hoverBorderColor,
                 bgGradient: hoverBgGradient

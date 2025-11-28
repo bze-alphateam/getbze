@@ -83,7 +83,7 @@ const FeaturesItem = (props: FeaturesItemProps) => {
             boxShadow="xl"
             transition="all 0.3s ease-in-out"
             _hover={{
-                transform: 'scale(1.02)',
+                transform: 'translateY(-8px)',
                 boxShadow: '2xl',
                 borderColor: useColorModeValue('blue.300', 'blue.500'),
                 bgGradient: useColorModeValue(
@@ -157,7 +157,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={MdOutlineLocalFireDepartment}/>}
                     title="Periodical Burnings"
                     description="BZE is a community committed to periodic token burnings through governance proposals. Taxes collected from token creation, market trading, and other activities are sent to the community pool or directly to the burning address. Additionally, community members can participate in burning raffles and earn a percentage of the burned amount, adding an element of fun and potential rewards."
-                    footer={<ExternalButton text="See Burnings" url="https://app.getbze.com/burner"/>}
+                    footer={<ExternalButton text="See Burner" url="https://burner.getbze.com/"/>}
                 />
                 <FeaturesItem
                     icon={<FeatureIcon icon={MdOutlineNewspaper}/>}

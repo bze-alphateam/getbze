@@ -20,7 +20,7 @@ const EarnItem = ({heading, body, url}: EarnItemProps) => {
       boxShadow="xl"
       transition="all 0.3s ease"
       _hover={{
-        transform: 'scale(1.03)',
+        transform: 'translateY(-8px)',
         boxShadow: '2xl',
         borderColor: useColorModeValue('blue.300', 'blue.500'),
         bgGradient: useColorModeValue(
