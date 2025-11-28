@@ -18,14 +18,43 @@ const WalletItemButton = ({text, url}: {text: string, url: string}) => (<Button 
 
 const WalletItem = (props: WalletItemProps) => {
   return (
-    <Card justifyContent={'center'} flexDirection={'column'} alignItems={'center'} gap={2}>
-      <Box p={5} m={5}>
+    <Card
+      justifyContent={'center'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      gap={2}
+      bgGradient={useColorModeValue(
+        'linear(to-br, white, blue.50)',
+        'linear(to-br, gray.800, blue.900)'
+      )}
+      borderWidth="2px"
+      borderColor={useColorModeValue('blue.100', 'blue.700')}
+      boxShadow="xl"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-8px)',
+        boxShadow: '2xl',
+        borderColor: useColorModeValue('blue.300', 'blue.500'),
+        bgGradient: useColorModeValue(
+          'linear(to-br, blue.50, cyan.50)',
+          'linear(to-br, blue.900, cyan.900)'
+        )
+      }}
+    >
+      <Box
+        p={5}
+        m={5}
+        transition="all 0.3s ease"
+        _hover={{
+          transform: 'scale(1.05)'
+        }}
+      >
         <Image src={props.logo} width={200} height={50}/>
       </Box>
       <CardBody>
         <List spacing={3}>
           {walletFeaturesList.map(item => {
-            const isEnabled = props.items.find(s => s === item) ? true : false;
+            const isEnabled = !!props.items.find(s => s === item);
             return (
               <ListItem key={item}>
                 <ListIcon as={isEnabled ? MdCheck : MdClose} color={isEnabled ? colors.status.success: colors.status.fail} />

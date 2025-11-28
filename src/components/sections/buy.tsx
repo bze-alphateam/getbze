@@ -41,8 +41,35 @@ const BuyItem = ({url, logo, title, description, logoSize, buttonText}: BuyItemP
 
     return (
         <ClickableBox onClick={onClick}>
-            <Flex flex={1} flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}>
-                <Box display={'flex'} justifyContent={'center'} minWidth={250} alignContent={'center'}>
+            <Flex
+                flex={1}
+                flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}}
+                bgGradient={useColorModeValue(
+                    'linear(to-r, white, blue.50)',
+                    'linear(to-r, gray.800, blue.900)'
+                )}
+                borderRadius="lg"
+                p={3}
+                transition="all 0.3s ease"
+                _hover={{
+                    bgGradient: useColorModeValue(
+                        'linear(to-r, blue.50, cyan.50)',
+                        'linear(to-r, blue.900, cyan.900)'
+                    ),
+                    transform: 'translateX(8px)',
+                    boxShadow: 'xl'
+                }}
+            >
+                <Box
+                    display={'flex'}
+                    justifyContent={'center'}
+                    minWidth={250}
+                    alignContent={'center'}
+                    transition="all 0.3s ease"
+                    _hover={{
+                        transform: 'scale(1.05)'
+                    }}
+                >
                     <Image
                         p={2}
                         src={logo}
@@ -52,11 +79,31 @@ const BuyItem = ({url, logo, title, description, logoSize, buttonText}: BuyItemP
                 </Box>
                 <Stack>
                     <CardBody textAlign={{base: 'center', sm: 'center', md: 'center', lg: 'left'}}>
-                        <Heading size='md'
-                                 color={useColorModeValue(colors.colorDark, colors.colorLight)}>{title}</Heading>
+                        <Heading
+                            size='md'
+                            color={useColorModeValue(colors.colorDark, colors.colorLight)}
+                            bgGradient={useColorModeValue(
+                                'linear(to-r, blue.600, cyan.500)',
+                                'linear(to-r, blue.300, cyan.300)'
+                            )}
+                            bgClip="text"
+                        >
+                            {title}
+                        </Heading>
                         <Text py='2'>{description}</Text>
-                        <Button size={'xs'} variant='solid' colorScheme='blue'>{buttonText}</Button>
-                        {/*variants: 'solid' | 'outline' | 'wacky' | 'chill';*/}
+                        <Button
+                            size={'xs'}
+                            variant='solid'
+                            colorScheme='blue'
+                            bgGradient="linear(to-r, blue.500, cyan.500)"
+                            _hover={{
+                                bgGradient: "linear(to-r, blue.600, cyan.600)",
+                                transform: 'scale(1.05)'
+                            }}
+                            transition="all 0.2s ease"
+                        >
+                            {buttonText}
+                        </Button>
                     </CardBody>
                 </Stack>
             </Flex>
@@ -75,6 +122,13 @@ export const Buy = () => {
                     direction={'column'}
                     variant='outline'
                     alignItems={'center'}
+                    bgGradient={useColorModeValue(
+                        'linear(to-b, white, gray.50)',
+                        'linear(to-b, gray.800, gray.900)'
+                    )}
+                    borderWidth="2px"
+                    borderColor={useColorModeValue('blue.100', 'blue.700')}
+                    boxShadow="2xl"
                 >
                     <BuyItem
                         description={"Our own Order Book DEX offers you the opportunity to trade BZE against other assets with ease. As the driving force behind the BeeZee Network, BZE powers the entire blockchain and its community, enabling market creation and supporting all blockchain features."}

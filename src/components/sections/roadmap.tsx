@@ -77,12 +77,22 @@ export const Roadmap = () => {
                     our work remains undisclosed to ensure its success and to keep an element of surprise for upcoming
                     announcements.</Text>
             </Box>
-            <Card variant='outline'>
+            <Card
+                variant='outline'
+                bgGradient={useColorModeValue(
+                    'linear(to-br, white, blue.50)',
+                    'linear(to-br, gray.800, blue.900)'
+                )}
+                borderWidth="2px"
+                borderColor={useColorModeValue('blue.100', 'blue.700')}
+                boxShadow="2xl"
+            >
                 <Tabs variant='enclosed' p={2} isFitted defaultIndex={2}>
                     <TabList>
                         <Tab>2023</Tab>
                         <Tab>2024</Tab>
                         <Tab>2025</Tab>
+                        <Tab>2026</Tab>
                     </TabList>
                     <TabPanels>
                         <TabPanel>
@@ -221,31 +231,93 @@ export const Roadmap = () => {
                                                  text={`${bzeDappQuery} Bulk Buy/Sell`}/>
                                 </ListItem>
                                 <ListItem>
-                                    <RoadmapItem query={bzeDappQuery} status={statusWaiting}
-                                                 text={`${bzeDappQuery} Add User Settings`}/>
-                                </ListItem>
-                                <ListItem>
-                                    <RoadmapItem query={blockchainQuery} status={statusInProgress}
+                                    <RoadmapItem query={blockchainQuery} status={statusSuccess}
                                                  text={`${blockchainQuery} Blockchain Upgrade`}/>
                                     <List>
                                         <ListItem>
-                                            <Text ml={"30"}>* SDK Upgrade to 0.46</Text>
+                                            <Text ml={"30"}>* Cosmos SDK upgrade to 0.50</Text>
                                         </ListItem>
                                         <ListItem>
                                             <Text ml={"30"}>* AMM Liquidity Pools</Text>
                                         </ListItem>
                                         <ListItem>
-                                            <Text ml={"30"}>* BZE Max Supply</Text>
+                                            <Text ml={"30"}>* TX Fee module</Text>
                                         </ListItem>
                                     </List>
                                 </ListItem>
                                 <ListItem>
-                                    <RoadmapItem query={bzeDappQuery} status={statusWaiting}
-                                                 text={`${bzeDappQuery} Open Trading Rewards`}/>
+                                    <RoadmapItem query="Burner & Raffles App release" status={statusSuccess}
+                                                 text="Burner & Raffles App release"/>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query="New DEX App release" status={statusInProgress}
+                                                 text="New DEX App release"/>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query="Factory App release" status={statusInProgress}
+                                                 text="Factory App release"/>
                                 </ListItem>
                                 <ListItem>
                                     <RoadmapItem query={cointrunkQuery} status={statusInProgress}
                                                  text={`${cointrunkQuery} New Website`}/>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
+                                                 text={`${blockchainQuery} Blockchain upgrade`}/>
+                                    <List>
+                                        <ListItem>
+                                            <Text ml={"30"}>* DEX engine performance improvements</Text>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Extend Token Factory Metadata</Text>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Compounded Staking Rewards</Text>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Allow Custom Fees in any token</Text>
+                                        </ListItem>
+                                    </List>
+                                </ListItem>
+                            </List>
+                        </TabPanel>
+                        <TabPanel>
+                            <List spacing={3}>
+                                <ListItem>
+                                    <RoadmapItem query="BZE DEX:" status={statusWaiting}
+                                                 text="BZE DEX: Open Trading Rewards"/>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
+                                                 text={`${blockchainQuery} Blockchain Upgrade`}/>
+                                    <List>
+                                        <ListItem>
+                                            <Text ml={"30"}>* BZE Max supply to 400M</Text>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Token Addon: DAO & Governance</Text>
+                                        </ListItem>
+                                    </List>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
+                                                 text={`${blockchainQuery} Blockchain Upgrade`}/>
+                                    <List>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Token Addon: Fees & Distribution</Text>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Text ml={"30"}>* Token Addon: Community Pool</Text>
+                                        </ListItem>
+                                    </List>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query="Factory App - Token Addons" status={statusWaiting}
+                                                 text="Factory App - Token Addons"/>
+                                </ListItem>
+                                <ListItem>
+                                    <RoadmapItem query="Token Community Page release" status={statusWaiting}
+                                                 text="Token Community Page release"/>
                                 </ListItem>
                                 <ListItem>
                                     <RoadmapItem query={cointrunkQuery} status={statusWaiting}
@@ -257,66 +329,16 @@ export const Roadmap = () => {
                                 </ListItem>
                                 <ListItem>
                                     <RoadmapItem query={blockchainQuery} status={statusWaiting}
-                                                 text={`${blockchainQuery} Blockchain Upgrade - Tokens Addons Phase 1`}/>
-                                    <List>
-                                        <ListItem>
-                                            <Text ml={"30"}>* SDK Upgrade to 0.47</Text>
-                                        </ListItem>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Token Addon: Fees & Distribution</Text>
-                                        </ListItem>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Token Addon: Community Pool</Text>
-                                        </ListItem>
-                                    </List>
-                                </ListItem>
-                                <ListItem>
-                                    <RoadmapItem query={bzeDappQuery} status={statusWaiting}
-                                                 text={`${bzeDappQuery} Enable Tokens Addons`}/>
-                                    <List>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Governance UI</Text>
-                                        </ListItem>
-                                    </List>
-                                </ListItem>
-                                <ListItem>
-                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
                                                  text={`${blockchainQuery} Blockchain Upgrade - Tokens Addons Phase 2`}/>
                                     <List>
                                         <ListItem>
-                                            <Text ml={"30"}>* Token Addon: Governance</Text>
+                                            <Text ml={"30"}>* Minable Tokens</Text>
                                         </ListItem>
                                     </List>
                                 </ListItem>
                                 <ListItem>
-                                    <RoadmapItem query={bzeDappQuery} status={statusWaiting}
-                                                 text={`${bzeDappQuery} Enable Tokens Addons`}/>
-                                    <List>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Tokens fees, distribution & community pools UI</Text>
-                                        </ListItem>
-                                    </List>
-                                </ListItem>
-                                <ListItem>
-                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
-                                                 text={`${blockchainQuery} Blockchain Upgrade - Tokens Addons Phase 3`}/>
-                                    <List>
-                                        <ListItem>
-                                            <Text ml={"30"}>* SDK Upgrade to 0.50</Text>
-                                        </ListItem>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Token Addon: Minable Tokens</Text>
-                                        </ListItem>
-                                    </List>
-                                </ListItem>
-                                <ListItem>
-                                    <RoadmapItem query={blockchainQuery} status={statusWaiting}
-                                                 text={`${blockchainQuery} Mining software`}/>
-                                    <List>
-                                        <ListItem>
-                                            <Text ml={"30"}>* Minable tokens mining software</Text>
-                                        </ListItem>
-                                    </List>
+                                    <RoadmapItem query="Minable Tokens mining software release" status={statusWaiting}
+                                                 text="Minable Tokens mining software release"/>
                                 </ListItem>
                             </List>
                         </TabPanel>

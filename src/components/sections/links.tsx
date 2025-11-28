@@ -63,13 +63,34 @@ interface LinksSectionProps {
 
 const LinksSection: React.FC<LinksSectionProps> = ({ title, children }) => {
   return (
-    <Card variant={'outline'}>
+    <Card
+      variant={'outline'}
+      bgGradient={useColorModeValue(
+        'linear(to-br, white, blue.50)',
+        'linear(to-br, gray.800, blue.900)'
+      )}
+      borderWidth="2px"
+      borderColor={useColorModeValue('blue.100', 'blue.700')}
+      boxShadow="xl"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-5px)',
+        boxShadow: '2xl',
+        borderColor: useColorModeValue('blue.300', 'blue.500')
+      }}
+    >
       <CardBody>
-        {/*<Flex justifyContent={'center'}>*/}
-        {/*</Flex>*/}
-        {/*<Stack mt='6' spacing='3' alignItems={'center'}>*/}
-          <Heading size='sm' textColor={useColorModeValue(colors.colorDark, colors.colorLight)}>{title}</Heading>
-        {/*</Stack>*/}
+        <Heading
+          size='sm'
+          textColor={useColorModeValue(colors.colorDark, colors.colorLight)}
+          bgGradient={useColorModeValue(
+            'linear(to-r, blue.600, cyan.500)',
+            'linear(to-r, blue.300, cyan.300)'
+          )}
+          bgClip="text"
+        >
+          {title}
+        </Heading>
       </CardBody>
       <Divider />
       <CardFooter justifyContent={'center'} flex={1} flexWrap={'wrap'}>

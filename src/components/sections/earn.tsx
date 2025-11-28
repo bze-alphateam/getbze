@@ -9,15 +9,56 @@ interface EarnItemProps {
 
 const EarnItem = ({heading, body, url}: EarnItemProps) => {
   return (
-    <Card variant={'elevated'}>
+    <Card
+      variant={'elevated'}
+      bgGradient={useColorModeValue(
+        'linear(to-br, white, blue.50)',
+        'linear(to-br, gray.800, blue.900)'
+      )}
+      borderWidth="2px"
+      borderColor={useColorModeValue('blue.100', 'blue.700')}
+      boxShadow="xl"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'scale(1.03)',
+        boxShadow: '2xl',
+        borderColor: useColorModeValue('blue.300', 'blue.500'),
+        bgGradient: useColorModeValue(
+          'linear(to-br, blue.50, cyan.50)',
+          'linear(to-br, blue.900, cyan.900)'
+        )
+      }}
+    >
       <CardHeader>
-        <Heading size={'md'} textColor={useColorModeValue(colors.colorDark, colors.colorLight)}>{heading}</Heading>
+        <Heading
+          size={'md'}
+          textColor={useColorModeValue(colors.colorDark, colors.colorLight)}
+          bgGradient={useColorModeValue(
+            'linear(to-r, blue.600, cyan.500)',
+            'linear(to-r, blue.300, cyan.300)'
+          )}
+          bgClip="text"
+        >
+          {heading}
+        </Heading>
       </CardHeader>
       <CardBody>
         <Text>{body}</Text>
       </CardBody>
       <CardFooter>
-        <Button as={'a'} href={url} target="_blank" variant={'ghost'}> More Info</Button>
+        <Button
+          as={'a'}
+          href={url}
+          target="_blank"
+          variant={'ghost'}
+          _hover={{
+            bgGradient: 'linear(to-r, blue.100, cyan.100)',
+            transform: 'scale(1.05)'
+          }}
+          transition="all 0.2s ease"
+        >
+          More Info
+        </Button>
       </CardFooter>
     </Card>
   );

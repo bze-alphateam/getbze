@@ -76,9 +76,26 @@ export const Info = () => {
           />
         </Flex>
         <Flex>
-          <Card>
+          <Card
+            bgGradient={useColorModeValue(
+              'linear(to-br, white, blue.50, cyan.50)',
+              'linear(to-br, gray.800, blue.900, cyan.900)'
+            )}
+            borderWidth="2px"
+            borderColor={useColorModeValue('blue.100', 'blue.700')}
+            boxShadow="2xl"
+          >
             <CardHeader>
-              <Heading size={'md'}>Supply details</Heading>
+              <Heading
+                size={'md'}
+                bgGradient={useColorModeValue(
+                  'linear(to-r, blue.600, cyan.500)',
+                  'linear(to-r, blue.300, cyan.300)'
+                )}
+                bgClip="text"
+              >
+                Supply details
+              </Heading>
             </CardHeader>
             <CardBody>
               <Stack divider={<StackDivider />} spacing='4'>

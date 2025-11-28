@@ -18,7 +18,6 @@ import {
     MdOutlineNewspaper,
     MdOutlineFactory,
     MdOutlineArrowOutward,
-    MdMoney
 } from "react-icons/md";
 import {GiMining, GiReceiveMoney} from "react-icons/gi";
 import {FaMoneyBillTrendUp} from "react-icons/fa6";
@@ -43,7 +42,24 @@ interface ExternalButtonProps {
 }
 
 const FeatureIcon = ({icon}: { icon: React.ElementType }) => (
-    <Icon as={icon} boxSize={50} color={useColorModeValue(colors.colorDark, colors.colorLight)}/>);
+    <Box
+        bgGradient={useColorModeValue(
+            'linear(to-br, blue.100, cyan.100)',
+            'linear(to-br, blue.700, cyan.700)'
+        )}
+        borderRadius="full"
+        p={4}
+        display="inline-flex"
+        boxShadow="lg"
+    >
+        <Icon
+            as={icon}
+            boxSize={50}
+            color={useColorModeValue(colors.colorDark, colors.colorLight)}
+            filter="drop-shadow(0 2px 4px rgba(1, 172, 244, 0.3))"
+        />
+    </Box>
+);
 
 const ExternalButton = (props: ExternalButtonProps) => (
     <Button as={'a'} variant='outline' href={props.url} target="_blank"
@@ -58,9 +74,33 @@ const FeaturesItem = (props: FeaturesItemProps) => {
             variant='outline'
             alignItems={'center'}
             width={{base: '100%', sm: '100%', md: '100%', lg: '50%'}}
+            bgGradient={useColorModeValue(
+                'linear(to-br, white, gray.50, blue.50)',
+                'linear(to-br, gray.800, gray.700, blue.900)'
+            )}
+            borderWidth="2px"
+            borderColor={useColorModeValue('blue.100', 'blue.700')}
+            boxShadow="xl"
+            transition="all 0.3s ease-in-out"
+            _hover={{
+                transform: 'scale(1.02)',
+                boxShadow: '2xl',
+                borderColor: useColorModeValue('blue.300', 'blue.500'),
+                bgGradient: useColorModeValue(
+                    'linear(to-br, blue.50, cyan.50, white)',
+                    'linear(to-br, blue.900, cyan.900, gray.800)'
+                )
+            }}
             {...rest}
         >
-            <Box p={15} m={15}>
+            <Box
+                p={15}
+                m={15}
+                transition="all 0.3s ease"
+                _groupHover={{
+                    transform: 'rotate(5deg) scale(1.1)'
+                }}
+            >
                 {icon}
             </Box>
             <Stack>
