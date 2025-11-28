@@ -407,7 +407,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             id: "2024-5",
             title: "BZE Blockchain: v7 Upgrade - Token Factory, Rewards and DEX",
             status: statusSuccess,
-            version: "v7.0",
+            version: "v7.0.0",
             quarter: "Q3",
             description: "Revolutionary upgrade introducing permissionless token creation and decentralized trading.",
             details: [
@@ -477,6 +477,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "Introduced Burning Raffles, allowing users to burn BZE for a chance to win back a portion of burned tokens, making deflation more engaging. Also included various DEX performance and UX improvements."
             ],
             quarter: "Q4",
+            version: "v7.1.0"
         },
         {
             id: "2024-12",
