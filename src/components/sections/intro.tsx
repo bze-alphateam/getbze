@@ -6,6 +6,7 @@ interface IntroProps {
   raffle: RaffleSDKType|null;
 }
 export const Intro = ({ raffle }: IntroProps) => {
+  const hoverBorderColor = useColorModeValue('blue.600', 'blue.200');
 
   return (
     <Flex flex={1} margin={5} flexDirection={{base: 'column-reverse', sm: 'column-reverse', md: 'row'}} alignItems={'center'} justifyContent={'space-evenly'} gap={5}>
@@ -27,6 +28,7 @@ export const Intro = ({ raffle }: IntroProps) => {
               _hover={{
                 bgGradient: 'linear(to-r, blue.500, cyan.500)',
                 color: 'white',
+                borderColor: hoverBorderColor,
                 transform: 'scale(1.05)',
                 boxShadow: 'lg'
               }}
@@ -44,6 +46,7 @@ export const Intro = ({ raffle }: IntroProps) => {
               _hover={{
                 bgGradient: 'linear(to-r, blue.500, cyan.500)',
                 color: 'white',
+                borderColor: hoverBorderColor,
                 transform: 'scale(1.05)',
                 boxShadow: 'lg'
               }}
