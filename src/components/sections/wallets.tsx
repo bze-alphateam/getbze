@@ -90,7 +90,7 @@ export const Wallets = () => {
         />
         <WalletItem 
           logo={"logos/vidulum_full.svg"}
-          items={[browserFeature, androidFeature, iOsFeature]}
+          items={[browserFeature]}
           buttons={<WalletItemButton text="Download" url="https://vidulum.app/" />}
         />
         <WalletItem 
