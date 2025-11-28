@@ -308,7 +308,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             id: "2023-1",
             title: "BZE Blockchain: v6 Upgrade - CoinTrunk Module",
             status: statusSuccess,
-            version: "v6.0",
+            version: "v6.0.0",
             quarter: "Q1",
             description: "Major blockchain upgrade introducing the CoinTrunk module for decentralized content sharing.",
             details: [
@@ -537,6 +537,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "The market orders feature simplifies trading for users who want instant execution, while the automated burning mechanism ensures regular supply reduction without manual intervention."
             ],
             quarter: "Q1",
+            version: "v7.2.0"
         },
         {
             id: "2025-2",
@@ -593,12 +594,14 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "AMM Liquidity Pools",
                 "TX Fee module"
             ],
+            version: "v8.0.0",
             description: "Major infrastructure upgrade with AMM DEX capabilities.",
             details: [
                 "This critical upgrade brings the blockchain to the latest Cosmos SDK version, introducing automated market-making liquidity pools alongside the existing order book DEX, and implementing a flexible transaction fee system.",
                 "The AMM pools enable passive liquidity provision and simpler trading experiences, while the SDK upgrade ensures long-term compatibility and access to the latest Cosmos ecosystem features."
             ],
             quarter: "Q4",
+            link: "https://medium.com/bzedge-community/bze-status-update-nov-20-2025-introducing-the-v8-upgrade-5cdfc70c5e98"
         },
         {
             id: "2025-7",
@@ -657,6 +660,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "These improvements make the blockchain faster, more flexible, and more user-friendly, especially for token creators who want advanced customization options."
             ],
             quarter: "Q4",
+            version: "v8.1.0"
         }
     ],
     "2026": [
