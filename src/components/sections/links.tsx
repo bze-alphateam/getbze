@@ -8,131 +8,302 @@ import {
     MenuItem,
     MenuList,
     useColorModeValue,
-    Card, CardBody, Heading, Divider, CardFooter
+    Card,
+    CardBody,
+    Heading,
+    Text,
+    SimpleGrid,
+    VStack,
+    HStack,
+    Icon
 } from "@chakra-ui/react"
 import { Subtitle, colors } from "../common"
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons"
+import { MdArrowOutward } from "react-icons/md";
 
-const ExplorersMenu = () => {
-  return (
-    <Menu>
-      <MenuButton as={Button} size={'sm'} rightIcon={<ChevronDownIcon />}>
-        Explorers
-      </MenuButton>
-      <MenuList>
-        <MenuItem as={'a'} href="https://ping.pub/beezee" target="_blank">Ping.pub</MenuItem>
-        <MenuItem as={'a'} href="https://explorer.getbze.com/" target="_blank">BZE Explorer</MenuItem>
-        <MenuItem as={'a'} href="https://explorer.chaintools.tech/beezee" target="_blank">Chaintools</MenuItem>
-        <MenuItem as={'a'} href="https://explorer.whenmoonwhenlambo.money/beezee" target="_blank">🚀 WHEN MOON 🌕 WHEN LAMBO 🔥</MenuItem>
-        <MenuItem as={'a'} href="https://atomscan.com/beezee" target="_blank">ATOMScan</MenuItem>
-      </MenuList>
-    </Menu>
-  );
-}
-
-interface LinkItemButtonProps {
-  url: string;
-  text: string;
-}
-
-const LinkItemButton = ({url, text}: LinkItemButtonProps) => (<Button variant={'solid'} size={'sm'} as={'a'} href={url} target="_blank">{text}</Button>);
-
-interface LinkItemProps {
-  button: React.ReactNode;
-  logo: string;
-  height?: number;
-}
-
-const LinkItem = ({button, logo, height}: LinkItemProps) => {
-  return (
-    <Flex flexDirection={'column'} justifyContent={'center'} alignItems={'center'} p={2}>
-      <Image 
-        p={2}
-        src={logo}
-        height={height ?? 65}
-      />
-      {button}
-    </Flex>
-  );
-}
-
-interface LinksSectionProps {
+// Feature App Card - for BeeZee apps
+interface FeatureAppProps {
   title: string;
-  children: React.ReactNode;
+  description: string;
+  url: string;
+  logo?: string;
+  useBeezeeLogo?: boolean;
 }
 
-const LinksSection: React.FC<LinksSectionProps> = ({ title, children }) => {
+const FeatureApp = ({ title, description, url, logo, useBeezeeLogo }: FeatureAppProps) => {
+  const beezeeLogo = useColorModeValue("beezee-dark.svg", "beezee-light.svg");
+  const bgGradient = useColorModeValue(
+    'linear(to-br, white, blue.50)',
+    'linear(to-br, gray.800, blue.900)'
+  );
+  const borderColor = useColorModeValue('blue.100', 'blue.700');
+  const hoverBorderColor = useColorModeValue('blue.300', 'blue.500');
+  const hoverBgGradient = useColorModeValue(
+    'linear(to-br, blue.50, cyan.50)',
+    'linear(to-br, blue.900, cyan.900)'
+  );
+  const headingGradient = useColorModeValue(
+    'linear(to-r, blue.600, cyan.500)',
+    'linear(to-r, blue.300, cyan.300)'
+  );
+  const iconColor = useColorModeValue('blue.500', 'blue.300');
+  const textColor = useColorModeValue('gray.600', 'gray.400');
+
   return (
     <Card
-      variant={'outline'}
-      bgGradient={useColorModeValue(
-        'linear(to-br, white, blue.50)',
-        'linear(to-br, gray.800, blue.900)'
-      )}
+      as="a"
+      href={url}
+      target="_blank"
+      cursor="pointer"
+      bgGradient={bgGradient}
       borderWidth="2px"
-      borderColor={useColorModeValue('blue.100', 'blue.700')}
-      boxShadow="xl"
+      borderColor={borderColor}
+      boxShadow="lg"
       transition="all 0.3s ease"
       _hover={{
         transform: 'translateY(-8px)',
         boxShadow: '2xl',
-        borderColor: useColorModeValue('blue.300', 'blue.500')
+        borderColor: hoverBorderColor,
+        bgGradient: hoverBgGradient,
+        textDecoration: 'none'
       }}
     >
       <CardBody>
-        <Heading
-          size='sm'
-          textColor={useColorModeValue(colors.colorDark, colors.colorLight)}
-          bgGradient={useColorModeValue(
-            'linear(to-r, blue.600, cyan.500)',
-            'linear(to-r, blue.300, cyan.300)'
-          )}
-          bgClip="text"
-        >
-          {title}
-        </Heading>
+        <VStack spacing={4} align="stretch">
+          <HStack justify="space-between">
+            <HStack spacing={3}>
+              {useBeezeeLogo && (
+                <Image
+                  src={beezeeLogo}
+                  height={10}
+                />
+              )}
+              {logo && <Image src={logo} height={10} />}
+              <Heading
+                size="md"
+                bgGradient={headingGradient}
+                bgClip="text"
+              >
+                {title}
+              </Heading>
+            </HStack>
+            <Icon as={MdArrowOutward} boxSize={5} color={iconColor} />
+          </HStack>
+          <Text fontSize="sm" color={textColor}>
+            {description}
+          </Text>
+        </VStack>
       </CardBody>
-      <Divider />
-      <CardFooter justifyContent={'center'} flex={1} flexWrap={'wrap'}>
-        {children}
-      </CardFooter>
     </Card>
   );
+};
+
+// Quick Link Card - for external services
+interface QuickLinkProps {
+  name: string;
+  url: string;
+  logo: string;
+  logoHeight?: number;
 }
 
-export const UsefulLinks = () => {
+const QuickLink = ({ name, url, logo, logoHeight }: QuickLinkProps) => {
+  const borderColor = useColorModeValue('blue.100', 'blue.700');
+  const bgGradient = useColorModeValue(
+    'linear(to-br, white, gray.50)',
+    'linear(to-br, gray.800, gray.900)'
+  );
+  const hoverBorderColor = useColorModeValue('blue.300', 'blue.500');
+  const hoverBgGradient = useColorModeValue(
+    'linear(to-br, blue.50, cyan.50)',
+    'linear(to-br, blue.900, cyan.900)'
+  );
+
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'}  alignItems={'center'} gap={5} flexWrap={'wrap'}>
+    <Button
+      as="a"
+      href={url}
+      target="_blank"
+      variant="outline"
+      size="md"
+      height="auto"
+      py={3}
+      px={4}
+      borderWidth="2px"
+      borderColor={borderColor}
+      bgGradient={bgGradient}
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-8px)',
+        boxShadow: 'xl',
+        borderColor: hoverBorderColor,
+        bgGradient: hoverBgGradient
+      }}
+    >
+      <VStack spacing={2}>
+        <Image src={logo} height={logoHeight ?? 8} />
+        <Text fontSize="xs" fontWeight="semibold">{name}</Text>
+      </VStack>
+    </Button>
+  );
+};
+
+// Section Header Component
+interface SectionHeaderProps {
+  title: string;
+  description?: string;
+}
+
+const SectionHeader = ({ title, description }: SectionHeaderProps) => {
+  const headingGradient = useColorModeValue(
+    'linear(to-r, blue.600, cyan.500)',
+    'linear(to-r, blue.300, cyan.300)'
+  );
+  const textColor = useColorModeValue('gray.600', 'gray.400');
+
+  return (
+    <VStack spacing={2} align="start" width="100%">
+      <Heading
+        size="sm"
+        bgGradient={headingGradient}
+        bgClip="text"
+      >
+        {title}
+      </Heading>
+      {description && (
+        <Text fontSize="sm" color={textColor}>
+          {description}
+        </Text>
+      )}
+    </VStack>
+  );
+};
+
+export const UsefulLinks = () => {
+  const titleColor = useColorModeValue(colors.colorDark, colors.colorLight);
+  const skipGoLogo = useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg");
+  const nonKycLogo = useColorModeValue("logos/nonkyc_logo_light.svg", "logos/nonkyc_logo_dark.svg");
+  const dexScreenerLogo = useColorModeValue("logos/dexscreener_black_logo.svg", "logos/dexscreener_logo.svg");
+  const coinCodexLogo = useColorModeValue("logos/coincodex-logo-light.svg", "logos/coincodex-logo-dark.svg");
+  const mediumLogo = useColorModeValue("logos/medium_logo_dark.png", "logos/medium_logo_light.png");
+  const xLogo = useColorModeValue("logos/x_logo_dark.png", "logos/x_logo_light.png");
+  const githubLogo = useColorModeValue("logos/github_logo_dark.svg", "logos/github_logo_light.svg");
+  const explorerBorderColor = useColorModeValue('blue.100', 'blue.700');
+  const explorerBgGradient = useColorModeValue(
+    'linear(to-br, white, gray.50)',
+    'linear(to-br, gray.800, gray.900)'
+  );
+  const explorerHoverBorderColor = useColorModeValue('blue.300', 'blue.500');
+  const explorerHoverBgGradient = useColorModeValue(
+    'linear(to-br, blue.50, cyan.50)',
+    'linear(to-br, blue.900, cyan.900)'
+  );
+
+  return (
+    <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} maxW="1400px" mx="auto">
       <Box mt={45}>
-        <Subtitle text="Useful Links" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
+        <Subtitle text="Explore Our Ecosystem" color={titleColor} />
       </Box>
-      <Flex flex={1} flexWrap={'wrap'} flexDirection={{base: 'column', sm: 'row', md: 'row', lg: 'row'}} gap={[2, 2, 5, 25]} justifyContent={'center'}>
-        <LinksSection title={'Our Work'}>
-          <LinkItem button={<LinkItemButton text="BZE dApp" url="https://app.getbze.com"/>} logo={"bze_icon.png"}/>
-          <LinkItem button={<LinkItemButton text="CoinTrunk.io" url="https://cointrunk.io"/>} logo={"logos/cointrunk_logo.svg"}/>
-          <LinkItem button={<ExplorersMenu />} logo={"logos/ping_pub_logo.svg"}/>
-          <LinkItem button={<LinkItemButton text="GitHub" url="https://github.com/bze-alphateam"/>} logo={useColorModeValue("logos/github_logo_dark.svg", "logos/github_logo_light.svg")}/>
-        </LinksSection>
-        <LinksSection title={'Socials'}>
-          <LinkItem button={<LinkItemButton text="Medium" url="https://medium.com/bzedge-community"/>} logo={useColorModeValue("logos/medium_logo_dark.png", "logos/medium_logo_light.png")}/>
-          <LinkItem button={<LinkItemButton text="X (Twitter)" url="https://x.com/BZEdgeCoin"/>} logo={useColorModeValue("logos/x_logo_dark.png", "logos/x_logo_light.png")}/>
-          <LinkItem button={<LinkItemButton text="Discord" url="https://discord.gg/wb68JV3QhZ"/>} logo={"logos/discord_logo_blue.svg"}/>
-          <LinkItem button={<LinkItemButton text="Telegram" url="https://t.me/BZEdgeOfficial"/>} logo={"logos/telegram_logo.svg"}/>
-        </LinksSection>
-        <LinksSection title={'Trade BZE'}>
-          <LinkItem button={<LinkItemButton text="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze"/>} logo={useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg")} />
-          <LinkItem button={<LinkItemButton text="Osmosis" url="https://app.osmosis.zone/pool/856"/>} logo={"logos/osmosis_logo.png"}/>
-          <LinkItem button={<LinkItemButton text="BZE DEX" url="https://app.getbze.com"/>} logo={"bze_icon.png"}/>
-          <LinkItem button={<LinkItemButton text="NonKYC.io" url="https://nonkyc.io/market/BZE_USDT?ref=66ef24ed678488447ea9b8cb"/>} logo={useColorModeValue("logos/nonkyc_logo_light.svg", "logos/nonkyc_logo_dark.svg")}/>
-        </LinksSection>
-        <LinksSection title={'Market Tracking'}>
-          <LinkItem button={<LinkItemButton text="CoinGecko" url="https://www.coingecko.com/en/coins/beezee"/>} logo={"logos/cg_logo.svg"}/>
-          <LinkItem button={<LinkItemButton text="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE"/>} logo={"logos/lcw_logo.svg"}/>
-          <LinkItem button={<LinkItemButton text="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807"/>} logo={"logos/dextools_logo.png"}/>
-          <LinkItem button={<LinkItemButton text="DEX Screener" url="https://dexscreener.com/osmosis/8567"/>} logo={useColorModeValue("logos/dexscreener_black_logo.svg", "logos/dexscreener_logo.svg")}/>
-          <LinkItem button={<LinkItemButton text="CoinCodex" url="https://coincodex.com/crypto/bzedge/"/>} logo={useColorModeValue("logos/coincodex-logo-light.svg", "logos/coincodex-logo-dark.svg")}/>
-        </LinksSection>
-      </Flex>
+
+      {/* BeeZee Apps Section */}
+      <VStack spacing={6} width="100%" align="stretch">
+        <SectionHeader
+          title="BeeZee Applications"
+          description="Explore our suite of decentralized applications"
+        />
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={5} width="100%">
+          <FeatureApp
+            title="DEX"
+            description="Trade assets with our order book exchange"
+            url="https://app.getbze.com"
+            useBeezeeLogo
+          />
+          <FeatureApp
+            title="Factory"
+            description="Create your own token in seconds"
+            url="https://app.getbze.com/factory"
+            useBeezeeLogo
+          />
+          <FeatureApp
+            title="Burner"
+            description="Participate in burning raffles and win BZE"
+            url="https://burner.getbze.com/"
+            useBeezeeLogo
+          />
+          <FeatureApp
+            title="CoinTrunk"
+            description="Multi-chain wallet & decentralized news"
+            url="https://cointrunk.io"
+            logo="logos/cointrunk_logo.svg"
+          />
+        </SimpleGrid>
+      </VStack>
+
+      {/* Trade & Market Data */}
+      <VStack spacing={6} width="100%" align="stretch">
+        <SectionHeader
+          title="Trade & Track BZE"
+          description="Buy BZE and monitor market data"
+        />
+        <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing={4} width="100%">
+          <QuickLink name="BZE DEX" url="https://app.getbze.com" logo="bze_icon.png" />
+          <QuickLink name="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze" logo={skipGoLogo} logoHeight={10} />
+          <QuickLink name="Osmosis" url="https://app.osmosis.zone/pool/856" logo="logos/osmosis_logo.png" />
+          <QuickLink name="NonKYC" url="https://nonkyc.io/market/BZE_USDT?ref=66ef24ed678488447ea9b8cb" logo={nonKycLogo} />
+          <QuickLink name="CoinGecko" url="https://www.coingecko.com/en/coins/beezee" logo="logos/cg_logo.svg" />
+          <QuickLink name="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE" logo="logos/lcw_logo.svg" />
+          <QuickLink name="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807" logo="logos/dextools_logo.png" />
+          <QuickLink name="DEX Screener" url="https://dexscreener.com/osmosis/8567" logo={dexScreenerLogo} />
+          <QuickLink name="CoinCodex" url="https://coincodex.com/crypto/bzedge/" logo={coinCodexLogo} />
+        </SimpleGrid>
+      </VStack>
+
+      {/* Community & Resources */}
+      <VStack spacing={6} width="100%" align="stretch">
+        <SectionHeader
+          title="Community & Resources"
+          description="Connect with us and explore the network"
+        />
+        <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing={4} width="100%">
+          <QuickLink name="Medium" url="https://medium.com/bzedge-community" logo={mediumLogo} />
+          <QuickLink name="X (Twitter)" url="https://x.com/BZEdgeCoin" logo={xLogo} />
+          <QuickLink name="Discord" url="https://discord.gg/wb68JV3QhZ" logo="logos/discord_logo_blue.svg" />
+          <QuickLink name="Telegram" url="https://t.me/BZEdgeOfficial" logo="logos/telegram_logo.svg" />
+          <QuickLink name="GitHub" url="https://github.com/bze-alphateam" logo={githubLogo} />
+          <Menu>
+            <MenuButton
+              as={Button}
+              variant="outline"
+              size="md"
+              height="auto"
+              py={3}
+              px={4}
+              borderWidth="2px"
+              borderColor={explorerBorderColor}
+              bgGradient={explorerBgGradient}
+              rightIcon={<ChevronDownIcon />}
+              transition="all 0.3s ease"
+              _hover={{
+                transform: 'translateY(-8px)',
+                boxShadow: 'xl',
+                borderColor: explorerHoverBorderColor,
+                bgGradient: explorerHoverBgGradient
+              }}
+            >
+              <VStack spacing={2}>
+                <Image src="logos/ping_pub_logo.svg" height={8} />
+                <Text fontSize="xs" fontWeight="semibold">Explorers</Text>
+              </VStack>
+            </MenuButton>
+            <MenuList>
+              <MenuItem as={'a'} href="https://ping.pub/beezee" target="_blank">Ping.pub</MenuItem>
+              <MenuItem as={'a'} href="https://explorer.getbze.com/" target="_blank">BZE Explorer</MenuItem>
+              <MenuItem as={'a'} href="https://explorer.chaintools.tech/beezee" target="_blank">Chaintools</MenuItem>
+              <MenuItem as={'a'} href="https://explorer.whenmoonwhenlambo.money/beezee" target="_blank">🚀 WHEN MOON 🌕 WHEN LAMBO 🔥</MenuItem>
+              <MenuItem as={'a'} href="https://atomscan.com/beezee" target="_blank">ATOMScan</MenuItem>
+            </MenuList>
+          </Menu>
+        </SimpleGrid>
+      </VStack>
     </Flex>
   );
 }
