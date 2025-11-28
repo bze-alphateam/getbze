@@ -805,7 +805,7 @@ export const Roadmap = () => {
     const selectedTabColor = useColorModeValue('blue.600', 'blue.300');
 
     return (
-        <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} flexWrap={'wrap'}>
+        <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} flexWrap={'wrap'} id="roadmap">
             <Box mt={45}>
                 <Subtitle text="Roadmap" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
             </Box>

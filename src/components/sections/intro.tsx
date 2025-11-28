@@ -16,10 +16,10 @@ export const Intro = ({ raffle }: IntroProps) => {
           <Text maxWidth={{sm: '100%', md: '450px'}}>
             Powered by $BZE Coin, BeeZee Network offers users access to decentralized services through a variety of applications built on a fast and cost-efficient blockchain.
           </Text>
-          <Box flex={1} pt={2} display={'flex'}>
+          <Flex gap={3} pt={2}>
             <Button
               as={'a'}
-              href={'#join-us'}
+              href={'#roadmap'}
               flex={1}
               variant='outline'
               colorScheme='blue'
@@ -32,9 +32,26 @@ export const Intro = ({ raffle }: IntroProps) => {
               }}
               transition="all 0.3s ease"
             >
-              Buy BZE
+              Roadmap
             </Button>
-          </Box>
+            <Button
+              as={'a'}
+              href={'#ecosystem'}
+              flex={1}
+              variant='outline'
+              colorScheme='blue'
+              borderWidth="2px"
+              _hover={{
+                bgGradient: 'linear(to-r, blue.500, cyan.500)',
+                color: 'white',
+                transform: 'scale(1.05)',
+                boxShadow: 'lg'
+              }}
+              transition="all 0.3s ease"
+            >
+              Ecosystem
+            </Button>
+          </Flex>
           {
             raffle &&
             (

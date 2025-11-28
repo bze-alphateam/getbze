@@ -9,7 +9,6 @@ import { Footer, Navbar } from "./components/common";
 import {Earn, Features, Info, Intro, Partners, Roadmap, Wallets} from "./components/sections";
 import { UsefulLinks } from "./components/sections/links";
 import { News } from "./components/sections/news";
-import {Buy} from "./components/sections/buy";
 import {useEffect, useState} from "react";
 import {getBZERaffle, RaffleSDKType} from "./services/client";
 import {RaffleDetails} from "./components/sections/raffle";
@@ -48,23 +47,23 @@ export const App = () => {
         width="100%"
         position="relative"
       >
+        <Navbar />
       <Box
         padding={5}
         margin={5}
         position="relative"
         zIndex={1}
       >
-        <Navbar />
         <Intro raffle={raffle} />
         <Info />
         <Features />
-        <Buy />
+        {/*<Buy />*/}
         <Roadmap />
+        <UsefulLinks />
         <Earn />
         { raffle && <RaffleDetails raffle={raffle}/>}
         <Wallets />
         <News />
-        <UsefulLinks />
         <Partners />
       </Box>
       <Box>

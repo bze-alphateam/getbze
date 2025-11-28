@@ -50,10 +50,11 @@ const EarnItem = ({heading, body, url}: EarnItemProps) => {
           as={'a'}
           href={url}
           target="_blank"
-          variant={'ghost'}
+          variant='outline'
+          colorScheme='blue'
           _hover={{
-            bgGradient: 'linear(to-r, blue.100, cyan.100)',
-            transform: 'scale(1.05)'
+            transform: 'scale(1.05)',
+            boxShadow: 'md'
           }}
           transition="all 0.2s ease"
         >

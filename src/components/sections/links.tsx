@@ -182,7 +182,6 @@ export const UsefulLinks = () => {
   const titleColor = useColorModeValue(colors.colorDark, colors.colorLight);
   const skipGoLogo = useColorModeValue("logos/skip_go_pink_logo.svg", "logos/skip_go_pink_ko_logo.svg");
   const nonKycLogo = useColorModeValue("logos/nonkyc_logo_light.svg", "logos/nonkyc_logo_dark.svg");
-  const dexScreenerLogo = useColorModeValue("logos/dexscreener_black_logo.svg", "logos/dexscreener_logo.svg");
   const coinCodexLogo = useColorModeValue("logos/coincodex-logo-light.svg", "logos/coincodex-logo-dark.svg");
   const mediumLogo = useColorModeValue("logos/medium_logo_dark.png", "logos/medium_logo_light.png");
   const xLogo = useColorModeValue("logos/x_logo_dark.png", "logos/x_logo_light.png");
@@ -199,7 +198,7 @@ export const UsefulLinks = () => {
   );
 
   return (
-    <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} maxW="1400px" mx="auto">
+    <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} maxW="1400px" mx="auto" id="ecosystem">
       <Box mt={45}>
         <Subtitle text="Explore Our Ecosystem" color={titleColor} />
       </Box>
@@ -252,7 +251,6 @@ export const UsefulLinks = () => {
           <QuickLink name="CoinGecko" url="https://www.coingecko.com/en/coins/beezee" logo="logos/cg_logo.svg" />
           <QuickLink name="LiveCoinWatch" url="https://www.livecoinwatch.com/price/BZEdge-BZE" logo="logos/lcw_logo.svg" />
           <QuickLink name="DEXTools" url="https://www.dextools.io/app/en/osmosis/pair-explorer/856?t=1722095315807" logo="logos/dextools_logo.png" />
-          <QuickLink name="DEX Screener" url="https://dexscreener.com/osmosis/8567" logo={dexScreenerLogo} />
           <QuickLink name="CoinCodex" url="https://coincodex.com/crypto/bzedge/" logo={coinCodexLogo} />
         </SimpleGrid>
       </VStack>

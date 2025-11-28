@@ -33,8 +33,20 @@ export const RaffleDetails = ({raffle}: RaffleDetailsProps) => {
                 <CardFooter>
                     <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={2} flexWrap={'wrap'}
                           textAlign={'center'}>
-                        <Button as={'a'} href={'https://app.getbze.com/burner'} target="_blank" variant={'outline'}> Try
-                            your luck 🔥</Button>
+                        <Button
+                            as={'a'}
+                            href={'https://burner.getbze.com'}
+                            target="_blank"
+                            variant='outline'
+                            colorScheme='blue'
+                            transition="all 0.2s ease"
+                            _hover={{
+                                transform: 'scale(1.05)',
+                                boxShadow: 'md'
+                            }}
+                        >
+                            Try your luck 🔥
+                        </Button>
                     </Flex>
                 </CardFooter>
             </Card>

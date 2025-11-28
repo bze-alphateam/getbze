@@ -14,7 +14,23 @@ const iOsFeature = "iOS";
 const dappFeature = "dApp Connect";
 const walletFeaturesList = [androidFeature, iOsFeature, browserFeature, dappFeature];
 
-const WalletItemButton = ({text, url}: {text: string, url: string}) => (<Button as={'a'} variant={'outline'} size={'md'} href={url} target="_blank">{text}</Button>);
+const WalletItemButton = ({text, url}: {text: string, url: string}) => (
+  <Button
+    as={'a'}
+    variant='outline'
+    colorScheme='blue'
+    size='md'
+    href={url}
+    target="_blank"
+    transition="all 0.2s ease"
+    _hover={{
+      transform: 'scale(1.05)',
+      boxShadow: 'md'
+    }}
+  >
+    {text}
+  </Button>
+);
 
 const WalletItem = (props: WalletItemProps) => {
   return (
