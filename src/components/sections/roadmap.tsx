@@ -617,7 +617,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2025-8",
             title: "New DEX App release",
-            status: statusInProgress,
+            status: statusSuccess,
             description: "Next-generation trading platform with advanced features and improved UX.",
             details: [
                 "A completely redesigned DEX application featuring enhanced charting, advanced order types, better performance, and a more intuitive trading experience for both beginners and professional traders."
