@@ -213,7 +213,7 @@ export const UsefulLinks = () => {
           <FeatureApp
             title="DEX"
             description="Trade assets with our order book exchange"
-            url="https://app.getbze.com"
+            url="https://dex.getbze.com"
             useBeezeeLogo
           />
           <FeatureApp
@@ -244,7 +244,7 @@ export const UsefulLinks = () => {
           description="Buy BZE and monitor market data"
         />
         <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing={4} width="100%">
-          <QuickLink name="BZE DEX" url="https://app.getbze.com" logo="bze_icon.png" />
+          <QuickLink name="BZE DEX" url="https://dex.getbze.com" logo="bze_icon.png" />
           <QuickLink name="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze" logo={skipGoLogo} logoHeight={10} />
           <QuickLink name="Osmosis" url="https://app.osmosis.zone/pool/856" logo="logos/osmosis_logo.png" />
           <QuickLink name="NonKYC" url="https://nonkyc.io/market/BZE_USDT?ref=66ef24ed678488447ea9b8cb" logo={nonKycLogo} />

@@ -135,7 +135,7 @@ export const Buy = () => {
                         logo={useColorModeValue("beezee-dark.svg", "beezee-light.svg")}
                         logoSize={180}
                         title={"Buy BZE on our DEX"}
-                        url={"https://app.getbze.com/"}
+                        url={"https://dex.getbze.com/"}
                         buttonText={'BZE DEX'}
                     />
                     <BuyItem

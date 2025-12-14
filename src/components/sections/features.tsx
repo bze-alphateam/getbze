@@ -149,7 +149,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={MdOutlineBarChart}/>}
                     title="Order Book DEX"
                     description="Create a market pair for your own token against any other tokens on the network or trade your favorite assets at low cost. The DEX module enables permissionless market creation and features order-book style trading, allowing users to list and trade their favorite assets affordably."
-                    footer={<ExternalButton url="https://app.getbze.com" text="Check Out The DEX"/>}
+                    footer={<ExternalButton url="https://dex.getbze.com/exchange" text="Check Out The DEX"/>}
                 />
             </Flex>
             <Flex flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
@@ -157,7 +157,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={FaMoneyBillTrendUp}/>}
                     title="Earn & Rewards"
                     description="Create incentives to engage your token's community, or earn coins by joining in staking and trading rewards. Users can set up rewards for those who lock their coins for a certain period or trade actively in specific markets. Rewards can be configured to accept any coins or tokens for staking and can be paid out in different coins or tokens."
-                    footer={<ExternalButton text="Check Out Rewards" url="https://app.getbze.com/earn"/>}
+                    footer={<ExternalButton text="Check Out Rewards" url="https://dex.getbze.com/staking"/>}
                 />
                 <FeaturesItem
                     icon={<FeatureIcon icon={MdOutlineSmartphone}/>}
@@ -196,7 +196,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={AiOutlineBarChart}/>}
                     title="AMM DEX"
                     description="An automated market-making DEX will enable users to create liquidity pools of their choice with any asset available on the BeeZee blockchain, including their own tokens, in a permissionless manner with just a few clicks."
-                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Coming in 2025</Button>}
+                    footer={<ExternalButton text="Swap" url="https://dex.getbze.com/"/>}
                 />
             </Flex>
             <Flex flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>

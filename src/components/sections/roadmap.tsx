@@ -414,7 +414,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "This major upgrade transformed BeeZee into a complete DeFi platform with three groundbreaking features: Token Factory for anyone to create tokens without coding, a Rewards system for incentivizing community engagement, and an order-book DEX for decentralized trading.",
                 "The Token Factory enables users to launch tokens in seconds with customizable parameters. The Rewards module lets token creators incentivize staking and trading, while the DEX provides efficient order-book trading at minimal cost."
             ],
-            link: "https://app.getbze.com"
+            link: "https://dex.getbze.com"
         },
         {
             id: "2024-6",
@@ -424,7 +424,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             details: [
                 "The dApp provides a comprehensive interface for accessing all BZE blockchain features, including token creation, rewards management, and the burning mechanism. Built with modern web technologies for optimal performance and user experience."
             ],
-            link: "https://app.getbze.com",
+            link: "https://dex.getbze.com",
             quarter: "Q3",
         },
         {
@@ -455,7 +455,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             details: [
                 "The DEX went live with full trading functionality, allowing users to trade BZE and all tokens created on the network. Features include limit orders, market orders, and detailed trading charts."
             ],
-            link: "https://app.getbze.com",
+            link: "https://dex.getbze.com",
             quarter: "Q3",
         },
         {
@@ -487,7 +487,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             details: [
                 "Users can now participate in burning raffles, adding an element of excitement to the deflationary mechanics while contributing to reduced token supply."
             ],
-            link: "https://app.getbze.com/burner",
+            link: "https://burner.getbze.com",
             quarter: "Q4",
         },
         {

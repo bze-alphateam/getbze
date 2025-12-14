@@ -88,12 +88,12 @@ export const Earn = () => {
         <EarnItem 
           heading="Staking Rewards"
           body='Participate in staking rewards on the BeeZee Network to earn $BZE and other coins. Users can set up different rewards for those who stake $BZE or other tokens. Visit the "Earn" section on the dApp to explore the opportunities.'
-          url="https://app.getbze.com/earn"
+          url="https://dex.getbze.com/staking"
         />
         <EarnItem 
           heading="Trading Rewards"
           body='The BeeZee Network features a DEX that allows the community to create trading rewards for specific markets. Become a top trader on the DEX and claim your rewards. Visit the "Earn" section on the dApp to explore the opportunities.'
-          url="https://app.getbze.com/earn"
+          url="https://dex.getbze.com/staking"
         />
         <EarnItem 
           heading="Burning Raffles"
