@@ -204,13 +204,13 @@ export const Features = () => {
                     icon={<FeatureIcon icon={GiReceiveMoney}/>}
                     title="Token Addons: Fees & Distribution"
                     description="Token creators have the ability to implement fees on token transfers and distribute them to stakers, liquidity providers, and other project contributors in a decentralized and immutable environment."
-                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q1, 2026</Button>}
+                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q3, 2026</Button>}
                 />
                 <FeaturesItem
                     icon={<FeatureIcon icon={PiVaultThin}/>}
                     title="Token Addons: Community Pool"
                     description="Your project needs a community pool to gather funds for future developments. The BeeZee blockchain enables you to create such pools for your token and allows you to configure the distribution of fees collected from transfers or donations, ensuring the sustainability of your project."
-                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q1, 2026</Button>}
+                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q3, 2026</Button>}
                 />
             </Flex>
             <Flex flexDirection={{base: 'column', sm: 'column', md: 'column', lg: 'row'}} gap={5}>
@@ -218,7 +218,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={FaVoteYea}/>}
                     title="Token Addons: Governance"
                     description="Empower your users by giving them control over your project! They can easily vote on changes to token parameters, mint new tokens, or allocate funds from the community pool for specific purposes. With BeeZee blockchain, you can create your own governance system, enabling fair and transparent voting on any type of decision."
-                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q1, 2026</Button>}
+                    footer={<Button variant='outline' colorScheme='blue' isDisabled={true}>Q2, 2026</Button>}
                 />
                 <FeaturesItem
                     icon={<FeatureIcon icon={GiMining}/>}

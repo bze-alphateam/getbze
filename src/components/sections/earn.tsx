@@ -80,12 +80,7 @@ export const Earn = () => {
           body="Delegate your $BZE to one or multiple validators participating in the BeeZee network. Be sure to claim and stake your rewards periodically to maximize your earnings."
           url="https://staking.getbze.com"
         />
-        <EarnItem 
-          heading="Provide Liquidity on Osmosis"
-          body="Osmosis is one of the largest DEXs in the crypto space where $BZE can be traded. Provide liquidity, lock your shares for 14 days, and earn a share of the available rewards."
-          url="https://app.osmosis.zone/pool/856"
-        />
-        <EarnItem 
+<EarnItem 
           heading="Staking Rewards"
           body='Participate in staking rewards on the BeeZee Network to earn $BZE and other coins. Users can set up different rewards for those who stake $BZE or other tokens. Visit the "Earn" section on the dApp to explore the opportunities.'
           url="https://dex.getbze.com/staking"

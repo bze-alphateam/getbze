@@ -230,7 +230,7 @@ export const UsefulLinks = () => {
           />
           <FeatureApp
             title="CoinTrunk"
-            description="Multi-chain wallet & decentralized news"
+            description="Web3 tools"
             url="https://cointrunk.io"
             logo="logos/cointrunk_logo.svg"
           />

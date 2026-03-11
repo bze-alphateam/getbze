@@ -109,11 +109,11 @@ export const Wallets = () => {
           items={[browserFeature]}
           buttons={<WalletItemButton text="Download" url="https://vidulum.app/" />}
         />
-        <WalletItem 
+        {/* <WalletItem
           logo={useColorModeValue("logos/cointrunk_dark.svg", "logos/cointrunk_light.svg")}
           items={[androidFeature]}
           buttons={<WalletItemButton text="Download" url="https://cointrunk.io/" />}
-        />
+        /> */}
       </Flex>
     </Flex>
   );

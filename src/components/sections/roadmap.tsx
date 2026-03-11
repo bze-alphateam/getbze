@@ -27,12 +27,13 @@ import {
     HStack,
 } from "@chakra-ui/react";
 import {Subtitle, colors} from "../common";
-import {MdBuild, MdCheckCircle, MdOutlineAccessTime} from "react-icons/md";
+import {MdBuild, MdCheckCircle, MdOutlineAccessTime, MdPauseCircle} from "react-icons/md";
 import {useState} from "react";
 
 const statusSuccess = 2;
 const statusInProgress = 1;
 const statusWaiting = 0;
+const statusPostponed = -1;
 
 interface RoadmapItemData {
     id: string;
@@ -65,6 +66,10 @@ const StatusBadge = ({status}: { status: number }) => {
         'linear(to-r, orange.100, orange.200)',
         'linear(to-r, orange.700, orange.600)'
     );
+    const redGradient = useColorModeValue(
+        'linear(to-r, red.100, red.200)',
+        'linear(to-r, red.700, red.600)'
+    );
     const textColor = useColorModeValue('gray.800', 'white');
 
     let label = "Planned";
@@ -78,6 +83,10 @@ const StatusBadge = ({status}: { status: number }) => {
         case statusInProgress:
             label = "In Progress";
             bgGradient = orangeGradient;
+            break;
+        case statusPostponed:
+            label = "Postponed";
+            bgGradient = redGradient;
             break;
     }
 
@@ -121,6 +130,10 @@ const RoadmapItemCard = ({item, onClick}: RoadmapItemProps) => {
             iconColor = colors.status.inProgress;
             icon = MdBuild;
             break;
+        case statusPostponed:
+            iconColor = "red.400";
+            icon = MdPauseCircle;
+            break;
     }
 
     return (
@@ -153,7 +166,7 @@ const RoadmapItemCard = ({item, onClick}: RoadmapItemProps) => {
 
                             {item.version && (
                                 <Badge
-                                    colorScheme="purple"
+                                    colorScheme={item.version.startsWith("v9") ? "pink" : "purple"}
                                     variant="solid"
                                     px={2}
                                     py={1}
@@ -624,47 +637,84 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             ],
             quarter: "Q4",
         },
+    ],
+    "2026": [
         {
-            id: "2025-9",
+            id: "2026-0",
+            title: "CoinTrunk.io: New Website",
+            status: statusSuccess,
+            description: "Complete redesign of the CoinTrunk.io web platform.",
+            details: [
+                "A fresh, modern website design for CoinTrunk with improved content discovery, better mobile experience, and enhanced integration with the blockchain features."
+            ],
+            link: "https://cointrunk.io",
+            quarter: "Q1",
+        },
+        {
+            id: "2026-audit",
+            title: "BZE Blockchain: Security Audit",
+            status: statusInProgress,
+            description: "Comprehensive security audit of the BeeZee blockchain by a top blockchain auditing firm.",
+            details: [
+                "The BeeZee blockchain is undergoing a thorough security audit conducted by a leading blockchain auditing company. The audit covers all core modules, consensus mechanisms, and on-chain functionality to ensure the highest level of security and reliability for our users."
+            ],
+            quarter: "Q1",
+        },
+        {
+            id: "2026-0-1",
+            title: "BZE Blockchain: Blockchain upgrade",
+            status: statusInProgress,
+            children: [
+                "Security patches",
+                "Various improvements"
+            ],
+            description: "Security and stability upgrade laying the groundwork for future development.",
+            details: [
+                "This upgrade focuses on applying critical security patches and various improvements that lay the foundation for upcoming features and enhancements across the blockchain."
+            ],
+            quarter: "Q2",
+            version: "v8.1.0"
+        },
+        {
+            id: "2026-0-2",
+            title: "CoinTrunk.io: Payment Processor",
+            status: statusInProgress,
+            description: "Payment processing solution for accepting BeeZee blockchain assets.",
+            details: [
+                "Accept BZE and BeeZee blockchain assets with ease. A simple, powerful payment solution for merchants and businesses in the Web3 ecosystem."
+            ],
+            quarter: "Q2",
+        },
+        {
+            id: "2026-0-3",
             title: "Factory App release",
             status: statusInProgress,
             description: "Dedicated application for token creation and management.",
             details: [
                 "A specialized app focusing on the token factory features, making it even easier to create, configure, and manage custom tokens with an intuitive step-by-step interface."
             ],
-            quarter: "Q4",
+            quarter: "Q2",
         },
         {
-            id: "2025-10",
-            title: "CoinTrunk.io: New Website",
+            id: "2026-2",
+            title: "BZE Blockchain: Blockchain Upgrade",
             status: statusInProgress,
-            description: "Complete redesign of the CoinTrunk.io web platform.",
-            details: [
-                "A fresh, modern website design for CoinTrunk with improved content discovery, better mobile experience, and enhanced integration with the blockchain features."
-            ],
-            link: "https://cointrunk.io",
-            quarter: "Q4",
-        },
-        {
-            id: "2025-11",
-            title: "BZE Blockchain: Blockchain upgrade",
-            status: statusWaiting,
             children: [
+                "Token Addon: DAO & Governance",
                 "DEX engine performance improvements",
                 "Extend Token Factory Metadata",
                 "Compounded Staking Rewards",
                 "Allow Custom Fees in any token"
             ],
-            description: "Performance and feature enhancements across core blockchain modules.",
+            description: "Major upgrade introducing DAO governance and core performance enhancements.",
             details: [
-                "This upgrade focuses on optimizing the DEX engine for higher throughput and lower latency, expanding token metadata capabilities for richer token information, implementing auto-compounding staking rewards, and allowing custom fee payments in any token.",
-                "These improvements make the blockchain faster, more flexible, and more user-friendly, especially for token creators who want advanced customization options."
+                "Introduces comprehensive DAO governance features allowing token holders to vote on proposals and manage community treasuries.",
+                "The governance system enables true decentralization, giving the community direct control over network parameters, treasury allocation, and future development directions.",
+                "This upgrade also optimizes the DEX engine for higher throughput and lower latency, expands token metadata capabilities, implements auto-compounding staking rewards, and allows custom fee payments in any token."
             ],
-            quarter: "Q4",
-            version: "v8.1.0"
-        }
-    ],
-    "2026": [
+            quarter: "Q2",
+            version: "v8.2.0"
+        },
         {
             id: "2026-1",
             title: "BZE DEX: Open Trading Rewards",
@@ -673,46 +723,6 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             details: [
                 "A comprehensive rewards system that incentivizes active trading on the DEX, distributing rewards to top traders and liquidity providers to ensure deep markets and tight spreads.",
                 "The program can be customized by token creators to bootstrap liquidity for their own markets, creating a thriving trading ecosystem."
-            ],
-            quarter: "Q1",
-        },
-        {
-            id: "2026-2",
-            title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusWaiting,
-            children: [
-                "BZE Max supply to 400M",
-                "Token Addon: DAO & Governance"
-            ],
-            description: "Major tokenomics upgrade introducing max supply cap and DAO governance.",
-            details: [
-                "Implementation of a hard cap at 400 million BZE tokens, ensuring absolute scarcity and predictable supply. Also introduces comprehensive DAO governance features allowing token holders to vote on proposals and manage community treasuries.",
-                "The governance system enables true decentralization, giving the community direct control over network parameters, treasury allocation, and future development directions."
-            ],
-            quarter: "Q1",
-        },
-        {
-            id: "2026-3",
-            title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusWaiting,
-            children: [
-                "Token Addon: Fees & Distribution",
-                "Token Addon: Community Pool"
-            ],
-            description: "Advanced token features for fee management and community funding.",
-            details: [
-                "Token creators can implement custom transfer fees and automatically distribute them to stakers, liquidity providers, or any specified recipients. The community pool feature enables projects to accumulate funds for development and marketing.",
-                "These tools give projects sophisticated tokenomics capabilities without requiring smart contract development, making advanced token mechanics accessible to everyone."
-            ],
-            quarter: "Q2",
-        },
-        {
-            id: "2026-4",
-            title: "Factory App - Token Addons",
-            status: statusWaiting,
-            description: "Enhanced Factory app with integrated token addon configuration.",
-            details: [
-                "The Factory app will support one-click configuration of token addons including fees, governance, and community pools, making advanced token features accessible through an intuitive interface."
             ],
             quarter: "Q2",
         },
@@ -727,60 +737,48 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             quarter: "Q2",
         },
         {
-            id: "2026-6",
-            title: "CoinTrunk.io: Mobile App Release for iOS",
+            id: "2026-3",
+            title: "BZE Blockchain: Blockchain Upgrade",
             status: statusWaiting,
-            description: "Launch of CoinTrunk mobile app for iOS devices.",
-            details: [
-                "Bringing the full CoinTrunk experience to iOS users with native performance, seamless wallet integration, and support for all blockchain features including multi-chain asset management."
+            children: [
+                "BZE Max supply to 400M",
+                "Token Addon: Fees & Distribution",
+                "Token Addon: Community Pool"
             ],
-            link: "https://cointrunk.io",
-            quarter: "Q2",
+            description: "Tokenomics upgrade with max supply cap, fee management, and community funding.",
+            details: [
+                "Implementation of a hard cap at 400 million BZE tokens, ensuring absolute scarcity and predictable supply.",
+                "Token creators can implement custom transfer fees and automatically distribute them to stakers, liquidity providers, or any specified recipients. The community pool feature enables projects to accumulate funds for development and marketing.",
+                "These tools give projects sophisticated tokenomics capabilities without requiring any development effort, making advanced token mechanics accessible to everyone."
+            ],
+            quarter: "Q3",
+            version: "v8.3.0"
         },
         {
-            id: "2026-7",
-            title: "CoinTrunk.io: Wallet Connect on CoinTrunk Mobile",
-            status: statusWaiting,
-            description: "WalletConnect integration for mobile app enabling dApp connections.",
+            id: "2026-6",
+            title: "CoinTrunk.io: Mobile App",
+            status: statusPostponed,
+            description: "CoinTrunk mobile app development including iOS release, WalletConnect integration, and app revamp.",
             details: [
-                "Users will be able to connect their CoinTrunk mobile wallet to any WalletConnect-compatible dApp, bridging mobile convenience with the broader DeFi ecosystem."
+                "The CoinTrunk mobile app plans have been postponed. This includes the iOS release, WalletConnect integration for dApp connections, and a complete app redesign with unified wallet interface and streamlined experience."
             ],
-            quarter: "Q2",
+            link: "https://cointrunk.io",
         },
         {
             id: "2026-8",
             title: "BZE Blockchain: Blockchain Upgrade - Tokens Addons Phase 2",
             status: statusWaiting,
             children: [
-                "Minable Tokens"
+                "Minable Tokens",
+                "Mining software release"
             ],
             description: "Introduction of CPU-minable token creation capabilities.",
             details: [
                 "Token creators can make their tokens minable, allowing users to earn tokens through CPU mining. Mining power can be purchased with BZE or other tokens, creating new economic models and engagement mechanisms.",
                 "Complete mining software and tools are provided out-of-the-box, making it easy for projects to launch mineable tokens without technical expertise."
             ],
-            quarter: "Q2",
-        },
-        {
-            id: "2026-9",
-            title: "Minable Tokens mining software release",
-            status: statusWaiting,
-            description: "User-friendly mining software for participating in token mining.",
-            details: [
-                "A simple, efficient mining application that allows anyone to mine tokens on the BZE network using their CPU, with automatic mining pool support and reward tracking."
-            ],
-            quarter: "Q2",
-        },
-        {
-            id: "2026-6",
-            title: "CoinTrunk.io: Mobile App Revamp",
-            status: statusWaiting,
-            description: "Complete redesign of the CoinTrunk mobile app for better user experience.",
-            details: [
-                "CoinTrunk mobile app is redesigned to provide a seamless experience for users, including a unified wallet interface and a streamlined dApp experience."
-            ],
-            link: "https://cointrunk.io",
-            quarter: "Q2",
+            quarter: "Q3",
+            version: "v9.0.0"
         },
         {
             id: "2026-6",
@@ -824,7 +822,7 @@ export const Roadmap = () => {
                 borderColor={tabBorderColor}
                 boxShadow="2xl"
             >
-                <Tabs variant='enclosed' defaultIndex={2} isFitted>
+                <Tabs variant='enclosed' defaultIndex={3} isFitted>
                     <TabList>
                         <Tab
                             _selected={{
