@@ -28,9 +28,11 @@ interface FeatureAppProps {
   url: string;
   logo?: string;
   useBeezeeLogo?: boolean;
+  comingSoon?: boolean;
+  deprecated?: boolean;
 }
 
-const FeatureApp = ({ title, description, url, logo, useBeezeeLogo }: FeatureAppProps) => {
+const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, deprecated }: FeatureAppProps) => {
   const beezeeLogo = useColorModeValue("beezee-dark.svg", "beezee-light.svg");
   const bgGradient = useColorModeValue(
     'linear(to-br, white, blue.50)',
@@ -48,19 +50,24 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo }: FeatureApp
   );
   const iconColor = useColorModeValue('blue.500', 'blue.300');
   const textColor = useColorModeValue('gray.600', 'gray.400');
+  const comingSoonBg = useColorModeValue('blue.100', 'blue.800');
+  const comingSoonColor = useColorModeValue('blue.700', 'blue.200');
+  const deprecatedBg = useColorModeValue('orange.100', 'orange.800');
+  const deprecatedColor = useColorModeValue('orange.700', 'orange.200');
+
+  const isDisabled = comingSoon;
 
   return (
     <Card
-      as="a"
-      href={url}
-      target="_blank"
-      cursor="pointer"
+      {...(isDisabled ? {} : { as: "a", href: url, target: "_blank" })}
+      cursor={isDisabled ? "default" : "pointer"}
+      opacity={isDisabled ? 0.65 : deprecated ? 0.75 : 1}
       bgGradient={bgGradient}
       borderWidth="2px"
       borderColor={borderColor}
       boxShadow="lg"
       transition="all 0.3s ease"
-      _hover={{
+      _hover={isDisabled ? {} : {
         transform: 'translateY(-8px)',
         boxShadow: '2xl',
         borderColor: hoverBorderColor,
@@ -87,7 +94,33 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo }: FeatureApp
                 {title}
               </Heading>
             </HStack>
-            <Icon as={MdArrowOutward} boxSize={5} color={iconColor} />
+            {comingSoon ? (
+              <Text
+                fontSize="xs"
+                fontWeight="bold"
+                bg={comingSoonBg}
+                color={comingSoonColor}
+                px={2}
+                py={1}
+                borderRadius="md"
+              >
+                Coming Soon
+              </Text>
+            ) : deprecated ? (
+              <Text
+                fontSize="xs"
+                fontWeight="bold"
+                bg={deprecatedBg}
+                color={deprecatedColor}
+                px={2}
+                py={1}
+                borderRadius="md"
+              >
+                Sunsetting
+              </Text>
+            ) : (
+              <Icon as={MdArrowOutward} boxSize={5} color={iconColor} />
+            )}
           </HStack>
           <Text fontSize="sm" color={textColor}>
             {description}
@@ -209,7 +242,7 @@ export const UsefulLinks = () => {
           title="BeeZee Applications"
           description="Explore our suite of decentralized applications"
         />
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={5} width="100%">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5} width="100%">
           <FeatureApp
             title="DEX"
             description="Trade assets with our order book exchange"
@@ -217,9 +250,9 @@ export const UsefulLinks = () => {
             useBeezeeLogo
           />
           <FeatureApp
-            title="Factory"
-            description="Create your own token in seconds"
-            url="https://app.getbze.com/factory"
+            title="Staking"
+            description="Stake BZE tokens and earn rewards from validators"
+            url="https://staking.getbze.com"
             useBeezeeLogo
           />
           <FeatureApp
@@ -227,6 +260,20 @@ export const UsefulLinks = () => {
             description="Participate in burning raffles and win BZE"
             url="https://burner.getbze.com/"
             useBeezeeLogo
+          />
+          <FeatureApp
+            title="Factory"
+            description="Create your own token in seconds"
+            url="https://app.getbze.com/factory"
+            useBeezeeLogo
+            comingSoon
+          />
+          <FeatureApp
+            title="BZE App"
+            description="Legacy application — being replaced by dedicated apps"
+            url="https://app.getbze.com"
+            useBeezeeLogo
+            deprecated
           />
           <FeatureApp
             title="CoinTrunk"
