@@ -77,24 +77,28 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, 
     >
       <CardBody>
         <VStack spacing={4} align="stretch">
-          <HStack justify="space-between">
+          <VStack align="stretch" spacing={2}>
             <HStack spacing={3}>
               {useBeezeeLogo && (
                 <Image
                   src={beezeeLogo}
-                  height={10}
+                  height={{base: 7, md: 10}}
                 />
               )}
-              {logo && <Image src={logo} height={10} />}
+              {logo && <Image src={logo} height={{base: 7, md: 10}} />}
               <Heading
-                size="md"
+                size={{base: 'sm', md: 'md'}}
                 bgGradient={headingGradient}
                 bgClip="text"
+                flex={1}
               >
                 {title}
               </Heading>
+              {!comingSoon && !deprecated && (
+                <Icon as={MdArrowOutward} boxSize={5} color={iconColor} flexShrink={0} />
+              )}
             </HStack>
-            {comingSoon ? (
+            {comingSoon && (
               <Text
                 fontSize="xs"
                 fontWeight="bold"
@@ -103,10 +107,12 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, 
                 px={2}
                 py={1}
                 borderRadius="md"
+                alignSelf="flex-start"
               >
                 Coming Soon
               </Text>
-            ) : deprecated ? (
+            )}
+            {deprecated && (
               <Text
                 fontSize="xs"
                 fontWeight="bold"
@@ -115,13 +121,12 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, 
                 px={2}
                 py={1}
                 borderRadius="md"
+                alignSelf="flex-start"
               >
                 Sunsetting
               </Text>
-            ) : (
-              <Icon as={MdArrowOutward} boxSize={5} color={iconColor} />
             )}
-          </HStack>
+          </VStack>
           <Text fontSize="sm" color={textColor}>
             {description}
           </Text>

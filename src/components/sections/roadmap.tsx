@@ -801,9 +801,13 @@ export const Roadmap = () => {
     );
     const tabBorderColor = useColorModeValue('blue.100', 'blue.700');
     const selectedTabColor = useColorModeValue('blue.600', 'blue.300');
+    const selectedTabBgGradient = useColorModeValue(
+        'linear(to-b, blue.50, transparent)',
+        'linear(to-b, blue.900, transparent)'
+    );
 
     return (
-        <Flex margin={15} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} flexWrap={'wrap'} id="roadmap">
+        <Flex margin={{base: 4, md: 15}} flex={1} flexDirection={'column'} alignItems={'center'} gap={10} flexWrap={'wrap'} id="roadmap">
             <Box mt={45}>
                 <Subtitle text="Roadmap" color={useColorModeValue(colors.colorDark, colors.colorLight)}/>
             </Box>
@@ -821,67 +825,29 @@ export const Roadmap = () => {
                 borderWidth="2px"
                 borderColor={tabBorderColor}
                 boxShadow="2xl"
+                overflow="hidden"
+                p={0}
             >
                 <Tabs variant='enclosed' defaultIndex={3} isFitted>
                     <TabList>
-                        <Tab
-                            _selected={{
-                                color: selectedTabColor,
-                                borderColor: tabBorderColor,
-                                borderBottomColor: 'transparent',
-                                fontWeight: 'bold',
-                                bgGradient: useColorModeValue(
-                                    'linear(to-b, blue.50, transparent)',
-                                    'linear(to-b, blue.900, transparent)'
-                                )
-                            }}
-                        >
-                            2023
-                        </Tab>
-                        <Tab
-                            _selected={{
-                                color: selectedTabColor,
-                                borderColor: tabBorderColor,
-                                borderBottomColor: 'transparent',
-                                fontWeight: 'bold',
-                                bgGradient: useColorModeValue(
-                                    'linear(to-b, blue.50, transparent)',
-                                    'linear(to-b, blue.900, transparent)'
-                                )
-                            }}
-                        >
-                            2024
-                        </Tab>
-                        <Tab
-                            _selected={{
-                                color: selectedTabColor,
-                                borderColor: tabBorderColor,
-                                borderBottomColor: 'transparent',
-                                fontWeight: 'bold',
-                                bgGradient: useColorModeValue(
-                                    'linear(to-b, blue.50, transparent)',
-                                    'linear(to-b, blue.900, transparent)'
-                                )
-                            }}
-                        >
-                            2025
-                        </Tab>
-                        <Tab
-                            _selected={{
-                                color: selectedTabColor,
-                                borderColor: tabBorderColor,
-                                borderBottomColor: 'transparent',
-                                fontWeight: 'bold',
-                                bgGradient: useColorModeValue(
-                                    'linear(to-b, blue.50, transparent)',
-                                    'linear(to-b, blue.900, transparent)'
-                                )
-                            }}
-                        >
-                            2026
-                        </Tab>
+                        {["2023", "2024", "2025", "2026"].map((year) => (
+                            <Tab
+                                key={year}
+                                fontSize={{base: 'sm', md: 'md'}}
+                                px={{base: 2, md: 4}}
+                                _selected={{
+                                    color: selectedTabColor,
+                                    borderColor: tabBorderColor,
+                                    borderBottomColor: 'transparent',
+                                    fontWeight: 'bold',
+                                    bgGradient: selectedTabBgGradient
+                                }}
+                            >
+                                {year}
+                            </Tab>
+                        ))}
                     </TabList>
-                    <TabPanels p={6}>
+                    <TabPanels p={{base: 2, md: 6}}>
                         <YearTabPanel items={roadmapData["2023"]}/>
                         <YearTabPanel items={roadmapData["2024"]}/>
                         <YearTabPanel items={roadmapData["2025"]}/>
