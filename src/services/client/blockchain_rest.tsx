@@ -21,7 +21,7 @@ const RAFFLE_TTL = 60;
 const inflationUrl = () => `${getHost()}/cosmos/mint/v1beta1/inflation`;
 const stakingPoolUrl = () => `${getHost()}/cosmos/staking/v1beta1/pool`;
 
-const getRafflesUrl = () => `${getHost()}/bze/burner/v1/raffles`;
+const getRafflesUrl = () => `${getHost()}/bze/burner/raffles`;
 
 const getHost = (): string => {
   return process.env.REACT_APP_BLOCKCHAIN_REST_API_HOST ?? "";
