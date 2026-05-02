@@ -653,7 +653,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-audit",
             title: "BZE Blockchain: Security Audit",
-            status: statusInProgress,
+            status: statusSuccess,
             description: "Comprehensive security audit of the BeeZee blockchain by a top blockchain auditing firm.",
             details: [
                 "The BeeZee blockchain is undergoing a thorough security audit conducted by a leading blockchain auditing company. The audit covers all core modules, consensus mechanisms, and on-chain functionality to ensure the highest level of security and reliability for our users."
@@ -663,7 +663,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-0-1",
             title: "BZE Blockchain: Blockchain upgrade",
-            status: statusInProgress,
+            status: statusSuccess,
             children: [
                 "Security patches",
                 "Various improvements"
