@@ -1,0 +1,26 @@
+# Production compose project for getbze.com — lives in ~/apps/getbze.com/ on
+# the server next to .env (IMAGE_TAG=<commit short-sha> is its only variable).
+# Static site: no DB, no volumes, no secrets.
+name: getbze
+services:
+  web-blue: &web
+    image: ghcr.io/bze-alphateam/getbze:${IMAGE_TAG}
+    restart: unless-stopped
+    profiles: ["blue"]
+    ports:
+      - "127.0.0.1:8611:80"
+    healthcheck:
+      test: ["CMD", "wget", "-qO", "/dev/null", "http://localhost/"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    deploy:
+      resources:
+        limits: { cpus: "1", memory: 256m }
+
+  web-green:
+    <<: *web
+    profiles: ["green"]
+    ports:
+      - "127.0.0.1:8612:80"
