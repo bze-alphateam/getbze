@@ -143,7 +143,7 @@ export const Features = () => {
                     icon={<FeatureIcon icon={MdOutlineFactory}/>}
                     title="Token Factory"
                     description="With Token Factory, you can create your own token in seconds, no technical background required. Your tokens can be used on the BeeZee blockchain and seamlessly transferred to other networks via IBC."
-                    footer={<ExternalButton text="Go To Token Factory" url="https://app.getbze.com/factory"/>}
+                    footer={<ExternalButton text="Go To Token Factory" url="https://factory.getbze.com/"/>}
                 />
                 <FeaturesItem
                     icon={<FeatureIcon icon={MdOutlineBarChart}/>}
