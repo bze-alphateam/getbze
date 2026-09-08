@@ -28,11 +28,11 @@ interface FeatureAppProps {
   url: string;
   logo?: string;
   useBeezeeLogo?: boolean;
-  comingSoon?: boolean;
+  badge?: string;
   deprecated?: boolean;
 }
 
-const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, deprecated }: FeatureAppProps) => {
+const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, badge, deprecated }: FeatureAppProps) => {
   const beezeeLogo = useColorModeValue("beezee-dark.svg", "beezee-light.svg");
   const bgGradient = useColorModeValue(
     'linear(to-br, white, blue.50)',
@@ -50,24 +50,24 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, 
   );
   const iconColor = useColorModeValue('blue.500', 'blue.300');
   const textColor = useColorModeValue('gray.600', 'gray.400');
-  const comingSoonBg = useColorModeValue('blue.100', 'blue.800');
-  const comingSoonColor = useColorModeValue('blue.700', 'blue.200');
+  const badgeBg = useColorModeValue('blue.100', 'blue.800');
+  const badgeColor = useColorModeValue('blue.700', 'blue.200');
   const deprecatedBg = useColorModeValue('orange.100', 'orange.800');
   const deprecatedColor = useColorModeValue('orange.700', 'orange.200');
 
-  const isDisabled = comingSoon;
-
   return (
     <Card
-      {...(isDisabled ? {} : { as: "a", href: url, target: "_blank" })}
-      cursor={isDisabled ? "default" : "pointer"}
-      opacity={isDisabled ? 0.65 : deprecated ? 0.75 : 1}
+      as="a"
+      href={url}
+      target="_blank"
+      cursor="pointer"
+      opacity={deprecated ? 0.75 : 1}
       bgGradient={bgGradient}
       borderWidth="2px"
       borderColor={borderColor}
       boxShadow="lg"
       transition="all 0.3s ease"
-      _hover={isDisabled ? {} : {
+      _hover={{
         transform: 'translateY(-8px)',
         boxShadow: '2xl',
         borderColor: hoverBorderColor,
@@ -94,22 +94,20 @@ const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, comingSoon, 
               >
                 {title}
               </Heading>
-              {!comingSoon && !deprecated && (
-                <Icon as={MdArrowOutward} boxSize={5} color={iconColor} flexShrink={0} />
-              )}
+              <Icon as={MdArrowOutward} boxSize={5} color={iconColor} flexShrink={0} />
             </HStack>
-            {comingSoon && (
+            {badge && (
               <Text
                 fontSize="xs"
                 fontWeight="bold"
-                bg={comingSoonBg}
-                color={comingSoonColor}
+                bg={badgeBg}
+                color={badgeColor}
                 px={2}
                 py={1}
                 borderRadius="md"
                 alignSelf="flex-start"
               >
-                Coming Soon
+                {badge}
               </Text>
             )}
             {deprecated && (
@@ -267,24 +265,31 @@ export const UsefulLinks = () => {
             useBeezeeLogo
           />
           <FeatureApp
-            title="Factory"
+            title="Token Factory"
             description="Create your own token in seconds"
-            url="https://app.getbze.com/factory"
+            url="https://factory.getbze.com/"
             useBeezeeLogo
-            comingSoon
+            badge="New"
           />
           <FeatureApp
-            title="BZE App"
-            description="Legacy application — being replaced by dedicated apps"
-            url="https://app.getbze.com"
+            title="Communities"
+            description="Discover, join and grow the communities behind BZE tokens"
+            url="https://communities.getbze.com/"
             useBeezeeLogo
-            deprecated
+            badge="New"
           />
           <FeatureApp
             title="CoinTrunk"
             description="Web3 tools"
             url="https://cointrunk.io"
             logo="logos/cointrunk_logo.svg"
+          />
+          <FeatureApp
+            title="BZE App"
+            description="Legacy all-in-one app — please use the dedicated apps above instead"
+            url="https://app.getbze.com"
+            useBeezeeLogo
+            deprecated
           />
         </SimpleGrid>
       </VStack>
