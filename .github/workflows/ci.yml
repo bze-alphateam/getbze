@@ -1,0 +1,40 @@
+name: ci
+
+# Test and build on every pull request and on main, so a red suite blocks the
+# merge instead of only surfacing when docker-publish builds the image.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same Node major and install flags as docker/prod/Dockerfile, so a green
+      # check means the image build will get the same dependency tree.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Test
+        run: yarn test --watchAll=false
+
+      # CI=true (set by Actions, repeated here because it is load-bearing) turns
+      # build warnings into errors, so this step also covers TypeScript and eslint.
+      - name: Build
+        run: yarn build
+        env:
+          CI: true
