@@ -5,3 +5,5 @@ build
 *.md
 .env
 .env.*
+!.env.dist
+deploy
