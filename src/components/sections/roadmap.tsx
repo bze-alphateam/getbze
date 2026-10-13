@@ -739,7 +739,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-5",
             title: "Token Community Page release",
-            status: statusInProgress,
+            status: statusTesting,
             description: "A branded, standalone page for every token on BZE, with everything its community needs in one place.",
             details: [
                 "Every token gets its own page styled with its on-chain brand colours and font, featuring key numbers, token details and a wallet that shows your balance and positions in that token, with Claim all, Send and a quick way to get the token from anything you hold.",
