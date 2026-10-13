@@ -654,9 +654,11 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             id: "2026-audit",
             title: "BZE Blockchain: Security Audit",
             status: statusSuccess,
-            description: "Comprehensive security audit of the BeeZee blockchain by a top blockchain auditing firm.",
+            description: "Comprehensive two-phase security audit of the BeeZee blockchain by Oak Security.",
             details: [
-                "The BeeZee blockchain was audited by Oak Security, a leading blockchain auditing company. The audit covered all core modules, consensus mechanisms, and on-chain functionality to ensure the highest level of security and reliability for our users."
+                "The BeeZee blockchain was audited by Oak Security, a leading blockchain auditing company, in two phases covering the chain's core modules and on-chain functionality.",
+                "All fixes from the audit are already live on mainnet, starting with the v8.1.0 upgrade. Going forward, the audited code is kept largely unchanged and is only modified when really needed.",
+                "The full audit reports are public in Oak Security's audit-reports repository on GitHub."
             ],
             link: "https://medium.com/bzedge-community/bze-code-audited-by-oak-security-51f1c093477e",
             quarter: "Q1",
@@ -667,6 +669,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             status: statusSuccess,
             children: [
                 "Security patches",
+                "All fees payable in other tokens",
                 "Various improvements"
             ],
             description: "Security and stability upgrade laying the groundwork for future development.",
@@ -687,16 +690,6 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             ],
             link: "https://factory.getbze.com",
             quarter: "Q3",
-        },
-        {
-            id: "2026-hub",
-            title: "BZE Hub: Desktop App",
-            status: statusInProgress,
-            description: "Desktop app that runs its own BZE node, so BZE keeps working even when public endpoints are down.",
-            details: [
-                "BZE Hub brings the BZE apps to your desktop and runs its own node in the background, so you are never dependent on public endpoints.",
-                "It already covers portfolio, send and receive, swaps, a trading terminal and liquidity pools. Staking and earning come next."
-            ],
         },
         {
             id: "2026-explorer",
@@ -746,9 +739,10 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             id: "2026-0-2",
             title: "CoinTrunk.io: Payment Processor",
             status: statusInProgress,
-            description: "Payment processing solution for accepting BeeZee blockchain assets.",
+            description: "Payment processing solution for accepting BeeZee blockchain assets - currently in design.",
             details: [
-                "Accept BZE and BeeZee blockchain assets with ease. A simple, powerful payment solution for merchants and businesses in the Web3 ecosystem."
+                "Accept BZE and BeeZee blockchain assets with ease. A simple, powerful payment solution for merchants and businesses in the Web3 ecosystem.",
+                "The payment processor is currently in the design phase. We are rethinking our strategy so that the product stays clear of regulatory and legal issues and does not require a MiCA license."
             ],
             quarter: "Q4",
         },
@@ -814,21 +808,6 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "The CoinTrunk mobile app plans have been postponed. This includes the iOS release, WalletConnect integration for dApp connections, and a complete app redesign with unified wallet interface and streamlined experience."
             ],
             link: "https://cointrunk.io",
-        },
-        {
-            id: "2026-8",
-            title: "BZE Blockchain: Blockchain Upgrade - Tokens Addons Phase 2",
-            status: statusWaiting,
-            children: [
-                "Minable Tokens",
-                "Mining software release"
-            ],
-            description: "Introduction of CPU-minable token creation capabilities.",
-            details: [
-                "Token creators can make their tokens minable, allowing users to earn tokens through CPU mining. Mining power can be purchased with BZE or other tokens, creating new economic models and engagement mechanisms.",
-                "Complete mining software and tools are provided out-of-the-box, making it easy for projects to launch mineable tokens without technical expertise."
-            ],
-            version: "v9.0.0"
         },
         {
             id: "2026-roadmap-2027",
