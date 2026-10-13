@@ -27,13 +27,14 @@ import {
     HStack,
 } from "@chakra-ui/react";
 import {Subtitle, colors} from "../common";
-import {MdBuild, MdCheckCircle, MdOutlineAccessTime, MdPauseCircle} from "react-icons/md";
+import {MdBuild, MdCheckCircle, MdOutlineAccessTime, MdPauseCircle, MdScience} from "react-icons/md";
 import {useState} from "react";
 
 const statusSuccess = 2;
 const statusInProgress = 1;
 const statusWaiting = 0;
 const statusPostponed = -1;
+const statusTesting = 3;
 
 interface RoadmapItemData {
     id: string;
@@ -66,6 +67,10 @@ const StatusBadge = ({status}: { status: number }) => {
         'linear(to-r, orange.100, orange.200)',
         'linear(to-r, orange.700, orange.600)'
     );
+    const tealGradient = useColorModeValue(
+        'linear(to-r, teal.100, teal.200)',
+        'linear(to-r, teal.700, teal.600)'
+    );
     const redGradient = useColorModeValue(
         'linear(to-r, red.100, red.200)',
         'linear(to-r, red.700, red.600)'
@@ -83,6 +88,10 @@ const StatusBadge = ({status}: { status: number }) => {
         case statusInProgress:
             label = "In Progress";
             bgGradient = orangeGradient;
+            break;
+        case statusTesting:
+            label = "In Testing";
+            bgGradient = tealGradient;
             break;
         case statusPostponed:
             label = "Postponed";
@@ -129,6 +138,10 @@ const RoadmapItemCard = ({item, onClick}: RoadmapItemProps) => {
         case statusInProgress:
             iconColor = colors.status.inProgress;
             icon = MdBuild;
+            break;
+        case statusTesting:
+            iconColor = colors.status.testing;
+            icon = MdScience;
             break;
         case statusPostponed:
             iconColor = "red.400";
@@ -704,7 +717,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-2",
             title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusInProgress,
+            status: statusTesting,
             children: [
                 "Denom Rewards: staking pools for any token",
                 "On-chain token branding",

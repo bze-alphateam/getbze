@@ -5,6 +5,7 @@ export const colors = {
   status: {
     success: 'green.300',
     fail: 'red.300',
-    inProgress: 'orange.300'
+    inProgress: 'orange.300',
+    testing: 'teal.300'
   }
 };
