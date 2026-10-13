@@ -27,13 +27,14 @@ import {
     HStack,
 } from "@chakra-ui/react";
 import {Subtitle, colors} from "../common";
-import {MdBuild, MdCheckCircle, MdOutlineAccessTime, MdPauseCircle} from "react-icons/md";
+import {MdBuild, MdCheckCircle, MdOutlineAccessTime, MdPauseCircle, MdScience} from "react-icons/md";
 import {useState} from "react";
 
 const statusSuccess = 2;
 const statusInProgress = 1;
 const statusWaiting = 0;
 const statusPostponed = -1;
+const statusTesting = 3;
 
 interface RoadmapItemData {
     id: string;
@@ -66,6 +67,10 @@ const StatusBadge = ({status}: { status: number }) => {
         'linear(to-r, orange.100, orange.200)',
         'linear(to-r, orange.700, orange.600)'
     );
+    const tealGradient = useColorModeValue(
+        'linear(to-r, teal.100, teal.200)',
+        'linear(to-r, teal.700, teal.600)'
+    );
     const redGradient = useColorModeValue(
         'linear(to-r, red.100, red.200)',
         'linear(to-r, red.700, red.600)'
@@ -83,6 +88,10 @@ const StatusBadge = ({status}: { status: number }) => {
         case statusInProgress:
             label = "In Progress";
             bgGradient = orangeGradient;
+            break;
+        case statusTesting:
+            label = "In Testing";
+            bgGradient = tealGradient;
             break;
         case statusPostponed:
             label = "Postponed";
@@ -129,6 +138,10 @@ const RoadmapItemCard = ({item, onClick}: RoadmapItemProps) => {
         case statusInProgress:
             iconColor = colors.status.inProgress;
             icon = MdBuild;
+            break;
+        case statusTesting:
+            iconColor = colors.status.testing;
+            icon = MdScience;
             break;
         case statusPostponed:
             iconColor = "red.400";
@@ -654,10 +667,13 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             id: "2026-audit",
             title: "BZE Blockchain: Security Audit",
             status: statusSuccess,
-            description: "Comprehensive security audit of the BeeZee blockchain by a top blockchain auditing firm.",
+            description: "Comprehensive two-phase security audit of the BeeZee blockchain by Oak Security.",
             details: [
-                "The BeeZee blockchain is undergoing a thorough security audit conducted by a leading blockchain auditing company. The audit covers all core modules, consensus mechanisms, and on-chain functionality to ensure the highest level of security and reliability for our users."
+                "The BeeZee blockchain was audited by Oak Security, a leading blockchain auditing company, in two phases covering the chain's core modules and on-chain functionality.",
+                "All fixes from the audit are already live on mainnet, starting with the v8.1.0 upgrade. Going forward, the audited code is kept largely unchanged and is only modified when really needed.",
+                "The full audit reports are public in Oak Security's audit-reports repository on GitHub."
             ],
+            link: "https://medium.com/bzedge-community/bze-code-audited-by-oak-security-51f1c093477e",
             quarter: "Q1",
         },
         {
@@ -666,6 +682,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             status: statusSuccess,
             children: [
                 "Security patches",
+                "All fees payable in other tokens",
                 "Various improvements"
             ],
             description: "Security and stability upgrade laying the groundwork for future development.",
@@ -676,44 +693,71 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             version: "v8.1.0"
         },
         {
-            id: "2026-0-2",
-            title: "CoinTrunk.io: Payment Processor",
-            status: statusInProgress,
-            description: "Payment processing solution for accepting BeeZee blockchain assets.",
-            details: [
-                "Accept BZE and BeeZee blockchain assets with ease. A simple, powerful payment solution for merchants and businesses in the Web3 ecosystem."
-            ],
-            quarter: "Q2",
-        },
-        {
             id: "2026-0-3",
             title: "Factory App release",
-            status: statusInProgress,
+            status: statusSuccess,
             description: "Dedicated application for token creation and management.",
             details: [
-                "A specialized app focusing on the token factory features, making it even easier to create, configure, and manage custom tokens with an intuitive step-by-step interface."
+                "A specialized app focusing on the token factory features, making it even easier to create, configure, and manage custom tokens with an intuitive step-by-step interface.",
+                "Creators can create tokens, open DEX markets, create liquidity pools with their chosen swap fees, set up staking rewards and manage everything they created in one place. More tools will follow as new chain features launch."
             ],
-            quarter: "Q2",
+            link: "https://factory.getbze.com",
+            quarter: "Q3",
+        },
+        {
+            id: "2026-explorer",
+            title: "BZE Explorer",
+            status: statusInProgress,
+            description: "A block explorer built specifically for BeeZee.",
+            details: [
+                "A BZE-specific explorer that explains DEX, burner, rewards and token activity in plain language, with a layout familiar to users coming from other ecosystems.",
+                "It is built to grow with the chain, so every new feature can be shown the way it deserves instead of as raw transaction data."
+            ],
         },
         {
             id: "2026-2",
             title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusInProgress,
+            status: statusTesting,
             children: [
-                "Token Addon: DAO & Governance",
-                "DEX engine performance improvements",
-                "Extend Token Factory Metadata",
-                "Compounded Staking Rewards",
-                "Allow Custom Fees in any token"
+                "Denom Rewards: staking pools for any token",
+                "On-chain token branding",
+                "Governance trading halt for tokens",
+                "Noble USDC wind-down"
             ],
-            description: "Major upgrade introducing DAO governance and core performance enhancements.",
+            description: "Denom Rewards, on-chain token branding and the Noble USDC wind-down.",
             details: [
-                "Introduces comprehensive DAO governance features allowing token holders to vote on proposals and manage community treasuries.",
-                "The governance system enables true decentralization, giving the community direct control over network parameters, treasury allocation, and future development directions.",
-                "This upgrade also optimizes the DEX engine for higher throughput and lower latency, expands token metadata capabilities, implements auto-compounding staking rewards, and allows custom fee payments in any token."
+                "Denom Rewards: every token on BZE can have its own staking pool that pays stakers in any token, up to 50 prize tokens at a time. Anyone can fund a pool, either as a daily campaign or as a one-time airdrop.",
+                "On-chain token branding: token admins can store a font and light/dark colour palettes on-chain, so every app shows the token with the same identity. This powers the branded token pages of the Communities app.",
+                "Governance trading halt: governance can halt trading of a token that loses its backing, while withdrawals, order cancellations and transfers keep working.",
+                "Noble USDC wind-down: Circle is retiring USDC on Noble. The upgrade stops accepting new Noble USDC and moves the protocol-owned USDC/BZE liquidity to USDC issued on Injective.",
+                "Also included: anyone can clean up finished staking rewards, the latest CometBFT security updates and richer DEX events for indexers and the upcoming explorer. Already live on testnet."
             ],
-            quarter: "Q2",
+            link: "https://medium.com/bzedge-community/bze-status-update-oct-8-2026-39e51d830cdd",
+            quarter: "Q4",
             version: "v8.2.0"
+        },
+        {
+            id: "2026-5",
+            title: "Token Community Page release",
+            status: statusTesting,
+            description: "A branded, standalone page for every token on BZE, with everything its community needs in one place.",
+            details: [
+                "Every token gets its own page styled with its on-chain brand colours and font, featuring key numbers, token details and a wallet that shows your balance and positions in that token, with Claim all, Send and a quick way to get the token from anything you hold.",
+                "Holders can stake in the token's holders pool and fixed-term programs, discover other ways to earn the token, trade it with an instant swap backed by a price chart, add and remove liquidity in its pools, and follow burns and burning raffles - all without leaving the page.",
+                "Tokens with enough liquidity pay network fees in the token itself by default. A searchable token directory with filters and sorting helps you discover projects. Already completed and currently being tested on testnet."
+            ],
+            quarter: "Q4",
+        },
+        {
+            id: "2026-0-2",
+            title: "CoinTrunk.io: Payment Processor",
+            status: statusInProgress,
+            description: "Payment processing solution for accepting BeeZee blockchain assets - currently in design.",
+            details: [
+                "Accept BZE and BeeZee blockchain assets with ease. A simple, powerful payment solution for merchants and businesses in the Web3 ecosystem.",
+                "The payment processor is currently in the design phase. We are rethinking our strategy so that the product stays clear of regulatory and legal issues and does not require a MiCA license."
+            ],
+            quarter: "Q4",
         },
         {
             id: "2026-1",
@@ -724,35 +768,49 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "A comprehensive rewards system that incentivizes active trading on the DEX, distributing rewards to top traders and liquidity providers to ensure deep markets and tight spreads.",
                 "The program can be customized by token creators to bootstrap liquidity for their own markets, creating a thriving trading ecosystem."
             ],
-            quarter: "Q2",
-        },
-        {
-            id: "2026-5",
-            title: "Token Community Page release",
-            status: statusWaiting,
-            description: "Dedicated pages for each token with community features and information.",
-            details: [
-                "Every token created on BZE will have its own dedicated page featuring token statistics, holder information, governance proposals, community discussions, and links to social channels - creating a complete ecosystem hub for each project."
-            ],
-            quarter: "Q2",
+            quarter: "Q4",
         },
         {
             id: "2026-3",
             title: "BZE Blockchain: Blockchain Upgrade",
             status: statusWaiting,
             children: [
-                "BZE Max supply to 400M",
-                "Token Addon: Fees & Distribution",
-                "Token Addon: Community Pool"
+                "Cosmos SDK 0.53 & IBC v10",
+                "Native DAO module",
+                "Airdrops to address lists & holder snapshots",
+                "Governance-assigned token admins"
             ],
-            description: "Tokenomics upgrade with max supply cap, fee management, and community funding.",
+            description: "Core infrastructure upgrade plus native DAOs and new airdrop tools.",
             details: [
-                "Implementation of a hard cap at 400 million BZE tokens, ensuring absolute scarcity and predictable supply.",
-                "Token creators can implement custom transfer fees and automatically distribute them to stakers, liquidity providers, or any specified recipients. The community pool feature enables projects to accumulate funds for development and marketing.",
-                "These tools give projects sophisticated tokenomics capabilities without requiring any development effort, making advanced token mechanics accessible to everyone."
+                "Moves the chain to Cosmos SDK 0.53 and IBC v10, keeping BeeZee on a supported, security-maintained foundation. Unused modules are removed to keep the chain lean.",
+                "Native DAO module: communities can create DAOs with a fixed list of members or with voting power based on staking, submit and vote on proposals, and manage a shared treasury.",
+                "Airdrops can be sent to a list of addresses or to a snapshot of a token's holders.",
+                "Governance can assign a new admin to any factory token, including tokens whose admin was renounced, so a token can be handed over to its DAO.",
+                "Every upgrade is now validated by a full end-to-end test suite that runs the real chain software before release."
             ],
-            quarter: "Q3",
+            quarter: "Q4",
             version: "v8.3.0"
+        },
+        {
+            id: "2026-next",
+            title: "BZE Blockchain: Blockchain Upgrade",
+            status: statusWaiting,
+            children: [
+                "BZE Max supply to 400M",
+                "Compounded Staking Rewards",
+                "Token Addon: Fees & Distribution",
+                "Token Addon: Community Pool",
+                "DEX engine performance improvements"
+            ],
+            description: "The next upgrade after v8.3.0, most likely before the end of the year.",
+            details: [
+                "These are the features currently on our list for the upgrade following v8.3.0. The final scope is not set yet: some of them might be moved to a later release and new ones might be added.",
+                "A hard cap at 400 million BZE tokens, as approved by governance, ensuring absolute scarcity and predictable supply.",
+                "Auto-compounding staking rewards, plus token addons that let creators implement custom transfer fees distributed to stakers, liquidity providers or any specified recipients, and a community pool for funding development and marketing.",
+                "Further performance improvements to the DEX engine."
+            ],
+            quarter: "Q4",
+            version: "TBA"
         },
         {
             id: "2026-6",
@@ -765,31 +823,14 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
             link: "https://cointrunk.io",
         },
         {
-            id: "2026-8",
-            title: "BZE Blockchain: Blockchain Upgrade - Tokens Addons Phase 2",
+            id: "2026-roadmap-2027",
+            title: "Roadmap 2027",
             status: statusWaiting,
-            children: [
-                "Minable Tokens",
-                "Mining software release"
-            ],
-            description: "Introduction of CPU-minable token creation capabilities.",
+            description: "The BZE roadmap for 2027.",
             details: [
-                "Token creators can make their tokens minable, allowing users to earn tokens through CPU mining. Mining power can be purchased with BZE or other tokens, creating new economic models and engagement mechanisms.",
-                "Complete mining software and tools are provided out-of-the-box, making it easy for projects to launch mineable tokens without technical expertise."
+                "Our plans for 2027, including major infrastructure upgrades, new tokenomics features and more, will be published here. Stay tuned for more details!"
             ],
-            quarter: "Q3",
-            version: "v9.0.0"
-        },
-        {
-            id: "2026-6",
-            title: "Roadmap Part II",
-            status: statusWaiting,
-            description: "The second phase of the BZE roadmap, covering the last 6 months of 2026.",
-            details: [
-                "The roadmap will be updated with new features and improvements in the coming months, including major infrastructure upgrades, new tokenomics features, and more. Stay tuned for more details!"
-            ],
-            link: "https://cointrunk.io",
-            quarter: "Q3",
+            quarter: "Q4",
         },
     ]
 };
