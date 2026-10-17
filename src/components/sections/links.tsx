@@ -21,114 +21,148 @@ import { Subtitle, colors } from "../common"
 import { ChevronDownIcon } from "@chakra-ui/icons"
 import { MdArrowOutward } from "react-icons/md";
 
-// Feature App Card - for BeeZee apps
-interface FeatureAppProps {
+// The BeeZee apps, with the icons and colours of the official app identity
+// (Official-BZEdge-Graphics, beezee/apps). `ink` is the app colour for text on
+// light backgrounds, `onDark` the one for dark backgrounds.
+interface BeezeeApp {
+  key: string;
+  title: string;
+  description: string;
+  domain: string;
+  ink: string;
+  onDark: string;
+  badge?: string;
+}
+
+const BEEZEE_APPS: BeezeeApp[] = [
+  { key: "factory", title: "Factory", description: "Create a token and manage everything about it: supply, brand, pools and rewards.", domain: "factory.getbze.com", ink: "#9A6A00", onDark: "#FFC933" },
+  { key: "communities", title: "Communities", description: "Every token's own branded page, plus a directory of all tokens on BeeZee.", domain: "communities.getbze.com", ink: "#1A7A43", onDark: "#3DD07A" },
+  { key: "dex", title: "DEX", description: "Trade any token with instant swaps or an order book.", domain: "dex.getbze.com", ink: "#0E74AD", onDark: "#12C1E1" },
+  { key: "staking", title: "Staking", description: "Stake BZE with validators and claim your rewards.", domain: "staking.getbze.com", ink: "#8E44AD", onDark: "#B57EDC" },
+  { key: "burner", title: "Burner", description: "Burn tokens in public and join burning raffles.", domain: "burner.getbze.com", ink: "#C24A00", onDark: "#FF8A1F" },
+  { key: "explorer", title: "Explorer", description: "Every block and transaction, explained in plain language.", domain: "explorer.getbze.com", ink: "#0B74A8", onDark: "#22C4E2", badge: "New" },
+];
+
+/** The app's icon for the current colour mode: the disc is a shade lighter on dark backgrounds. */
+const useAppIcon = (key: string) => useColorModeValue(`apps/${key}/icon.svg`, `apps/${key}/icon-on-dark.svg`);
+
+const useCardStyle = () => ({
+  bgGradient: useColorModeValue('linear(to-br, white, blue.50)', 'linear(to-br, gray.800, blue.900)'),
+  borderColor: useColorModeValue('blue.100', 'blue.700'),
+  hoverBgGradient: useColorModeValue('linear(to-br, blue.50, cyan.50)', 'linear(to-br, blue.900, cyan.900)'),
+  headingGradient: useColorModeValue('linear(to-r, blue.600, cyan.500)', 'linear(to-r, blue.300, cyan.300)'),
+  textColor: useColorModeValue('gray.600', 'gray.400'),
+});
+
+const Badge = ({ text, scheme }: { text: string; scheme: 'blue' | 'orange' }) => (
+  <Text
+    fontSize="xs"
+    fontWeight="bold"
+    bg={useColorModeValue(`${scheme}.100`, `${scheme}.800`)}
+    color={useColorModeValue(`${scheme}.700`, `${scheme}.200`)}
+    px={2}
+    py={1}
+    borderRadius="md"
+    flexShrink={0}
+  >
+    {text}
+  </Text>
+);
+
+// App Card - one BeeZee app, its border and link in the app's colour on hover
+const AppCard = ({ app }: { app: BeezeeApp }) => {
+  const style = useCardStyle();
+  const icon = useAppIcon(app.key);
+  const accent = useColorModeValue(app.ink, app.onDark);
+
+  return (
+    <Card
+      as="a"
+      href={`https://${app.domain}`}
+      target="_blank"
+      rel="noopener"
+      cursor="pointer"
+      bgGradient={style.bgGradient}
+      borderWidth="2px"
+      borderColor={style.borderColor}
+      boxShadow="lg"
+      transition="all 0.3s ease"
+      _hover={{
+        transform: 'translateY(-8px)',
+        boxShadow: '2xl',
+        borderColor: accent,
+        bgGradient: style.hoverBgGradient,
+        textDecoration: 'none'
+      }}
+    >
+      <CardBody>
+        <VStack spacing={3} align="stretch" height="100%">
+          <HStack spacing={3}>
+            <Image src={icon} alt="" boxSize={{ base: 10, md: 12 }} flexShrink={0} />
+            <Heading size={{ base: 'sm', md: 'md' }} bgGradient={style.headingGradient} bgClip="text" flex={1}>
+              {app.title}
+            </Heading>
+            {app.badge && <Badge text={app.badge} scheme="blue" />}
+          </HStack>
+          <Text fontSize="sm" color={style.textColor}>
+            {app.description}
+          </Text>
+          <HStack spacing={1} marginTop="auto" color={accent} fontSize="sm" fontWeight="semibold">
+            <Text>{app.domain}</Text>
+            <Icon as={MdArrowOutward} boxSize={4} />
+          </HStack>
+        </VStack>
+      </CardBody>
+    </Card>
+  );
+};
+
+// Ecosystem Card - a smaller card for the apps outside the BeeZee app family
+interface EcosystemCardProps {
   title: string;
   description: string;
   url: string;
-  logo?: string;
-  useBeezeeLogo?: boolean;
+  logo: string;
   badge?: string;
-  deprecated?: boolean;
 }
 
-const FeatureApp = ({ title, description, url, logo, useBeezeeLogo, badge, deprecated }: FeatureAppProps) => {
-  const beezeeLogo = useColorModeValue("beezee-dark.svg", "beezee-light.svg");
-  const bgGradient = useColorModeValue(
-    'linear(to-br, white, blue.50)',
-    'linear(to-br, gray.800, blue.900)'
-  );
-  const borderColor = useColorModeValue('blue.100', 'blue.700');
+const EcosystemCard = ({ title, description, url, logo, badge }: EcosystemCardProps) => {
+  const style = useCardStyle();
   const hoverBorderColor = useColorModeValue('blue.300', 'blue.500');
-  const hoverBgGradient = useColorModeValue(
-    'linear(to-br, blue.50, cyan.50)',
-    'linear(to-br, blue.900, cyan.900)'
-  );
-  const headingGradient = useColorModeValue(
-    'linear(to-r, blue.600, cyan.500)',
-    'linear(to-r, blue.300, cyan.300)'
-  );
   const iconColor = useColorModeValue('blue.500', 'blue.300');
-  const textColor = useColorModeValue('gray.600', 'gray.400');
-  const badgeBg = useColorModeValue('blue.100', 'blue.800');
-  const badgeColor = useColorModeValue('blue.700', 'blue.200');
-  const deprecatedBg = useColorModeValue('orange.100', 'orange.800');
-  const deprecatedColor = useColorModeValue('orange.700', 'orange.200');
 
   return (
     <Card
       as="a"
       href={url}
       target="_blank"
+      rel="noopener"
       cursor="pointer"
-      opacity={deprecated ? 0.75 : 1}
-      bgGradient={bgGradient}
+      bgGradient={style.bgGradient}
       borderWidth="2px"
-      borderColor={borderColor}
-      boxShadow="lg"
+      borderColor={style.borderColor}
+      boxShadow="md"
       transition="all 0.3s ease"
       _hover={{
-        transform: 'translateY(-8px)',
-        boxShadow: '2xl',
+        transform: 'translateY(-4px)',
+        boxShadow: 'xl',
         borderColor: hoverBorderColor,
-        bgGradient: hoverBgGradient,
+        bgGradient: style.hoverBgGradient,
         textDecoration: 'none'
       }}
     >
-      <CardBody>
-        <VStack spacing={4} align="stretch">
-          <VStack align="stretch" spacing={2}>
-            <HStack spacing={3}>
-              {useBeezeeLogo && (
-                <Image
-                  src={beezeeLogo}
-                  height={{base: 7, md: 10}}
-                />
-              )}
-              {logo && <Image src={logo} height={{base: 7, md: 10}} />}
-              <Heading
-                size={{base: 'sm', md: 'md'}}
-                bgGradient={headingGradient}
-                bgClip="text"
-                flex={1}
-              >
-                {title}
-              </Heading>
-              <Icon as={MdArrowOutward} boxSize={5} color={iconColor} flexShrink={0} />
+      <CardBody py={4} display="flex" alignItems="center">
+        <HStack spacing={3} width="100%">
+          <Image src={logo} alt="" boxSize={8} flexShrink={0} />
+          <VStack spacing={0} align="start" flex={1}>
+            <HStack spacing={2}>
+              <Heading size="sm">{title}</Heading>
+              {badge && <Badge text={badge} scheme="orange" />}
             </HStack>
-            {badge && (
-              <Text
-                fontSize="xs"
-                fontWeight="bold"
-                bg={badgeBg}
-                color={badgeColor}
-                px={2}
-                py={1}
-                borderRadius="md"
-                alignSelf="flex-start"
-              >
-                {badge}
-              </Text>
-            )}
-            {deprecated && (
-              <Text
-                fontSize="xs"
-                fontWeight="bold"
-                bg={deprecatedBg}
-                color={deprecatedColor}
-                px={2}
-                py={1}
-                borderRadius="md"
-                alignSelf="flex-start"
-              >
-                Sunsetting
-              </Text>
-            )}
+            <Text fontSize="sm" color={style.textColor}>{description}</Text>
           </VStack>
-          <Text fontSize="sm" color={textColor}>
-            {description}
-          </Text>
-        </VStack>
+          <Icon as={MdArrowOutward} boxSize={5} color={iconColor} flexShrink={0} />
+        </HStack>
       </CardBody>
     </Card>
   );
@@ -222,6 +256,8 @@ export const UsefulLinks = () => {
   const mediumLogo = useColorModeValue("logos/medium_logo_dark.png", "logos/medium_logo_light.png");
   const xLogo = useColorModeValue("logos/x_logo_dark.png", "logos/x_logo_light.png");
   const githubLogo = useColorModeValue("logos/github_logo_dark.svg", "logos/github_logo_light.svg");
+  const dexIcon = useAppIcon("dex");
+  const moreColor = useColorModeValue('gray.600', 'gray.400');
   const explorerBorderColor = useColorModeValue('blue.100', 'blue.700');
   const explorerBgGradient = useColorModeValue(
     'linear(to-br, white, gray.50)',
@@ -246,50 +282,22 @@ export const UsefulLinks = () => {
           description="Explore our suite of decentralized applications"
         />
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5} width="100%">
-          <FeatureApp
-            title="DEX"
-            description="Trade assets with our order book exchange"
-            url="https://dex.getbze.com"
-            useBeezeeLogo
-          />
-          <FeatureApp
-            title="Staking"
-            description="Stake BZE tokens and earn rewards from validators"
-            url="https://staking.getbze.com"
-            useBeezeeLogo
-          />
-          <FeatureApp
-            title="Burner"
-            description="Participate in burning raffles and win BZE"
-            url="https://burner.getbze.com/"
-            useBeezeeLogo
-          />
-          <FeatureApp
-            title="Token Factory"
-            description="Create your own token in seconds"
-            url="https://factory.getbze.com/"
-            useBeezeeLogo
-            badge="New"
-          />
-          <FeatureApp
-            title="Communities"
-            description="Discover, join and grow the communities behind BZE tokens"
-            url="https://communities.getbze.com/"
-            useBeezeeLogo
-            badge="New"
-          />
-          <FeatureApp
+          {BEEZEE_APPS.map((app) => <AppCard key={app.key} app={app} />)}
+        </SimpleGrid>
+        <Text fontSize="sm" fontWeight="semibold" color={moreColor} pt={2}>More from the ecosystem</Text>
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} width="100%">
+          <EcosystemCard
             title="CoinTrunk"
-            description="Web3 tools"
+            description="News and articles from trusted publishers, saved on the chain."
             url="https://cointrunk.io"
             logo="logos/cointrunk_logo.svg"
           />
-          <FeatureApp
+          <EcosystemCard
             title="BZE App"
-            description="Legacy all-in-one app — please use the dedicated apps above instead"
+            description="The original all-in-one app. Still online, but the apps above do everything better."
             url="https://app.getbze.com"
-            useBeezeeLogo
-            deprecated
+            logo="icon-192.png"
+            badge="Legacy"
           />
         </SimpleGrid>
       </VStack>
@@ -301,7 +309,7 @@ export const UsefulLinks = () => {
           description="Buy BZE and monitor market data"
         />
         <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing={4} width="100%">
-          <QuickLink name="BZE DEX" url="https://dex.getbze.com" logo="bze_icon.png" />
+          <QuickLink name="BZE DEX" url="https://dex.getbze.com" logo={dexIcon} />
           <QuickLink name="Skip.Go" url="https://go.skip.build?src_chain=1&src_asset=ethereum-native&dest_chain=beezee-1&dest_asset=ubze" logo={skipGoLogo} logoHeight={10} />
           <QuickLink name="Osmosis" url="https://app.osmosis.zone/pool/856" logo="logos/osmosis_logo.png" />
           <QuickLink name="NonKYC" url="https://nonkyc.io/market/BZE_USDT?ref=66ef24ed678488447ea9b8cb" logo={nonKycLogo} />
