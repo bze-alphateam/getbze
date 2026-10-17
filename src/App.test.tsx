@@ -1,5 +1,5 @@
 import React from "react"
-import { screen } from "@testing-library/react"
+import { screen, within } from "@testing-library/react"
 import { render } from "./test-utils"
 import { App } from "./App"
 
@@ -52,5 +52,28 @@ test("every card in the ecosystem section links to an absolute URL", async () =>
   expect(links.length).toBeGreaterThan(0)
   for (const link of links) {
     expect(link).toHaveAttribute("href", expect.stringMatching(/^https:\/\//))
+  }
+})
+
+// Each BeeZee app card carries that app's own icon from the app identity, not
+// a shared logo, and sends visitors to the app's own domain.
+test("every BeeZee app card shows its own icon and links to its app", async () => {
+  render(<App />)
+
+  await screen.findByRole("heading", { name: "BeeZee Applications" })
+  const ecosystem = within(document.getElementById("ecosystem") as HTMLElement)
+
+  const apps = [
+    ["Factory", "factory"],
+    ["Communities", "communities"],
+    ["DEX", "dex"],
+    ["Staking", "staking"],
+    ["Burner", "burner"],
+    ["Explorer", "explorer"],
+  ]
+  for (const [title, key] of apps) {
+    const link = ecosystem.getByRole("heading", { name: title }).closest("a")
+    expect(link).toHaveAttribute("href", `https://${key}.getbze.com`)
+    expect(link?.querySelector("img")).toHaveAttribute("src", `apps/${key}/icon.svg`)
   }
 })
