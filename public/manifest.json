@@ -1,25 +1,26 @@
 {
-  "short_name": "BZE Website",
+  "short_name": "BeeZee",
   "name": "BeeZee Blockchain Website",
   "icons": [
     {
-      "src": "logo_64px.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "icon-192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "logo_320px.png",
-      "type": "image/png",
-      "sizes": "192x192 320x320"
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
-      "src": "full_logo_512px.png",
+      "src": "maskable-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#F7FAFC",
+  "background_color": "#F7FAFC"
 }
