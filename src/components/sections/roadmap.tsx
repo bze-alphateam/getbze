@@ -707,17 +707,20 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-explorer",
             title: "BZE Explorer",
-            status: statusInProgress,
+            status: statusSuccess,
             description: "A block explorer built specifically for BeeZee.",
             details: [
                 "A BZE-specific explorer that explains DEX, burner, rewards and token activity in plain language, with a layout familiar to users coming from other ecosystems.",
-                "It is built to grow with the chain, so every new feature can be shown the way it deserves instead of as raw transaction data."
+                "It is built to grow with the chain, so every new feature can be shown the way it deserves instead of as raw transaction data.",
+                "Live at explorer.getbze.com for mainnet, with a testnet explorer at testnet-explorer.getbze.com."
             ],
+            link: "https://explorer.getbze.com",
+            quarter: "Q4",
         },
         {
             id: "2026-2",
             title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusTesting,
+            status: statusSuccess,
             children: [
                 "Denom Rewards: staking pools for any token",
                 "On-chain token branding",
@@ -730,7 +733,8 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "On-chain token branding: token admins can store a font and light/dark colour palettes on-chain, so every app shows the token with the same identity. This powers the branded token pages of the Communities app.",
                 "Governance trading halt: governance can halt trading of a token that loses its backing, while withdrawals, order cancellations and transfers keep working.",
                 "Noble USDC wind-down: Circle is retiring USDC on Noble. The upgrade stops accepting new Noble USDC and moves the protocol-owned USDC/BZE liquidity to USDC issued on Injective.",
-                "Also included: anyone can clean up finished staking rewards, the latest CometBFT security updates and richer DEX events for indexers and the upcoming explorer. Already live on testnet."
+                "Also included: anyone can clean up finished staking rewards, the latest CometBFT security updates and richer DEX events for indexers and the explorer.",
+                "The upgrade is live on testnet and approved by mainnet governance. It kicks in at block height 25,263,600, estimated for October 26, 2026."
             ],
             link: "https://medium.com/bzedge-community/bze-status-update-oct-8-2026-39e51d830cdd",
             quarter: "Q4",
@@ -745,6 +749,18 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
                 "Every token gets its own page styled with its on-chain brand colours and font, featuring key numbers, token details and a wallet that shows your balance and positions in that token, with Claim all, Send and a quick way to get the token from anything you hold.",
                 "Holders can stake in the token's holders pool and fixed-term programs, discover other ways to earn the token, trade it with an instant swap backed by a price chart, add and remove liquidity in its pools, and follow burns and burning raffles - all without leaving the page.",
                 "Tokens with enough liquidity pay network fees in the token itself by default. A searchable token directory with filters and sorting helps you discover projects. Already completed and currently being tested on testnet."
+            ],
+            quarter: "Q4",
+        },
+        {
+            id: "2026-rebrand",
+            title: "BZE Apps: Unified Rebranding",
+            status: statusTesting,
+            description: "One visual identity across the whole suite of BeeZee apps.",
+            details: [
+                "Every BeeZee app - DEX, Staking, Burner, Factory, Communities and the Explorer - gets its own icon from a shared family and the same look and feel: one colour theme, the same typography, headers, buttons and drawers everywhere.",
+                "Apps link to each other in a consistent way, so moving between trading, staking, burning and token management feels like using a single product instead of separate websites.",
+                "The rebranded apps are complete and currently being tested on testnet."
             ],
             quarter: "Q4",
         },
