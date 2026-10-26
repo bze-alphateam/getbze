@@ -755,12 +755,12 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-rebrand",
             title: "BZE Apps: Unified Rebranding",
-            status: statusTesting,
+            status: statusSuccess,
             description: "One visual identity across the whole suite of BeeZee apps.",
             details: [
                 "Every BeeZee app - DEX, Staking, Burner, Factory, Communities and the Explorer - gets its own icon from a shared family and the same look and feel: one colour theme, the same typography, headers, buttons and drawers everywhere.",
                 "Apps link to each other in a consistent way, so moving between trading, staking, burning and token management feels like using a single product instead of separate websites.",
-                "The rebranded apps are complete and currently being tested on testnet."
+                "The rebranded apps are complete and live."
             ],
             quarter: "Q4",
         },
@@ -789,7 +789,7 @@ const roadmapData: Record<string, RoadmapItemData[]> = {
         {
             id: "2026-3",
             title: "BZE Blockchain: Blockchain Upgrade",
-            status: statusWaiting,
+            status: statusInProgress,
             children: [
                 "Cosmos SDK 0.53 & IBC v10",
                 "Native DAO module",
