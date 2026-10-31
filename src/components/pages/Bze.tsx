@@ -59,8 +59,7 @@ export function BzeBody() {
               </defs>
               <path d="M100 8l84 48v108l-84 48-84-48V56z" fill="url(#cf)" stroke="url(#cg)" strokeWidth="2.5" />
               <path d="M100 34l61 35v80l-61 35-61-35V69z" fill="none" stroke="rgba(51,195,224,0.25)" strokeWidth="1" />
-              <image href="/brand/bz-mark.svg" x="60" y="58" width="80" height="80" />
-              <text x="100" y="162" textAnchor="middle" fontFamily="Inter,system-ui,sans-serif" fontSize="12" fontWeight="600" fill="#8AD9EC">holds it together</text>
+              <image href="/brand/bz-mark.svg" x="52" y="62" width="96" height="96" />
             </svg>
           </div>
           <div className="card piece tr">
