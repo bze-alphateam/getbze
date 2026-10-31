@@ -493,6 +493,18 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             version: "v8.3.0"
         },
         {
+            id: "2026-beepocket",
+            title: "BeePocket: BeeZee Wallet",
+            status: IN_PROGRESS,
+            description: "BeePocket, the wallet built for BeeZee, launching first as a browser extension.",
+            details: [
+                "BeePocket is a self-custody wallet dedicated to the BeeZee blockchain: your keys stay on your device and only you control your funds.",
+                "Made for BeeZee and its apps, so the DEX, staking, Factory, Burner and token community pages work together smoothly, with one wallet across all of them.",
+                "The browser extension comes first. More platforms will follow later."
+            ],
+            quarter: "Q4"
+        },
+        {
             id: "2026-next",
             title: "BZE Blockchain: Blockchain Upgrade",
             status: PLANNED,
