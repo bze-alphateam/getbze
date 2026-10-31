@@ -62,3 +62,13 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 .pg-roadmap .rd-lead{margin:0;font-size:16px;line-height:1.55;color:var(--text-2)}
 .pg-roadmap .rd-p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
 .v.pg-roadmap button.rd-x{flex:none;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;padding:0;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--text);cursor:pointer}
+/* The dialog's own open and close animations. Chakra's recipe names keyframes this site never
+   emits, so its exit animation never ends and the closed dialog stays mounted over the page. */
+.pg-roadmap .rd-back{animation:rd-fade-in 200ms ease-out}
+.pg-roadmap .rd-back[data-state="closed"]{animation:rd-fade-out 150ms ease-in}
+.pg-roadmap .rd{animation:rd-in 200ms ease-out}
+.pg-roadmap .rd[data-state="closed"]{animation:rd-fade-out 150ms ease-in}
+@keyframes rd-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes rd-fade-out{from{opacity:1}to{opacity:0}}
+@keyframes rd-in{from{opacity:0;transform:scale(0.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.pg-roadmap .rd-back,.pg-roadmap .rd-back[data-state="closed"],.pg-roadmap .rd,.pg-roadmap .rd[data-state="closed"]{animation:none}}

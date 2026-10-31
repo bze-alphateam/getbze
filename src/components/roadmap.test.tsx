@@ -1,5 +1,8 @@
 import { ChakraProvider, createSystem, defaultConfig } from '@chakra-ui/react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 
 import { MEDIUM_URL } from './live/articles';
@@ -34,5 +37,19 @@ describe('roadmap details', () => {
         render(<ChakraProvider value={system}><UpNextGrid /><DeliveredYears /></ChakraProvider>);
 
         expect(screen.queryAllByRole('link')).toHaveLength(0);
+    });
+});
+
+// jsdom runs no animations, so the tests above close the dialog even when the browser
+// cannot: the dialog unmounts only when its exit animation ends, and Chakra's own exit
+// keyframes are never emitted on this site. The page must close it with keyframes it defines.
+describe('roadmap dialog close animation', () => {
+    const css = readFileSync(join(__dirname, '../styles/pages/roadmap.css'), 'utf8');
+    const keyframes = new Set([...css.matchAll(/@keyframes\s+([\w-]+)/g)].map((m) => m[1]));
+
+    it.each(['.rd-back', '.rd'])('%s closes with keyframes the page defines', (selector) => {
+        const rule = css.match(new RegExp(`\\.pg-roadmap ${selector.replace('.', '\\.')}\\[data-state="closed"\\]\\{animation:([\\w-]+)`));
+        expect(rule).not.toBeNull();
+        expect(keyframes).toContain(rule?.[1]);
     });
 });
