@@ -14,6 +14,18 @@ export function NewsBody() {
       <div className="wrap">
         <div className="shead">
           <div style={{ maxWidth: "640px" }}>
+            <h2 className="h2" style={{ marginTop: "0px" }}>Latest news</h2>
+            <p className="lead">Pulled from our Medium, newest first.</p>
+          </div>
+          <a className="btn btn-s" href="https://bzedge.medium.com" target="_blank" rel="noopener" style={{ height: "44px" }}>All articles ↗</a>
+        </div>
+        <NewsArticles />
+      </div>
+    </section>
+    <section className="sec">
+      <div className="wrap">
+        <div className="shead">
+          <div style={{ maxWidth: "640px" }}>
             <h2 className="h2" style={{ marginTop: "0px" }}>Where to find us</h2>
           </div>
         </div>
@@ -39,18 +51,6 @@ export function NewsBody() {
   <span style={{ color: "var(--faint)" }}>↗</span>
 </div><span className="d">All the code, in the open.</span></a>
         </div>
-      </div>
-    </section>
-    <section className="sec">
-      <div className="wrap">
-        <div className="shead">
-          <div style={{ maxWidth: "640px" }}>
-            <h2 className="h2" style={{ marginTop: "0px" }}>Latest news</h2>
-            <p className="lead">Pulled from our Medium, newest first.</p>
-          </div>
-          <a className="btn btn-s" href="https://bzedge.medium.com" target="_blank" rel="noopener" style={{ height: "44px" }}>All articles ↗</a>
-        </div>
-        <NewsArticles />
       </div>
     </section>
     <section className="sec">
