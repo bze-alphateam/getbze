@@ -18,20 +18,20 @@ function cover(image: string, gradient: string): string {
     return image ? `center / cover no-repeat url(${JSON.stringify(image)}), ${gradient}` : gradient;
 }
 
-/** Home: the latest two articles as rows inside the "Latest articles" card. */
+/** Home: the latest two articles as cards with their cover, side by side inside the "Latest articles" card. */
 export function HomeArticles() {
     const [state] = useLive(loadArticles);
 
     if (state.status === 'loading') {
         return (
-            <>
+            <div className="arts">
                 {[0, 1].map((i) => (
-                    <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'center', padding: '12px 0', borderTop: '1px solid var(--div)' }}>
-                        <Sk w={96} h={64} r={10} style={{ flex: 'none' }} />
-                        <span style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}><Sk w="80%" h={14} /><Sk w={110} h={10} /></span>
+                    <div key={i} className="art">
+                        <span className="sk art-img" aria-hidden="true" style={{ borderRadius: 0 }} />
+                        <span style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '12px 14px 14px' }}><Sk w={110} h={10} /><Sk w="85%" h={14} /><Sk w="60%" h={14} /></span>
                     </div>
                 ))}
-            </>
+            </div>
         );
     }
 
@@ -41,17 +41,17 @@ export function HomeArticles() {
     }
 
     return (
-        <>
-            {rows.map((a) => (
-                <a key={a.url} href={a.url} target="_blank" rel="noopener" style={{ display: 'flex', gap: '14px', alignItems: 'center', padding: '12px 0', borderTop: '1px solid var(--div)', textDecoration: 'none', color: 'var(--text)' }}>
-                    <span aria-hidden="true" style={{ width: '96px', height: '64px', flex: 'none', borderRadius: '10px', background: cover(a.image, ROW_IMAGE) }} />
-                    <span style={{ display: 'flex', flexDirection: 'column', gap: '6px', minWidth: '0' }}>
-                        <strong style={{ fontSize: '15px', lineHeight: '1.35' }}>{a.title}</strong>
+        <div className="arts">
+            {rows.map((a, i) => (
+                <a key={a.url} className="art" href={a.url} target="_blank" rel="noopener">
+                    <span aria-hidden="true" className="art-img" style={{ background: cover(a.image, CARD_IMAGES[i % 3]) }} />
+                    <span style={{ display: 'flex', flexDirection: 'column', gap: '6px', padding: '12px 14px 14px', minWidth: '0' }}>
                         <span className="mono" style={{ fontSize: '12px', color: 'var(--faint)' }}>{dateLine(a)}</span>
+                        <strong style={{ fontSize: '15px', lineHeight: '1.35' }}>{a.title}</strong>
                     </span>
                 </a>
             ))}
-        </>
+        </div>
     );
 }
 

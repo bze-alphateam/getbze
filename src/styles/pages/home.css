@@ -84,3 +84,9 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 @media (max-width:1200px){.pg-home .lmg{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){.pg-home .lmg{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:900px){.pg-home .fp-cta{justify-content:flex-start !important}}
+/* Latest articles: two cards with the article cover, one column on narrow phones. */
+.pg-home .arts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.v.pg-home a.art,.pg-home .art{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:var(--inset);border:1px solid var(--hair);text-decoration:none;color:var(--text)}
+.v.pg-home a.art:hover{border-color:var(--line)}
+.pg-home .art-img{display:block;width:100%;aspect-ratio:16 / 9;border-bottom:1px solid var(--hair)}
+@media (max-width:520px){.pg-home .arts{grid-template-columns:minmax(0,1fr)}}
