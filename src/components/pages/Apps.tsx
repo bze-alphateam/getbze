@@ -64,6 +64,7 @@ export function AppsBody() {
               <strong>38%</strong>
             </div>
           </div>
+          <a className="pbtn" href="https://communities.getbze.com" target="_blank" rel="noopener" aria-label="Join in Communities (opens communities.getbze.com)" style={{ background: "var(--com)", color: "#04170B" }}>Join</a>
         </div>
       </section>
       <section id="factory" className="app">
@@ -107,7 +108,7 @@ export function AppsBody() {
             <span>A DAO</span>
             <span>Soon</span>
           </div>
-          <span className="pbtn" style={{ background: "var(--fct-btn)", color: "#1A1200" }}>Start</span>
+          <a className="pbtn" href="https://factory.getbze.com" target="_blank" rel="noopener" aria-label="Start in Factory (opens factory.getbze.com)" style={{ background: "var(--fct-btn)", color: "#1A1200" }}>Start</a>
         </div>
       </section>
       <section id="dex" className="app">
@@ -139,7 +140,7 @@ export function AppsBody() {
             <span>You receive</span>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><i style={{ width: "20px", height: "20px", borderRadius: "50%", background: "var(--grad)", display: "block" }} />10.5 BZE</span>
           </div>
-          <span className="pbtn" style={{ background: "var(--dex)", color: "#04131C" }}>Swap</span>
+          <a className="pbtn" href="https://dex.getbze.com" target="_blank" rel="noopener" aria-label="Swap in DEX (opens dex.getbze.com)" style={{ background: "var(--dex)", color: "#04131C" }}>Swap</a>
         </div>
       </section>
       <section id="burner" className="app">
@@ -171,7 +172,7 @@ export function AppsBody() {
             <span>Raffle prize</span>
             <span>5,000 HRB</span>
           </div>
-          <span className="pbtn" style={{ background: "var(--brn)", color: "#1A0A00" }}>Burn</span>
+          <a className="pbtn" href="https://burner.getbze.com" target="_blank" rel="noopener" aria-label="Burn in Burner (opens burner.getbze.com)" style={{ background: "var(--brn)", color: "#1A0A00" }}>Burn</a>
         </div>
       </section>
       <section id="staking" className="app">
@@ -211,7 +212,7 @@ export function AppsBody() {
             <span>Open proposals</span>
             <span style={{ color: "#D2AEEC" }}>2 to vote on</span>
           </div>
-          <span className="pbtn" style={{ background: "var(--stk-btn)", color: "#fff" }}>Stake</span>
+          <a className="pbtn" href="https://staking.getbze.com" target="_blank" rel="noopener" aria-label="Stake in Staking (opens staking.getbze.com)" style={{ background: "var(--stk-btn)", color: "#fff" }}>Stake</a>
         </div>
       </section>
       <section id="explorer" className="app">
@@ -246,6 +247,7 @@ export function AppsBody() {
             <span style={{ color: "var(--text-2)" }}>HRB swapped for BZE</span>
             <span style={{ color: "var(--faint)", fontSize: "13px" }}>15 min ago</span>
           </div>
+          <a className="pbtn" href="https://explorer.getbze.com" target="_blank" rel="noopener" aria-label="Search in Explorer (opens explorer.getbze.com)" style={{ background: "var(--exp)", color: "#0E1116" }}>Search</a>
         </div>
       </section>
       <section style={{ padding: "48px 0 72px", borderTop: "1px solid var(--div)", display: "flex", justifyContent: "space-between", gap: "24px", flexWrap: "wrap", alignItems: "center" }}>

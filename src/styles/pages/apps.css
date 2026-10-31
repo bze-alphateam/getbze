@@ -34,6 +34,8 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 .pg-apps .fld{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;background:var(--inset);font-size:14px}
 .pg-apps .fld span:first-child{color:var(--faint)}
 .pg-apps .pbtn{height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px}
+.pg-apps a.pbtn{text-decoration:none;cursor:pointer;transition:filter 150ms ease}
+.pg-apps a.pbtn:hover{filter:brightness(1.1)}
 @media (max-width:900px){.pg-apps .fgrid{grid-template-columns:minmax(0,1fr) !important}.pg-apps .app{grid-template-columns:minmax(0,1fr);gap:28px;padding:40px 0}.pg-apps .wrap{padding:0 16px}.pg-apps .hide-m{display:none !important}}
 .pg-apps .show-m{display:none !important}
 .v.pg-apps a.menu{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--text);align-items:center;justify-content:center;box-sizing:border-box}
