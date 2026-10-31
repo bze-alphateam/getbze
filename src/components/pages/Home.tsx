@@ -33,12 +33,12 @@ export function HomeBody() {
           <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: "50%", width: "420px", height: "420px", transform: "translate(-50%,-50%)", background: "radial-gradient(50% 50% at 50% 50%,rgba(51,195,224,0.18),rgba(10,12,16,0) 70%)" }} />
           <span className="hx-ring" style={{ left: "159px", top: "130px" }} />
           <span className="hx mid" style={{ left: "160px", top: "131px" }}><img src="/brand/beezee-light.svg" alt="" style={{ width: "84px", height: "auto", display: "block" }} /><span style={{ fontSize: "11px", fontWeight: "600", color: "var(--faint)" }}>one chain</span></span>
-          <Link className="hx app" href="/apps#dex" style={{ left: "288px", top: "131px" }}><img src="/apps/dex/icon-on-dark.svg" alt="" width={44} height={44} />DEX</Link>
-          <Link className="hx app" href="/apps#communities" style={{ left: "32px", top: "131px" }}><img src="/apps/communities/icon-on-dark.svg" alt="" width={44} height={44} />Communities</Link>
-          <Link className="hx app" href="/apps#staking" style={{ left: "224px", top: "242px" }}><img src="/apps/staking/icon-on-dark.svg" alt="" width={44} height={44} />Staking</Link>
-          <Link className="hx app" href="/apps#burner" style={{ left: "96px", top: "242px" }}><img src="/apps/burner/icon-on-dark.svg" alt="" width={44} height={44} />Burner</Link>
-          <Link className="hx app" href="/apps#factory" style={{ left: "224px", top: "20px" }}><img src="/apps/factory/icon-on-dark.svg" alt="" width={44} height={44} />Factory</Link>
-          <Link className="hx app" href="/apps#explorer" style={{ left: "96px", top: "20px" }}><img src="/apps/explorer/icon-on-dark.svg" alt="" width={44} height={44} />Explorer</Link>
+          <Link className="hx hx-app" href="/apps#dex" style={{ left: "288px", top: "131px" }}><img src="/apps/dex/icon-on-dark.svg" alt="" width={44} height={44} />DEX</Link>
+          <Link className="hx hx-app" href="/apps#communities" style={{ left: "32px", top: "131px" }}><img src="/apps/communities/icon-on-dark.svg" alt="" width={44} height={44} />Communities</Link>
+          <Link className="hx hx-app" href="/apps#staking" style={{ left: "224px", top: "242px" }}><img src="/apps/staking/icon-on-dark.svg" alt="" width={44} height={44} />Staking</Link>
+          <Link className="hx hx-app" href="/apps#burner" style={{ left: "96px", top: "242px" }}><img src="/apps/burner/icon-on-dark.svg" alt="" width={44} height={44} />Burner</Link>
+          <Link className="hx hx-app" href="/apps#factory" style={{ left: "224px", top: "20px" }}><img src="/apps/factory/icon-on-dark.svg" alt="" width={44} height={44} />Factory</Link>
+          <Link className="hx hx-app" href="/apps#explorer" style={{ left: "96px", top: "20px" }}><img src="/apps/explorer/icon-on-dark.svg" alt="" width={44} height={44} />Explorer</Link>
         </nav>
       </div>
     </section>
