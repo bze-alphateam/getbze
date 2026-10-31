@@ -1,0 +1,364 @@
+/* Copied from Official-BZEdge-Graphics beezee/apps/theme/tokens.css. Change it there, then copy it here. */
+/* BeeZee apps UI theme (Hive Glow). Generated file: do not edit by hand. */
+/* Put data-app="dex|staking|burner|factory|communities|site" on <html> or <body>; light mode is data-theme="light" or class "light". */
+
+:root,
+[data-theme="dark"] {
+  --hg-ground: #0A0C10;
+  --hg-card: #12151B;
+  --hg-card-header: #161A21;
+  --hg-inset: #1B2128;
+  --hg-raised: #232A33;
+  --hg-icon-disc: #1B2128;
+  --hg-hairline: rgba(255,255,255,0.08);
+  --hg-divider: rgba(255,255,255,0.06);
+  --hg-line-strong: rgba(255,255,255,0.14);
+  --hg-secondary-fill: rgba(255,255,255,0.04);
+  --hg-hover-fill: rgba(255,255,255,0.06);
+  --hg-text: #E8ECF2;
+  --hg-text-secondary: #C9D0DA;
+  --hg-text-muted: #A3ACB9;
+  --hg-text-faint: #8A94A3;
+  --hg-text-disabled: #5C6573;
+  --hg-up: #34D399;
+  --hg-down: #F87171;
+  --hg-flat: #8A94A3;
+  --hg-info: #60A5FA;
+  --hg-info-text: #93C5FD;
+  --hg-warning: #FBBF24;
+  --hg-warning-text: #FCD34D;
+  --hg-danger: #F87171;
+  --hg-danger-text: #FCA5A5;
+  --hg-success: #34D399;
+  --hg-success-text: #6EE7B7;
+  --hg-testnet-ground: #2A0F12;
+  --hg-testnet-line: rgba(239,68,68,0.45);
+  --hg-testnet-text: #FFB4B4;
+  --hg-testnet-dot: #F87171;
+  --hg-testnet-pill-fill: rgba(239,68,68,0.14);
+  --hg-testnet-pill-line: rgba(239,68,68,0.35);
+  --hg-backdrop: rgba(0,0,0,0.6);
+  --hg-drawer-shadow: -24px 0 60px -20px rgba(0,0,0,0.8);
+  --hg-card-shadow: none;
+  --hg-switch-off: #2A313C;
+  --hg-font: Inter, system-ui, sans-serif;
+  --hg-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --hg-text-hero-size: 52px;
+  --hg-text-hero-weight: 800;
+  --hg-text-hero-tracking: -0.03em;
+  --hg-text-hero-line-height: 1.05;
+  --hg-text-page-title-size: 36px;
+  --hg-text-page-title-weight: 800;
+  --hg-text-page-title-tracking: -0.02em;
+  --hg-text-page-title-line-height: 1.1;
+  --hg-text-section-size: 22px;
+  --hg-text-section-weight: 700;
+  --hg-text-section-tracking: 0;
+  --hg-text-section-line-height: 1.3;
+  --hg-text-card-title-size: 17px;
+  --hg-text-card-title-weight: 700;
+  --hg-text-card-title-tracking: 0;
+  --hg-text-card-title-line-height: 1.35;
+  --hg-text-subtitle-size: 18px;
+  --hg-text-subtitle-weight: 400;
+  --hg-text-subtitle-tracking: 0;
+  --hg-text-subtitle-line-height: 1.55;
+  --hg-text-body-size: 16px;
+  --hg-text-body-weight: 400;
+  --hg-text-body-tracking: 0;
+  --hg-text-body-line-height: 1.55;
+  --hg-text-small-size: 14px;
+  --hg-text-small-weight: 400;
+  --hg-text-small-tracking: 0;
+  --hg-text-small-line-height: 1.5;
+  --hg-text-caption-size: 13px;
+  --hg-text-caption-weight: 400;
+  --hg-text-caption-tracking: 0;
+  --hg-text-caption-line-height: 1.5;
+  --hg-text-button-size: 15px;
+  --hg-text-button-weight: 600;
+  --hg-text-button-tracking: 0;
+  --hg-text-button-line-height: 1;
+  --hg-text-eyebrow-size: 12px;
+  --hg-text-eyebrow-weight: 700;
+  --hg-text-eyebrow-tracking: 0.14em;
+  --hg-text-eyebrow-line-height: 1.2;
+  --hg-text-table-head-size: 11px;
+  --hg-text-table-head-weight: 700;
+  --hg-text-table-head-tracking: 0.08em;
+  --hg-text-table-head-line-height: 1.2;
+  --hg-text-meta-size: 13px;
+  --hg-text-meta-weight: 500;
+  --hg-text-meta-tracking: 0;
+  --hg-text-meta-line-height: 1.5;
+  --hg-radius-xs: 6px;
+  --hg-radius-sm: 8px;
+  --hg-radius-md: 12px;
+  --hg-radius-lg: 16px;
+  --hg-radius-xl: 20px;
+  --hg-radius-hero: 24px;
+  --hg-radius-pill: 999px;
+  --hg-space-4: 4px;
+  --hg-space-8: 8px;
+  --hg-space-12: 12px;
+  --hg-space-16: 16px;
+  --hg-space-20: 20px;
+  --hg-space-24: 24px;
+  --hg-space-32: 32px;
+  --hg-space-40: 40px;
+  --hg-space-56: 56px;
+  --hg-space-72: 72px;
+  --hg-container: 1200px;
+  --hg-gutter: 24px;
+  --hg-gutter-phone: 16px;
+  --hg-header: 72px;
+  --hg-header-phone: 64px;
+  --hg-drawer: 400px;
+  --hg-testnet-ribbon: 28px;
+  --hg-control-button: 44px;
+  --hg-control-button-compact: 40px;
+  --hg-control-button-hero: 48px;
+  --hg-control-button-small: 32px;
+  --hg-control-input: 48px;
+}
+
+[data-theme="light"],
+.light {
+  --hg-ground: #F5F7FA;
+  --hg-card: #FFFFFF;
+  --hg-card-header: #F8FAFC;
+  --hg-inset: #EEF1F5;
+  --hg-raised: #FFFFFF;
+  --hg-icon-disc: #0F1318;
+  --hg-hairline: rgba(20,23,28,0.10);
+  --hg-divider: rgba(20,23,28,0.08);
+  --hg-line-strong: rgba(20,23,28,0.14);
+  --hg-secondary-fill: #FFFFFF;
+  --hg-hover-fill: rgba(20,23,28,0.05);
+  --hg-text: #14171C;
+  --hg-text-secondary: #3A424E;
+  --hg-text-muted: #5B6472;
+  --hg-text-faint: #6B7482;
+  --hg-text-disabled: #9AA3AE;
+  --hg-up: #0E8A5A;
+  --hg-down: #C93636;
+  --hg-flat: #6B7482;
+  --hg-info: #2563EB;
+  --hg-info-text: #2563EB;
+  --hg-warning: #B45309;
+  --hg-warning-text: #B45309;
+  --hg-danger: #C93636;
+  --hg-danger-text: #C93636;
+  --hg-success: #0E8A5A;
+  --hg-success-text: #0E8A5A;
+  --hg-testnet-ground: #FDECEC;
+  --hg-testnet-line: rgba(220,38,38,0.35);
+  --hg-testnet-text: #B42318;
+  --hg-testnet-dot: #DC2626;
+  --hg-testnet-pill-fill: rgba(220,38,38,0.08);
+  --hg-testnet-pill-line: rgba(220,38,38,0.30);
+  --hg-backdrop: rgba(20,23,28,0.45);
+  --hg-drawer-shadow: -24px 0 60px -24px rgba(20,23,28,0.35);
+  --hg-card-shadow: 0 1px 2px rgba(20,23,28,0.06);
+  --hg-switch-off: #D5DAE1;
+}
+
+[data-app="dex"] {
+  --hg-app-1: #12C1E1;
+  --hg-app-2: #1694D2;
+  --hg-app-on-dark: #12C1E1;
+  --hg-app-button-1: #12C1E1;
+  --hg-app-button-2: #1694D2;
+  --hg-app-button-text: #04131C;
+  --hg-app-button-hover-1: #3FD0EA;
+  --hg-app-button-hover-2: #22A4E0;
+  --hg-app-accent-text: #7FD8EE;
+  --hg-app-accent-text-hover: #B5EAF6;
+  --hg-app-ink: #0E74AD;
+  --hg-app-ink-dark: #0A5A87;
+  --hg-app-ink-text: #0E74AD;
+  --hg-app-tint-1: 18,193,225;
+  --hg-app-tint-2: 22,148,210;
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(18,193,225,0.26), rgba(22,148,210,0.08) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(18,193,225,0.13), rgba(22,148,210,0.04) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="dex"],
+[data-theme="light"][data-app="dex"],
+.light [data-app="dex"],
+.light[data-app="dex"] {
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(18,193,225,0.16), rgba(22,148,210,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(18,193,225,0.08), rgba(22,148,210,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app="staking"] {
+  --hg-app-1: #B57EDC;
+  --hg-app-2: #8E44AD;
+  --hg-app-on-dark: #B57EDC;
+  --hg-app-button-1: #9D5BD2;
+  --hg-app-button-2: #7B3AA6;
+  --hg-app-button-text: #FFFFFF;
+  --hg-app-button-hover-1: #A86BDA;
+  --hg-app-button-hover-2: #8645B3;
+  --hg-app-accent-text: #D2AEEC;
+  --hg-app-accent-text-hover: #E6D0F5;
+  --hg-app-ink: #8E44AD;
+  --hg-app-ink-dark: #6B2F87;
+  --hg-app-ink-text: #8E44AD;
+  --hg-app-tint-1: 181,126,220;
+  --hg-app-tint-2: 142,68,173;
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(181,126,220,0.26), rgba(142,68,173,0.09) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(181,126,220,0.13), rgba(142,68,173,0.045) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="staking"],
+[data-theme="light"][data-app="staking"],
+.light [data-app="staking"],
+.light[data-app="staking"] {
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(181,126,220,0.16), rgba(142,68,173,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(181,126,220,0.08), rgba(142,68,173,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app="burner"] {
+  --hg-app-1: #FF8A1F;
+  --hg-app-2: #E85A00;
+  --hg-app-on-dark: #FF8A1F;
+  --hg-app-button-1: #FF8A1F;
+  --hg-app-button-2: #E85A00;
+  --hg-app-button-text: #1A0A00;
+  --hg-app-button-hover-1: #FFA040;
+  --hg-app-button-hover-2: #F06E10;
+  --hg-app-accent-text: #FFB27A;
+  --hg-app-accent-text-hover: #FFD2B0;
+  --hg-app-ink: #C24A00;
+  --hg-app-ink-dark: #943800;
+  --hg-app-ink-text: #C24A00;
+  --hg-app-tint-1: 255,138,31;
+  --hg-app-tint-2: 232,90,0;
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(255,138,31,0.24), rgba(232,90,0,0.09) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(255,138,31,0.12), rgba(232,90,0,0.045) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="burner"],
+[data-theme="light"][data-app="burner"],
+.light [data-app="burner"],
+.light[data-app="burner"] {
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(255,138,31,0.16), rgba(232,90,0,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(255,138,31,0.08), rgba(232,90,0,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app="factory"] {
+  --hg-app-1: #FFC933;
+  --hg-app-2: #E09B00;
+  --hg-app-on-dark: #FFC933;
+  --hg-app-button-1: #D9A62E;
+  --hg-app-button-2: #B07C08;
+  --hg-app-button-text: #1A1200;
+  --hg-app-button-hover-1: #E4B444;
+  --hg-app-button-hover-2: #C08B12;
+  --hg-app-accent-text: #FFD970;
+  --hg-app-accent-text-hover: #FFE8A8;
+  --hg-app-ink: #9A6A00;
+  --hg-app-ink-dark: #745000;
+  --hg-app-ink-text: #8A5F00;
+  --hg-app-tint-1: 255,201,51;
+  --hg-app-tint-2: 224,155,0;
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(255,201,51,0.2), rgba(224,155,0,0.07) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(255,201,51,0.1), rgba(224,155,0,0.035) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="factory"],
+[data-theme="light"][data-app="factory"],
+.light [data-app="factory"],
+.light[data-app="factory"] {
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(255,201,51,0.16), rgba(224,155,0,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(255,201,51,0.08), rgba(224,155,0,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app="communities"] {
+  --hg-app-1: #3DD07A;
+  --hg-app-2: #1E9150;
+  --hg-app-on-dark: #3DD07A;
+  --hg-app-button-1: #3DD07A;
+  --hg-app-button-2: #1E9150;
+  --hg-app-button-text: #03170B;
+  --hg-app-button-hover-1: #5EDB91;
+  --hg-app-button-hover-2: #2AA862;
+  --hg-app-accent-text: #7FE3A8;
+  --hg-app-accent-text-hover: #B3F0CB;
+  --hg-app-ink: #1A7A43;
+  --hg-app-ink-dark: #125C32;
+  --hg-app-ink-text: #1A7A43;
+  --hg-app-tint-1: 61,208,122;
+  --hg-app-tint-2: 30,145,80;
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(61,208,122,0.2), rgba(30,145,80,0.08) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(61,208,122,0.1), rgba(30,145,80,0.04) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="communities"],
+[data-theme="light"][data-app="communities"],
+.light [data-app="communities"],
+.light[data-app="communities"] {
+  --hg-glow: radial-gradient(70% 80% at 50% 0%, rgba(61,208,122,0.16), rgba(30,145,80,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 50% 0%, rgba(61,208,122,0.08), rgba(30,145,80,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app="site"] {
+  --hg-app-1: #33C3E0;
+  --hg-app-2: #0094C5;
+  --hg-app-on-dark: #33C3E0;
+  --hg-app-button-1: #33C3E0;
+  --hg-app-button-2: #0094C5;
+  --hg-app-button-text: #04131C;
+  --hg-app-button-hover-1: #5ACFE7;
+  --hg-app-button-hover-2: #12A3D2;
+  --hg-app-accent-text: #8AD9EC;
+  --hg-app-accent-text-hover: #BDEAF5;
+  --hg-app-ink: #007AA3;
+  --hg-app-ink-dark: #005E7D;
+  --hg-app-ink-text: #007AA3;
+  --hg-app-tint-1: 51,195,224;
+  --hg-app-tint-2: 0,148,197;
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(51,195,224,0.26), rgba(0,148,197,0.08) 45%, rgba(10,12,16,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(51,195,224,0.13), rgba(0,148,197,0.04) 45%, rgba(10,12,16,0) 75%);
+}
+
+[data-theme="light"] [data-app="site"],
+[data-theme="light"][data-app="site"],
+.light [data-app="site"],
+.light[data-app="site"] {
+  --hg-glow: radial-gradient(70% 80% at 30% 0%, rgba(51,195,224,0.16), rgba(0,148,197,0.05) 45%, rgba(245,247,250,0) 75%);
+  --hg-glow-inner: radial-gradient(70% 80% at 30% 0%, rgba(51,195,224,0.08), rgba(0,148,197,0.025) 45%, rgba(245,247,250,0) 75%);
+}
+
+[data-app] {
+  --hg-primary-bg: linear-gradient(135deg, var(--hg-app-button-1), var(--hg-app-button-2));
+  --hg-primary-bg-hover: linear-gradient(135deg, var(--hg-app-button-hover-1), var(--hg-app-button-hover-2));
+  --hg-primary-text: var(--hg-app-button-text);
+  --hg-primary-shadow: 0 8px 24px -8px rgba(var(--hg-app-tint-1),0.6);
+  --hg-link: var(--hg-app-accent-text);
+  --hg-link-hover: var(--hg-app-accent-text-hover);
+  --hg-eyebrow: var(--hg-app-on-dark);
+  --hg-gradient: linear-gradient(135deg, var(--hg-app-1), var(--hg-app-2));
+  --hg-gradient-word: linear-gradient(135deg, var(--hg-app-1), var(--hg-app-2));
+  --hg-featured-edge: linear-gradient(160deg, rgba(var(--hg-app-tint-1),0.75), rgba(var(--hg-app-tint-2),0.18) 45%, rgba(255,255,255,0.06));
+  --hg-featured-shadow: 0 30px 80px -40px rgba(var(--hg-app-tint-1),0.5);
+  --hg-focus-ring: rgba(var(--hg-app-tint-1),0.6);
+}
+
+[data-theme="light"] [data-app],
+[data-theme="light"][data-app],
+.light [data-app],
+.light[data-app] {
+  --hg-primary-bg: var(--hg-app-ink);
+  --hg-primary-bg-hover: var(--hg-app-ink-dark);
+  --hg-primary-text: #FFFFFF;
+  --hg-primary-shadow: 0 6px 18px -8px var(--hg-app-ink);
+  --hg-link: var(--hg-app-ink-text);
+  --hg-link-hover: var(--hg-app-ink-dark);
+  --hg-eyebrow: var(--hg-app-ink);
+  --hg-gradient-word: linear-gradient(135deg, var(--hg-app-ink), var(--hg-app-ink-dark));
+  --hg-featured-edge: linear-gradient(160deg, rgba(var(--hg-app-tint-1),0.75), rgba(var(--hg-app-tint-2),0.18) 45%, rgba(20,23,28,0.08));
+  --hg-featured-shadow: 0 24px 60px -30px var(--hg-app-ink);
+  --hg-focus-ring: var(--hg-app-ink);
+}

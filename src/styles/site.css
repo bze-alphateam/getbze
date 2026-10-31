@@ -1,0 +1,183 @@
+/* Site-wide pieces that sit outside a single page's design board: the base, focus, the
+   loading and failed states (States board) and the phone menu (Phone menu board).
+   Each page's own styles live in styles/pages/<page>.css, scoped to .pg-<page>. */
+
+html,
+body {
+  margin: 0;
+  background: var(--hg-ground);
+  color: var(--hg-text);
+}
+
+body {
+  font-family: var(--font-inter), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.v {
+  min-height: 100vh;
+}
+
+.v :focus-visible {
+  outline: 2px solid var(--hg-focus-ring);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Loading: skeletons in the shape of the content, a slow shimmer, static with reduced motion. */
+.sk {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1B2128 0%, #252C36 50%, #1B2128 100%);
+  background-size: 200% 100%;
+  animation: sk 1.4s ease-in-out infinite;
+}
+
+@keyframes sk {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Failed: one quiet line with Try again. Never red, never a box. */
+.fail {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--hg-text-faint);
+}
+
+.fail::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8A94A3;
+  flex: none;
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--hg-link);
+  cursor: pointer;
+}
+
+.retry:hover {
+  color: var(--hg-link-hover);
+}
+
+/* The menu button is a <button> here; the boards style it as an <a>. */
+.v button.menu {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--hg-line-strong);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hg-text);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Phone menu: full screen, slides down in 200 ms. */
+.pm-pos {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+}
+
+.pm {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--hg-ground);
+  color: var(--hg-text);
+  animation: pm-in 200ms ease-out;
+}
+
+.pm[data-state="closed"] {
+  animation: pm-out 150ms ease-in;
+}
+
+@keyframes pm-in {
+  from { transform: translateY(-16px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+@keyframes pm-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.pm-glow {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 380px;
+  background: radial-gradient(80% 70% at 30% 0%, rgba(51, 195, 224, 0.16), rgba(10, 12, 16, 0) 75%);
+  pointer-events: none;
+}
+
+.pm-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--hg-divider);
+}
+
+.pm-nav {
+  position: relative;
+  padding: 8px 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.v a.pm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--hg-divider);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--hg-text);
+}
+
+.v a.pm-item.on {
+  padding-left: 12px;
+  box-shadow: inset 2px 0 0 #33C3E0;
+}
+
+.pm-arrow {
+  color: var(--hg-text-faint);
+}
+
+.pm-here {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8AD9EC;
+}
+
+@media (min-width: 901px) {
+  .pm-pos {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk,
+  .pm,
+  .pm[data-state="closed"] {
+    animation: none;
+  }
+}

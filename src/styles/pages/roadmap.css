@@ -1,0 +1,48 @@
+/* Generated from the design board, scoped to this page. */
+.v.pg-roadmap{--ground:var(--hg-ground);--card:var(--hg-card);--inset:var(--hg-inset);--hair:var(--hg-hairline);--div:var(--hg-divider);--line:var(--hg-line-strong);--text:var(--hg-text);--text-2:var(--hg-text-secondary);--muted:var(--hg-text-muted);--faint:var(--hg-text-faint);--grad:var(--hg-gradient);
+--dex:linear-gradient(135deg,#12C1E1,#1694D2);--stk:linear-gradient(135deg,#B57EDC,#8E44AD);--brn:linear-gradient(135deg,#FF8A1F,#E85A00);--fct:linear-gradient(135deg,#FFC933,#E09B00);--com:linear-gradient(135deg,#3DD07A,#1E9150);--exp:linear-gradient(135deg,#E8ECF2,#8A94A3);
+background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,system-ui,sans-serif;position:relative;overflow:hidden;--card-h:var(--hg-card-header);--fct-btn:linear-gradient(135deg,#D9A62E,#B07C08);--stk-btn:linear-gradient(135deg,#9D5BD2,#7B3AA6)}
+.v.pg-roadmap a{color:#8AD9EC}
+.v.pg-roadmap a:hover{color:#BDEAF5}
+.pg-roadmap .wrap{max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;position:relative}
+.pg-roadmap .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;box-sizing:border-box}
+.v.pg-roadmap a.btn-p{background:var(--grad);color:#04131C;box-shadow:0 8px 24px -8px rgba(51,195,224,0.6)}
+.v.pg-roadmap a.btn-p:hover{background:linear-gradient(135deg,#5ACFE7,#12A3D2);color:#04131C}
+.v.pg-roadmap a.btn-s{background:rgba(255,255,255,0.04);border:1px solid var(--line);color:var(--text)}
+.v.pg-roadmap a.btn-s:hover{background:rgba(255,255,255,0.08);color:var(--text)}
+.v.pg-roadmap a.navl{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;padding:12px 2px}
+.v.pg-roadmap a.navl:hover{color:var(--text)}
+.v.pg-roadmap a.navl.on{color:var(--text);box-shadow:inset 0 -2px 0 #33C3E0}
+.v.pg-roadmap a.fl{color:var(--muted);text-decoration:none;font-size:14px;padding:5px 0}
+.v.pg-roadmap a.fl:hover{color:var(--text)}
+.pg-roadmap .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#33C3E0}
+.pg-roadmap .h2{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+.pg-roadmap .lead{margin:10px 0 0;font-size:16px;color:var(--muted);line-height:1.55}
+.pg-roadmap .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-sizing:border-box}
+.pg-roadmap .sec{padding:64px 0;border-top:1px solid var(--div)}
+.pg-roadmap .shead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.pg-roadmap .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pg-roadmap .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pg-roadmap .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.pg-roadmap .item{padding:20px;display:flex;flex-direction:column;gap:8px}
+.pg-roadmap .item strong{font-size:16px}
+.pg-roadmap .item span.d{font-size:14px;color:var(--muted);line-height:1.5}
+.pg-roadmap .go{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;text-decoration:none;margin-top:auto}
+.pg-roadmap .tin{width:40px;height:40px;border-radius:12px;background:var(--inset);border:1px solid rgba(51,195,224,0.45);display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box}
+.pg-roadmap .ai{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.pg-roadmap .chip{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--inset);border:1px solid var(--hair);font-size:12px;font-weight:600;color:var(--muted)}
+.pg-roadmap .mono{font-family:var(--font-mono),"JetBrains Mono",ui-monospace,monospace}
+.pg-roadmap .stat{padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.pg-roadmap .stat .l{font-size:13px;color:var(--faint)}
+.pg-roadmap .stat .n{font-size:24px;font-weight:700}
+.pg-roadmap .stat .d{font-size:13px;color:var(--muted);line-height:1.45}
+.pg-roadmap .rowl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:12px;background:var(--inset);text-decoration:none}
+.v.pg-roadmap a.rowl{color:var(--text)}
+.v.pg-roadmap a.rowl:hover{background:#232A33;color:var(--text)}
+.pg-roadmap .feat{padding:1px;border-radius:20px;background:linear-gradient(160deg,rgba(51,195,224,0.75),rgba(0,148,197,0.18) 45%,rgba(255,255,255,0.06));box-shadow:0 30px 80px -40px rgba(51,195,224,0.5)}
+.pg-roadmap .feat>.in{position:relative;overflow:hidden;background:var(--card);border-radius:19px;height:100%;box-sizing:border-box}
+.pg-roadmap .notice{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.3);font-size:14px;color:var(--muted)}
+@media (max-width:900px){.pg-roadmap .g2,.pg-roadmap .g3,.pg-roadmap .g4,.pg-roadmap .split{grid-template-columns:minmax(0,1fr) !important}.pg-roadmap .wrap{padding:0 16px}.pg-roadmap .hide-m{display:none !important}.pg-roadmap .sec{padding:48px 0}.pg-roadmap .h1{font-size:30px !important}}
+.pg-roadmap .show-m{display:none !important}
+.v.pg-roadmap a.menu{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--text);align-items:center;justify-content:center;box-sizing:border-box}
+@media (max-width:900px){.pg-roadmap .show-m{display:inline-flex !important}.v.pg-roadmap header nav{gap:10px !important}.v.pg-roadmap header .btn-p{height:40px !important;padding:0 14px !important;font-size:14px}.pg-roadmap .fgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:28px 16px !important}.pg-roadmap .fgrid>div:first-child{grid-column:1 / -1}.pg-roadmap .stop{display:grid !important;grid-template-columns:44px minmax(0,1fr);column-gap:14px;row-gap:2px;align-items:start;padding-bottom:6px}.pg-roadmap .stop>.pin{grid-row:1 / span 4}.pg-roadmap .stop>.n{margin-top:0 !important}.pg-roadmap .goal{margin-top:6px}.pg-roadmap .hexes{left:50%;margin-left:-220px !important}.pg-roadmap .apps{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}.pg-roadmap .apps .app{padding:16px !important}.pg-roadmap .need{padding:14px !important}.pg-roadmap .shead{margin-bottom:20px}.pg-roadmap #latest .apps{grid-template-columns:minmax(0,1fr) !important}}

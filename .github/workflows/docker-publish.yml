@@ -4,7 +4,7 @@ name: docker-publish
 # main -> ghcr.io/bze-alphateam/getbze:<sha8> (commit short-SHA, pinned
 # versions everywhere — no "latest") -> getbze.com.
 #
-# The build-time env (the REACT_APP_* URLs CRA inlines into the bundle) is NOT
+# The build-time env (the public endpoint URLs inlined into the static export) is NOT
 # in this repo: it is getbze.com/build.env in the private deploy repo
 # (bze-alphateam/bze-deploy). The job checks that dir out with the
 # DEPLOY_REPO_TOKEN org secret and hands the file to `docker build` as a
@@ -65,7 +65,7 @@ jobs:
             echo "::error::$BUILD_ENV is missing or empty in the deploy repo"
             exit 1
           fi
-          echo "using $BUILD_ENV ($(grep -c '^REACT_APP_' "$BUILD_ENV") REACT_APP_* values)"
+          echo "using $BUILD_ENV ($(grep -cE '^(NEXT_PUBLIC|REACT_APP)_' "$BUILD_ENV") public values)"
 
       - uses: docker/setup-buildx-action@v3
 
