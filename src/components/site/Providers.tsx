@@ -6,6 +6,8 @@ import { type ReactNode, useState } from 'react';
 import { LiveClientProvider } from '@/components/live/live-context';
 import { createLiveClient, type LiveClient, withSharedRequests } from '@/lib/live-client';
 
+import { EmotionRegistry } from './EmotionRegistry';
+
 // Chakra supplies behaviour (the phone menu's focus trap, scroll lock and Escape); the look
 // comes from the design boards' CSS, so the reset is off and nothing restyles the page.
 const system = createSystem(defaultConfig, { preflight: false });
@@ -24,8 +26,10 @@ export function Providers({ children }: { children: ReactNode }) {
     const [client] = useState(browserClient);
 
     return (
-        <ChakraProvider value={system}>
-            <LiveClientProvider client={client}>{children}</LiveClientProvider>
-        </ChakraProvider>
+        <EmotionRegistry>
+            <ChakraProvider value={system}>
+                <LiveClientProvider client={client}>{children}</LiveClientProvider>
+            </ChakraProvider>
+        </EmotionRegistry>
     );
 }
