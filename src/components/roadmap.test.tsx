@@ -29,6 +29,9 @@ describe('roadmap details', () => {
         render(<ChakraProvider value={system}><UpNextGrid /></ChakraProvider>);
 
         expect(screen.getByText('The BZE roadmap for 2027.')).toBeInTheDocument();
+        expect(screen.getAllByText('See details →').length).toBeGreaterThan(1);
+        // What an upgrade includes is listed in its dialog only, the card keeps one paragraph.
+        expect(screen.queryByText('Native DAO module')).not.toBeInTheDocument();
     });
 
     it('opens an up-next item too', async () => {
