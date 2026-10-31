@@ -4,13 +4,16 @@ import path from 'node:path';
 
 const OUT = path.resolve(__dirname, '../../out');
 
-/** Every exported page route (out/<route>/index.html), as served. */
+/**
+ * Every exported page route (out/<route>/index.html), as served. out/404/ is the
+ * not-found page again (trailingSlash export), checked on its own below.
+ */
 function exportedRoutes(dir = OUT, prefix = '/'): string[] {
     return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
         if (entry.isFile()) {
             return entry.name === 'index.html' ? [prefix] : [];
         }
-        if (entry.name.startsWith('_')) {
+        if (entry.name.startsWith('_') || (prefix === '/' && entry.name === '404')) {
             return [];
         }
 
