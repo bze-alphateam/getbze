@@ -1,0 +1,47 @@
+name: lint
+
+# Lint, typecheck and build the static export on every pull request and on the
+# release branches, so a broken build blocks the merge instead of only surfacing
+# when docker-publish builds the image.
+on:
+  pull_request:
+  push:
+    branches: [main, main-v2]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same Node major and install flags as docker/prod/Dockerfile, so a green
+      # check means the image build will get the same dependency tree.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Lint and typecheck
+        run: yarn lint
+
+      # The public defaults in next.config.ts stand in for the deploy build env.
+      - name: Build
+        run: yarn build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Every route and the 404 page are exported
+        run: |
+          for f in index.html 404.html apps/index.html bze/index.html founding-program/index.html \
+                   under-the-hood/index.html roadmap/index.html news/index.html; do
+            test -s "out/$f" || { echo "::error::missing out/$f"; exit 1; }
+          done
