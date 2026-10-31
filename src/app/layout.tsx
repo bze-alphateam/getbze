@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 
 import { Providers } from '@/components/site/Providers';
@@ -7,8 +7,24 @@ import { Providers } from '@/components/site/Providers';
 import '@/styles/hive-glow-tokens.css';
 import '@/styles/site.css';
 
-const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], variable: '--font-inter', display: 'swap' });
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['500'], variable: '--font-mono', display: 'swap' });
+// Inter and JetBrains Mono ship with the site (SIL Open Font License, see fonts/), so the
+// build never fetches fonts.
+const inter = localFont({
+    src: [
+        { path: './fonts/Inter-Regular.woff2', weight: '400', style: 'normal' },
+        { path: './fonts/Inter-Medium.woff2', weight: '500', style: 'normal' },
+        { path: './fonts/Inter-SemiBold.woff2', weight: '600', style: 'normal' },
+        { path: './fonts/Inter-Bold.woff2', weight: '700', style: 'normal' },
+        { path: './fonts/Inter-ExtraBold.woff2', weight: '800', style: 'normal' },
+    ],
+    variable: '--font-inter',
+    display: 'swap',
+});
+const mono = localFont({
+    src: [{ path: './fonts/JetBrainsMono-Medium.woff2', weight: '500', style: 'normal' }],
+    variable: '--font-mono',
+    display: 'swap',
+});
 
 const DESCRIPTION = 'BeeZee is a fast, low-cost blockchain with apps that work together. Launch a token, trade it, stake it and grow a community around it, with no code.';
 
