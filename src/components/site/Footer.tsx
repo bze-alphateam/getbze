@@ -1,4 +1,8 @@
 import Link from 'next/link';
+
+import { PROGRAM_LINK } from '@/data/links';
+import { programShown } from '@/lib/program';
+
 /** The site footer, the same on every page. */
 export function Footer() {
   return (
@@ -14,7 +18,7 @@ export function Footer() {
             <strong style={{ fontSize: "13px", color: "var(--faint)", marginBottom: "8px" }}>Product</strong>
             <Link className="fl" href="/apps">Apps</Link>
             <Link className="fl" href="/#how">How it works</Link>
-            <Link className="fl" href="/founding-program">Founding Program</Link>
+            {programShown(PROGRAM_LINK) && <Link className="fl" href="/founding-program">Founding Program</Link>}
           </nav>
           <nav aria-label="BZE" style={{ display: "flex", flexDirection: "column" }}>
             <strong style={{ fontSize: "13px", color: "var(--faint)", marginBottom: "8px" }}>BZE</strong>

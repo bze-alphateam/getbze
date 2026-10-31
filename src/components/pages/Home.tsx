@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { HomeArticles } from '@/components/live/articles';
 import { RoadmapStrip } from '@/components/roadmap';
+import { PROGRAM_LINK } from '@/data/links';
+import { programShown } from '@/lib/program';
 
 export function HomeBody() {
   return (
@@ -460,7 +462,7 @@ export function HomeBody() {
         </nav>
       </div>
     </section>
-    <section id="talk" className="sec">
+    {programShown(PROGRAM_LINK) && <section id="talk" className="sec">
       <div className="wrap">
         <div style={{ padding: "1px", borderRadius: "20px", background: "linear-gradient(160deg,rgba(51,195,224,0.75),rgba(0,148,197,0.18) 45%,rgba(255,255,255,0.06))", boxShadow: "0 30px 80px -40px rgba(51,195,224,0.5)" }}>
           <div className="hero" style={{ position: "relative", overflow: "hidden", background: "var(--card)", borderRadius: "19px", padding: "40px", display: "grid", gridTemplateColumns: "minmax(0,1.4fr) minmax(0,1fr)", gap: "32px", alignItems: "center" }}>
@@ -477,7 +479,7 @@ export function HomeBody() {
           </div>
         </div>
       </div>
-    </section>
+    </section>}
     </>
   );
 }

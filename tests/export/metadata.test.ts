@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const OUT = path.resolve(__dirname, '../../out');
+const NOT_FOUND = 'Page not found | BeeZee';
 
 /**
  * Every exported page route (out/<route>/index.html), as served. out/404/ is the
@@ -37,7 +38,8 @@ describe('static export', () => {
         expect(existsSync(path.join(OUT, 'index.html'))).toBe(true);
     });
 
-    const routes = existsSync(OUT) ? exportedRoutes() : [];
+    // A hidden page (Founding Program without a link) is exported as the 404 page: not a route.
+    const routes = existsSync(OUT) ? exportedRoutes().filter((route) => load(path.join(route, 'index.html')).title !== NOT_FOUND) : [];
 
     it.each(routes)('%s carries the search and share tags', (route) => {
         const doc = load(path.join(route, 'index.html'));
@@ -77,7 +79,7 @@ describe('static export', () => {
     it('keeps the 404 page out of search', () => {
         const doc = load('404.html');
 
-        expect(doc.title).toBe('Page not found | BeeZee');
+        expect(doc.title).toBe(NOT_FOUND);
         expect(meta(doc, 'robots')).toContain('noindex');
     });
 

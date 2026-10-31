@@ -33,3 +33,8 @@ Public endpoints come from `NEXT_PUBLIC_BLOCKCHAIN_REST_API_HOST` and
 
 Each page's title, description and share tags live in `src/lib/seo.ts`; the sitemap and
 robots.txt are generated from the same table.
+
+The Founding Program follows `NEXT_PUBLIC_FOUNDING_PROGRAM_URL`: an http(s) link enables
+its "Apply now" button (new tab), `soon` shows a disabled "Coming soon" button, and any
+other value, unset included, leaves the program out entirely (its page exports the 404
+page; its Home section, menu and footer links and sitemap entry are dropped).

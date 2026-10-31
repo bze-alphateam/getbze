@@ -1,4 +1,5 @@
-import { PROGRAM_APPLY_URL } from '@/data/links';
+import { ProgramApply } from '@/components/program-apply';
+import { PROGRAM_LINK } from '@/data/links';
 
 export function FoundingProgramBody() {
   return (
@@ -142,8 +143,8 @@ export function FoundingProgramBody() {
       <div aria-hidden="true" style={{ position: "absolute", inset: "0", background: "radial-gradient(50% 90% at 50% 100%,rgba(51,195,224,0.13),rgba(10,12,16,0) 75%)", pointerEvents: "none" }} />
       <div className="wrap" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
         <h2 className="h2" style={{ fontSize: "32px" }}>Ready to be one of the ten?</h2>
-        <a className="btn btn-p" href={PROGRAM_APPLY_URL} target="_blank" rel="noopener">Apply now ↗</a>
-        <span style={{ fontSize: "14px", color: "var(--faint)" }}>Opens a short form. Takes about five minutes.</span>
+        <ProgramApply link={PROGRAM_LINK} />
+        {PROGRAM_LINK.state === 'open' && <span style={{ fontSize: "14px", color: "var(--faint)" }}>Opens a short form. Takes about five minutes.</span>}
       </div>
     </section>
     </>

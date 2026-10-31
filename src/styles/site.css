@@ -71,6 +71,17 @@ body {
   color: var(--hg-link-hover);
 }
 
+/* Founding Program "Coming soon": the primary button, disabled. */
+.v button.btn-p:disabled {
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  background: var(--grad);
+  color: #04131C;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* The menu button is a <button> here; the boards style it as an <a>. */
 .v button.menu {
   width: 40px;
