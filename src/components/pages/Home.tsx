@@ -383,7 +383,7 @@ export function HomeBody() {
               <li>No developer on call</li>
               <li>Wizards with a review before you sign</li>
             </ul>
-            <Link href="/#how" style={{ fontSize: "14px", fontWeight: "600" }}>How it works →</Link>
+            <Link href="/under-the-hood#can" style={{ fontSize: "14px", fontWeight: "600" }}>What the chain can do →</Link>
           </div>
           <div className="card pil">
             <span className="ai" style={{ background: "var(--grad)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04131C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -412,7 +412,7 @@ export function HomeBody() {
               <li>Public nodes and an explorer</li>
               <li>Your keys always stay yours</li>
             </ul>
-            <Link href="/under-the-hood" style={{ fontSize: "14px", fontWeight: "600" }}>Under the hood →</Link>
+            <Link href="/under-the-hood#explorers" style={{ fontSize: "14px", fontWeight: "600" }}>See the explorers →</Link>
           </div>
         </div>
       </div>
