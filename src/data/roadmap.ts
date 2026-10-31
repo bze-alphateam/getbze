@@ -473,15 +473,20 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             children: [
                 "Cosmos SDK 0.53 & IBC v10",
                 "Native DAO module",
-                "Airdrops to address lists & holder snapshots",
+                "Token Addons: Fees, Community Pool & Fixed Supply",
+                "Faster order book",
+                "IBC rate limiting",
                 "Governance-assigned token admins"
             ],
-            description: "Core infrastructure upgrade plus native DAOs and new airdrop tools.",
+            description: "Core infrastructure upgrade plus native DAOs, token addons and a faster order book.",
             details: [
                 "Moves the chain to Cosmos SDK 0.53 and IBC v10, keeping BeeZee on a supported, security-maintained foundation. Unused modules are removed to keep the chain lean.",
                 "Native DAO module: communities can create DAOs with a fixed list of members or with voting power based on staking, submit and vote on proposals, and manage a shared treasury.",
-                "Airdrops can be sent to a list of addresses or to a snapshot of a token's holders.",
+                "Token addons: creators can set custom transfer fees that go to their token's own community pool, to fund development and marketing, and can lock a token's supply so no more can ever be minted.",
+                "Faster order book: orders are matched inside the transaction that places them instead of waiting for the end of the block, so trades settle right away.",
+                "IBC rate limiting caps how much of a token can move in or out over IBC in a given period, limiting the damage if a connected chain is ever compromised.",
                 "Governance can assign a new admin to any factory token, including tokens whose admin was renounced, so a token can be handed over to its DAO.",
+                "Fixes and improvements across trading rewards, fee payments and the burner.",
                 "Every upgrade is now validated by a full end-to-end test suite that runs the real chain software before release."
             ],
             quarter: "Q4",
@@ -491,19 +496,7 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             id: "2026-next",
             title: "BZE Blockchain: Blockchain Upgrade",
             status: PLANNED,
-            children: [
-                "BZE Max supply to 400M",
-                "Token Addon: Fees & Distribution",
-                "Token Addon: Community Pool",
-                "DEX engine performance improvements"
-            ],
-            description: "The next upgrade after v8.3.0, most likely before the end of the year.",
-            details: [
-                "These are the features currently on our list for the upgrade following v8.3.0. The final scope is not set yet: some of them might be moved to a later release and new ones might be added.",
-                "A hard cap at 400 million BZE tokens, as approved by governance, ensuring absolute scarcity and predictable supply.",
-                "Token addons that let creators implement custom transfer fees distributed to stakers, liquidity providers or any specified recipients, and a community pool for funding development and marketing.",
-                "Further performance improvements to the DEX engine."
-            ],
+            description: "The next upgrade after v8.3.0. Details coming soon.",
             quarter: "Q4",
             version: "TBA"
         },
