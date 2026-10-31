@@ -145,7 +145,6 @@ export function UnderTheHoodBody() {
           <a className="rowl" href="https://ping.pub/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>Ping.pub</span><span style={{ color: "var(--faint)" }}>↗</span></a>
           <a className="rowl" href="https://explorer.chaintools.tech/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>Chain Tools</span><span style={{ color: "var(--faint)" }}>↗</span></a>
           <a className="rowl" href="https://atomscan.com/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>ATOMScan</span><span style={{ color: "var(--faint)" }}>↗</span></a>
-          <a className="rowl" href="https://explorer.whenmoonwhenlambo.money/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>When Moon When Lambo</span><span style={{ color: "var(--faint)" }}>↗</span></a>
         </div>
       </div>
     </section>
