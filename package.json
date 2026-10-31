@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "eslint . && tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:export": "vitest run --config vitest.export.config.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.22.0",

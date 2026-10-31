@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 
 import { NewsBody } from '@/components/pages/News';
 import { PageShell } from '@/components/site/PageShell';
+import { pageMetadata } from '@/lib/seo';
 
 import '@/styles/pages/news.css';
 
-export const metadata: Metadata = {
-    title: "News & community",
-    description: "The latest BeeZee articles and the places to talk with the team and the community.",
-};
+export const metadata: Metadata = pageMetadata('news');
 
 export default function NewsPage() {
     return (

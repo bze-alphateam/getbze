@@ -45,3 +45,8 @@ jobs:
                    under-the-hood/index.html roadmap/index.html news/index.html; do
             test -s "out/$f" || { echo "::error::missing out/$f"; exit 1; }
           done
+
+      # Every exported page carries its title, description, canonical URL and share
+      # tags, and the sitemap lists exactly the exported routes.
+      - name: Exported metadata
+        run: yarn test:export

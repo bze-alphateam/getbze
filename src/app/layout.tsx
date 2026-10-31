@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 
 import { Providers } from '@/components/site/Providers';
+import { PAGES, SITE_URL } from '@/lib/seo';
 
 import '@/styles/hive-glow-tokens.css';
 import '@/styles/site.css';
@@ -26,12 +27,12 @@ const mono = localFont({
     display: 'swap',
 });
 
-const DESCRIPTION = 'BeeZee is a fast, low-cost blockchain with apps that work together. Launch a token, trade it, stake it and grow a community around it, with no code.';
-
 export const metadata: Metadata = {
-    metadataBase: new URL('https://getbze.com'),
-    title: { default: 'BeeZee: a blockchain for your project', template: '%s · BeeZee' },
-    description: DESCRIPTION,
+    // Every page sets its own full title, description and share tags (lib/seo.ts);
+    // these are the fallbacks.
+    metadataBase: new URL(SITE_URL),
+    title: PAGES.home.title,
+    description: PAGES.home.description,
     icons: {
         icon: [
             { url: '/favicon.ico', sizes: '48x48' },

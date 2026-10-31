@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 
 import { RoadmapBody } from '@/components/pages/Roadmap';
 import { PageShell } from '@/components/site/PageShell';
+import { pageMetadata } from '@/lib/seo';
 
 import '@/styles/pages/roadmap.css';
 
-export const metadata: Metadata = {
-    title: "Roadmap",
-    description: "What's next for BeeZee, and everything we've shipped so far.",
-};
+export const metadata: Metadata = pageMetadata('roadmap');
 
 export default function RoadmapPage() {
     return (
