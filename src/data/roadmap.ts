@@ -17,7 +17,6 @@ export interface RoadmapItem {
     children?: string[];
     description?: string;
     details?: string[];
-    link?: string;
     quarter?: string;
     version?: string;
 }
@@ -57,7 +56,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "The CoinTrunk web application provides a user-friendly interface for accessing blockchain-stored content. Users can browse, read, and interact with articles published through the CoinTrunk module.",
                 "The platform features a modern design, seamless wallet integration, and support for multiple blockchains, making decentralized content accessible to everyone."
             ],
-            link: "https://cointrunk.io"
         },
         {
             id: "2023-4",
@@ -111,7 +109,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "The Android app brings decentralized content and multi-chain wallet functionality to mobile users, featuring an intuitive interface and secure key management."
             ],
-            link: "https://cointrunk.io"
         },
         {
             id: "2024-4",
@@ -134,7 +131,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "This major upgrade transformed BeeZee into a complete DeFi platform with three groundbreaking features: Token Factory for anyone to create tokens without coding, a Rewards system for incentivizing community engagement, and an order-book DEX for decentralized trading.",
                 "The Token Factory enables users to launch tokens in seconds with customizable parameters. The Rewards module lets token creators incentivize staking and trading, while the DEX provides efficient order-book trading at minimal cost."
             ],
-            link: "https://dex.getbze.com"
         },
         {
             id: "2024-6",
@@ -144,7 +140,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "The dApp provides a comprehensive interface for accessing all BZE blockchain features, including token creation, rewards management, and the burning mechanism. Built with modern web technologies for optimal performance and user experience."
             ],
-            link: "https://dex.getbze.com",
             quarter: "Q3",
         },
         {
@@ -175,7 +170,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "The DEX went live with full trading functionality, allowing users to trade BZE and all tokens created on the network. Features include limit orders, market orders, and detailed trading charts."
             ],
-            link: "https://dex.getbze.com",
             quarter: "Q3",
         },
         {
@@ -207,7 +201,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "Users can now participate in burning raffles, adding an element of excitement to the deflationary mechanics while contributing to reduced token supply."
             ],
-            link: "https://burner.getbze.com",
             quarter: "Q4",
         },
         {
@@ -283,7 +276,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "A comprehensive staking page providing all information about validators, rewards, and staking mechanisms in one convenient location."
             ],
-            link: "https://staking.getbze.com",
             quarter: "Q2",
         },
         {
@@ -322,7 +314,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "The AMM pools enable passive liquidity provision and simpler trading experiences, while the SDK upgrade ensures long-term compatibility and access to the latest Cosmos ecosystem features."
             ],
             quarter: "Q4",
-            link: "https://medium.com/bzedge-community/bze-status-update-nov-20-2025-introducing-the-v8-upgrade-5cdfc70c5e98"
         },
         {
             id: "2025-7",
@@ -354,7 +345,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "A fresh, modern website design for CoinTrunk with improved content discovery, better mobile experience, and enhanced integration with the blockchain features."
             ],
-            link: "https://cointrunk.io",
             quarter: "Q1",
         },
         {
@@ -367,7 +357,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "All fixes from the audit are already live on mainnet, starting with the v8.1.0 upgrade. Going forward, the audited code is kept largely unchanged and is only modified when really needed.",
                 "The full audit reports are public in Oak Security's audit-reports repository on GitHub."
             ],
-            link: "https://medium.com/bzedge-community/bze-code-audited-by-oak-security-51f1c093477e",
             quarter: "Q1",
         },
         {
@@ -395,7 +384,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "A specialized app focusing on the token factory features, making it even easier to create, configure, and manage custom tokens with an intuitive step-by-step interface.",
                 "Creators can create tokens, open DEX markets, create liquidity pools with their chosen swap fees, set up staking rewards and manage everything they created in one place. More tools will follow as new chain features launch."
             ],
-            link: "https://factory.getbze.com",
             quarter: "Q3",
         },
         {
@@ -408,7 +396,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "It is built to grow with the chain, so every new feature can be shown the way it deserves instead of as raw transaction data.",
                 "Live at explorer.getbze.com for mainnet, with a testnet explorer at testnet-explorer.getbze.com."
             ],
-            link: "https://explorer.getbze.com",
             quarter: "Q4",
         },
         {
@@ -416,21 +403,20 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             title: "BZE Blockchain: Blockchain Upgrade",
             status: DONE,
             children: [
-                "Denom Rewards: staking pools for any token",
+                "Compounded staking rewards for any token",
                 "On-chain token branding",
                 "Governance trading halt for tokens",
                 "Noble USDC wind-down"
             ],
-            description: "Denom Rewards, on-chain token branding and the Noble USDC wind-down.",
+            description: "Compounded staking rewards, on-chain token branding and the Noble USDC wind-down.",
             details: [
-                "Denom Rewards: every token on BZE can have its own staking pool that pays stakers in any token, up to 50 prize tokens at a time. Anyone can fund a pool, either as a daily campaign or as a one-time airdrop.",
+                "Compounded staking rewards: every token on BZE can have its own staking pool that pays stakers in any token, up to 50 prize tokens at a time. Anyone can fund a pool, either as a daily campaign or as a one-time airdrop.",
                 "On-chain token branding: token admins can store a font and light/dark colour palettes on-chain, so every app shows the token with the same identity. This powers the branded token pages of the Communities app.",
                 "Governance trading halt: governance can halt trading of a token that loses its backing, while withdrawals, order cancellations and transfers keep working.",
                 "Noble USDC wind-down: Circle is retiring USDC on Noble. The upgrade stops accepting new Noble USDC and moves the protocol-owned USDC/BZE liquidity to USDC issued on Injective.",
                 "Also included: anyone can clean up finished staking rewards, the latest CometBFT security updates and richer DEX events for indexers and the explorer.",
-                "The upgrade is live on testnet and approved by mainnet governance. It kicks in at block height 25,263,600, estimated for October 26, 2026."
+                "Live on mainnet since block height 25,263,600 (October 2026)."
             ],
-            link: "https://medium.com/bzedge-community/bze-status-update-oct-8-2026-39e51d830cdd",
             quarter: "Q4",
             version: "v8.2.0"
         },
@@ -507,7 +493,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             status: PLANNED,
             children: [
                 "BZE Max supply to 400M",
-                "Compounded Staking Rewards",
                 "Token Addon: Fees & Distribution",
                 "Token Addon: Community Pool",
                 "DEX engine performance improvements"
@@ -516,7 +501,7 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "These are the features currently on our list for the upgrade following v8.3.0. The final scope is not set yet: some of them might be moved to a later release and new ones might be added.",
                 "A hard cap at 400 million BZE tokens, as approved by governance, ensuring absolute scarcity and predictable supply.",
-                "Auto-compounding staking rewards, plus token addons that let creators implement custom transfer fees distributed to stakers, liquidity providers or any specified recipients, and a community pool for funding development and marketing.",
+                "Token addons that let creators implement custom transfer fees distributed to stakers, liquidity providers or any specified recipients, and a community pool for funding development and marketing.",
                 "Further performance improvements to the DEX engine."
             ],
             quarter: "Q4",
@@ -530,7 +515,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             details: [
                 "The CoinTrunk mobile app plans have been postponed. This includes the iOS release, WalletConnect integration for dApp connections, and a complete app redesign with unified wallet interface and streamlined experience."
             ],
-            link: "https://cointrunk.io",
         },
         {
             id: "2026-roadmap-2027",
