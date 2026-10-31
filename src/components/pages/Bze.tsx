@@ -59,8 +59,8 @@ export function BzeBody() {
               </defs>
               <path d="M100 8l84 48v108l-84 48-84-48V56z" fill="url(#cf)" stroke="url(#cg)" strokeWidth="2.5" />
               <path d="M100 34l61 35v80l-61 35-61-35V69z" fill="none" stroke="rgba(51,195,224,0.25)" strokeWidth="1" />
-              <text x="100" y="118" textAnchor="middle" fontFamily="Inter,system-ui,sans-serif" fontSize="40" fontWeight="800" fill="#E8ECF2" letterSpacing="-1">BZE</text>
-              <text x="100" y="146" textAnchor="middle" fontFamily="Inter,system-ui,sans-serif" fontSize="12" fontWeight="600" fill="#8AD9EC">holds it together</text>
+              <image href="/brand/bz-mark.svg" x="60" y="58" width="80" height="80" />
+              <text x="100" y="162" textAnchor="middle" fontFamily="Inter,system-ui,sans-serif" fontSize="12" fontWeight="600" fill="#8AD9EC">holds it together</text>
             </svg>
           </div>
           <div className="card piece tr">
@@ -138,10 +138,7 @@ export function BzeBody() {
             <div aria-hidden="true" style={{ position: "absolute", inset: "0", background: "radial-gradient(70% 80% at 0% 0%,rgba(181,126,220,0.16),rgba(10,12,16,0) 70%)", pointerEvents: "none" }} />
             <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span className="ai" style={{ background: "var(--stk)" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 4l8 4-8 4-8-4z" />
-  <path d="M4 12l8 4 8-4M4 16l8 4 8-4" />
-</svg></span>
+                <img className="ai" src="/apps/staking/icon-on-dark.svg" alt="" />
                 <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                   <strong style={{ fontSize: "20px" }}>Stake BZE</strong>
                   <span style={{ fontSize: "14px", color: "var(--muted)" }}>Help secure the chain and earn for it.</span>
@@ -163,9 +160,7 @@ export function BzeBody() {
         />
         <FeeCoin
           intro={<>
-            <span className="ai" style={{ background: "var(--dex)" }}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#04131C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M4 8h15l-4-4M20 16H5l4 4" />
-</svg></span>
+            <img className="ai" src="/apps/dex/icon-on-dark.svg" alt="" />
             <strong style={{ fontSize: "20px" }}>Pair BZE with your token, make it a fee coin</strong>
           </>}
           actions={

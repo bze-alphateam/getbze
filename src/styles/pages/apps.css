@@ -18,7 +18,7 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 .pg-apps .jump{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px 0 8px;border-radius:999px;border:1px solid var(--hair);background:rgba(255,255,255,0.03);font-size:14px;font-weight:600;text-decoration:none}
 .v.pg-apps a.jump{color:var(--text-2)}
 .v.pg-apps a.jump:hover{border-color:var(--line);color:var(--text)}
-.pg-apps .jump i{width:20px;height:20px;border-radius:6px;display:block}
+.pg-apps .jump img{display:block}
 .pg-apps .app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:56px 0;border-top:1px solid var(--div)}
 .pg-apps .ai{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
 .pg-apps .app h2{margin:0;font-size:30px;font-weight:800;letter-spacing:-0.02em}

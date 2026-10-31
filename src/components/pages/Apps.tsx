@@ -7,12 +7,12 @@ export function AppsBody() {
         <h1 className="h1" style={{ margin: "0", fontSize: "36px", fontWeight: "800", letterSpacing: "-0.02em", lineHeight: "1.1" }}>The BeeZee apps</h1>
         <p style={{ margin: "0", fontSize: "18px", color: "var(--muted)", lineHeight: "1.55", maxWidth: "600px" }}>Apps that work together. Move between them freely, and your token looks like yours in every one.</p>
         <nav aria-label="Jump to an app" style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "8px" }}>
-          <a className="jump" href="#communities"><i style={{ background: "var(--com)" }} />Communities</a>
-          <a className="jump" href="#factory"><i style={{ background: "var(--fct)" }} />Factory</a>
-          <a className="jump" href="#dex"><i style={{ background: "var(--dex)" }} />DEX</a>
-          <a className="jump" href="#burner"><i style={{ background: "var(--brn)" }} />Burner</a>
-          <a className="jump" href="#staking"><i style={{ background: "var(--stk)" }} />Staking</a>
-          <a className="jump" href="#explorer"><i style={{ background: "var(--exp)" }} />Explorer</a>
+          <a className="jump" href="#communities"><img src="/apps/communities/icon-small-on-dark.svg" alt="" width={20} height={20} />Communities</a>
+          <a className="jump" href="#factory"><img src="/apps/factory/icon-small-on-dark.svg" alt="" width={20} height={20} />Factory</a>
+          <a className="jump" href="#dex"><img src="/apps/dex/icon-small-on-dark.svg" alt="" width={20} height={20} />DEX</a>
+          <a className="jump" href="#burner"><img src="/apps/burner/icon-small-on-dark.svg" alt="" width={20} height={20} />Burner</a>
+          <a className="jump" href="#staking"><img src="/apps/staking/icon-small-on-dark.svg" alt="" width={20} height={20} />Staking</a>
+          <a className="jump" href="#explorer"><img src="/apps/explorer/icon-small-on-dark.svg" alt="" width={20} height={20} />Explorer</a>
         </nav>
       </div>
     </section>
@@ -21,11 +21,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For your token</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--com)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#03170B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="9" cy="8" r="3" />
-  <circle cx="17" cy="9.5" r="2.4" />
-  <path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M14.5 14.3c2.6-.4 5 1 5.8 4.2" />
-</svg></span>
+            <img className="ai" src="/apps/communities/icon-on-dark.svg" alt="" />
             <h2>Communities</h2>
           </div>
           <p className="sub">{"Your token's own home, in its own colours. Everything people do with it, side by side, on one link you can share."}</p>
@@ -74,10 +70,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For builders</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--fct)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1200" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
-  <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
-</svg></span>
+            <img className="ai" src="/apps/factory/icon-on-dark.svg" alt="" />
             <h2>Factory</h2>
           </div>
           <p className="sub">The forge. Everything on BeeZee is made here: tokens, pools, rewards and drops, each with a guided wizard and no code.</p>
@@ -121,9 +114,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For every trade</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--dex)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#04131C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M4 8h15l-4-4M20 16H5l4 4" />
-</svg></span>
+            <img className="ai" src="/apps/dex/icon-on-dark.svg" alt="" />
             <h2>DEX</h2>
           </div>
           <p className="sub">For anyone who wants to buy, sell or trade the tokens living on BeeZee.</p>
@@ -155,9 +146,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For every burn</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--brn)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A0A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.6 2.2-4.6.2 1.6.9 2.6 2 3.1C10.6 9 11 5.8 12 3z" />
-</svg></span>
+            <img className="ai" src="/apps/burner/icon-on-dark.svg" alt="" />
             <h2>Burner</h2>
           </div>
           <p className="sub">For anyone who likes to see supply shrink, or fancies a lucky draw. Every burn is permanent, so what is left gets scarcer.</p>
@@ -189,10 +178,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For the chain itself</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--stk)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 4l8 4-8 4-8-4z" />
-  <path d="M4 12l8 4 8-4M4 16l8 4 8-4" />
-</svg></span>
+            <img className="ai" src="/apps/staking/icon-on-dark.svg" alt="" />
             <h2>Staking</h2>
           </div>
           <p className="sub">For anyone interested in the blockchain behind all this and its own coin, BZE.</p>
@@ -232,10 +218,7 @@ export function AppsBody() {
         <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <span className="who" style={{ marginBottom: "-8px" }}>For the curious</span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-            <span className="ai" style={{ background: "var(--exp)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0C10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="10.5" cy="10.5" r="6" />
-  <path d="M15 15l5 5" />
-</svg></span>
+            <img className="ai" src="/apps/explorer/icon-on-dark.svg" alt="" />
             <h2>Explorer</h2>
           </div>
           <p className="sub">See every move on the chain, in plain words.</p>

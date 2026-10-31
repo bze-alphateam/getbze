@@ -141,7 +141,7 @@ export function UnderTheHoodBody() {
           </div>
         </div>
         <div className="g2" style={{ gap: "10px" }}>
-          <a className="rowl" href="https://explorer.getbze.com" target="_blank" rel="noopener"><span style={{ display: "flex", alignItems: "center", gap: "10px" }}><span style={{ width: "20px", height: "20px", borderRadius: "6px", background: "var(--exp)" }} /><span style={{ fontWeight: "600" }}>BZE Explorer</span></span><span style={{ color: "var(--faint)" }}>↗</span></a>
+          <a className="rowl" href="https://explorer.getbze.com" target="_blank" rel="noopener"><span style={{ display: "flex", alignItems: "center", gap: "10px" }}><img src="/apps/explorer/icon-small-on-dark.svg" alt="" width={20} height={20} /><span style={{ fontWeight: "600" }}>BZE Explorer</span></span><span style={{ color: "var(--faint)" }}>↗</span></a>
           <a className="rowl" href="https://ping.pub/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>Ping.pub</span><span style={{ color: "var(--faint)" }}>↗</span></a>
           <a className="rowl" href="https://explorer.chaintools.tech/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>Chain Tools</span><span style={{ color: "var(--faint)" }}>↗</span></a>
           <a className="rowl" href="https://atomscan.com/beezee" target="_blank" rel="noopener"><span style={{ fontWeight: "600" }}>ATOMScan</span><span style={{ color: "var(--faint)" }}>↗</span></a>

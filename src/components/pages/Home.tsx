@@ -33,29 +33,12 @@ export function HomeBody() {
           <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: "50%", width: "420px", height: "420px", transform: "translate(-50%,-50%)", background: "radial-gradient(50% 50% at 50% 50%,rgba(51,195,224,0.18),rgba(10,12,16,0) 70%)" }} />
           <span className="hx-ring" style={{ left: "159px", top: "130px" }} />
           <span className="hx mid" style={{ left: "160px", top: "131px" }}><img src="/brand/beezee-light.svg" alt="" style={{ width: "84px", height: "auto", display: "block" }} /><span style={{ fontSize: "11px", fontWeight: "600", color: "var(--faint)" }}>one chain</span></span>
-          <Link className="hx" href="/apps#dex" style={{ left: "288px", top: "131px", background: "var(--dex)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#04131C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M4 8h15l-4-4M20 16H5l4 4" />
-</svg>DEX</Link>
-          <Link className="hx" href="/apps#communities" style={{ left: "32px", top: "131px", background: "var(--com)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#03170B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="9" cy="8" r="3" />
-  <circle cx="17" cy="9.5" r="2.4" />
-  <path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M14.5 14.3c2.6-.4 5 1 5.8 4.2" />
-</svg><span style={{ color: "#03170B" }}>Communities</span></Link>
-          <Link className="hx" href="/apps#staking" style={{ left: "224px", top: "242px", background: "var(--stk)", color: "#fff" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 4l8 4-8 4-8-4z" />
-  <path d="M4 12l8 4 8-4M4 16l8 4 8-4" />
-</svg>Staking</Link>
-          <Link className="hx" href="/apps#burner" style={{ left: "96px", top: "242px", background: "var(--brn)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A0A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.6 2.2-4.6.2 1.6.9 2.6 2 3.1C10.6 9 11 5.8 12 3z" />
-</svg><span style={{ color: "#1A0A00" }}>Burner</span></Link>
-          <Link className="hx" href="/apps#factory" style={{ left: "224px", top: "20px", background: "var(--fct)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1200" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
-  <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
-</svg><span style={{ color: "#1A1200" }}>Factory</span></Link>
-          <Link className="hx" href="/apps#explorer" style={{ left: "96px", top: "20px", background: "var(--exp)" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0C10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="10.5" cy="10.5" r="6" />
-  <path d="M15 15l5 5" />
-</svg>Explorer</Link>
+          <Link className="hx app" href="/apps#dex" style={{ left: "288px", top: "131px" }}><img src="/apps/dex/icon-on-dark.svg" alt="" width={44} height={44} />DEX</Link>
+          <Link className="hx app" href="/apps#communities" style={{ left: "32px", top: "131px" }}><img src="/apps/communities/icon-on-dark.svg" alt="" width={44} height={44} />Communities</Link>
+          <Link className="hx app" href="/apps#staking" style={{ left: "224px", top: "242px" }}><img src="/apps/staking/icon-on-dark.svg" alt="" width={44} height={44} />Staking</Link>
+          <Link className="hx app" href="/apps#burner" style={{ left: "96px", top: "242px" }}><img src="/apps/burner/icon-on-dark.svg" alt="" width={44} height={44} />Burner</Link>
+          <Link className="hx app" href="/apps#factory" style={{ left: "224px", top: "20px" }}><img src="/apps/factory/icon-on-dark.svg" alt="" width={44} height={44} />Factory</Link>
+          <Link className="hx app" href="/apps#explorer" style={{ left: "96px", top: "20px" }}><img src="/apps/explorer/icon-on-dark.svg" alt="" width={44} height={44} />Explorer</Link>
         </nav>
       </div>
     </section>
@@ -276,11 +259,7 @@ export function HomeBody() {
           <div className="card home">
             <div className="hglow" />
             <div style={{ position: "relative", display: "flex", alignItems: "center", gap: "12px" }}>
-              <span className="ai" style={{ background: "var(--com)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#03170B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="9" cy="8" r="3" />
-  <circle cx="17" cy="9.5" r="2.4" />
-  <path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M14.5 14.3c2.6-.4 5 1 5.8 4.2" />
-</svg></span>
+              <img className="ai" src="/apps/communities/icon-on-dark.svg" alt="" />
               <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
                 <span className="who">For your token</span>
                 <strong style={{ fontSize: "20px" }}>Communities</strong>
@@ -309,10 +288,7 @@ export function HomeBody() {
             <div className="card tool">
               <span className="who">For builders</span>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span className="ai" style={{ background: "var(--fct)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1200" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
-  <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
-</svg></span>
+                <img className="ai" src="/apps/factory/icon-on-dark.svg" alt="" />
                 <strong style={{ fontSize: "17px" }}>Factory</strong>
               </div>
               <span style={{ fontSize: "14px", color: "var(--muted)" }}>Where everything is made: tokens, pools, rewards and drops.</span>
@@ -321,9 +297,7 @@ export function HomeBody() {
             <div className="card tool">
               <span className="who">For every trade</span>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span className="ai" style={{ background: "var(--dex)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04131C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M4 8h15l-4-4M20 16H5l4 4" />
-</svg></span>
+                <img className="ai" src="/apps/dex/icon-on-dark.svg" alt="" />
                 <strong style={{ fontSize: "17px" }}>DEX</strong>
               </div>
               <span style={{ fontSize: "14px", color: "var(--muted)" }}>For anyone who wants to buy, sell or trade the tokens living on BeeZee. Swap instantly from pools or set your own price with limit orders.</span>
@@ -332,10 +306,7 @@ export function HomeBody() {
             <div className="card tool">
               <span className="who">For the chain itself</span>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span className="ai" style={{ background: "var(--stk)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 4l8 4-8 4-8-4z" />
-  <path d="M4 12l8 4 8-4M4 16l8 4 8-4" />
-</svg></span>
+                <img className="ai" src="/apps/staking/icon-on-dark.svg" alt="" />
                 <strong style={{ fontSize: "17px" }}>Staking</strong>
               </div>
               <span style={{ fontSize: "14px", color: "var(--muted)" }}>For anyone interested in the blockchain behind all this and its own coin, BZE. Stake it with the validators that run the chain, earn rewards and vote on its future.</span>
@@ -344,9 +315,7 @@ export function HomeBody() {
             <div className="card tool">
               <span className="who">For every burn</span>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span className="ai" style={{ background: "var(--brn)" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A0A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.6 2.2-4.6.2 1.6.9 2.6 2 3.1C10.6 9 11 5.8 12 3z" />
-</svg></span>
+                <img className="ai" src="/apps/burner/icon-on-dark.svg" alt="" />
                 <strong style={{ fontSize: "17px" }}>Burner</strong>
               </div>
               <span style={{ fontSize: "14px", color: "var(--muted)" }}>For anyone who likes to see supply shrink, or fancies a lucky draw. Burn coins and join the raffles. Every burn is permanent, so what is left gets scarcer.</span>
@@ -355,10 +324,7 @@ export function HomeBody() {
           </div>
         </div>
         <div className="card" style={{ marginTop: "16px", padding: "16px 20px", display: "flex", alignItems: "center", gap: "14px", flexWrap: "wrap" }}>
-          <span className="ai" style={{ background: "var(--exp)", width: "32px", height: "32px" }}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0C10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-  <circle cx="10.5" cy="10.5" r="6" />
-  <path d="M15 15l5 5" />
-</svg></span>
+          <img className="ai" src="/apps/explorer/icon-small-on-dark.svg" alt="" style={{ width: "32px", height: "32px" }} />
           <span style={{ fontSize: "14px", color: "var(--muted)", flex: "1", minWidth: "200px" }}><strong style={{ color: "var(--text)" }}>Explorer</strong> · for the curious. See every move on the chain, in plain words.</span>
           <a className="in-app" href="https://explorer.getbze.com" target="_blank" rel="noopener" style={{ color: "#C9D0DA" }}>Open Explorer ↗</a>
         </div>
