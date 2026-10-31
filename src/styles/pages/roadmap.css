@@ -27,6 +27,7 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 .pg-roadmap .item{padding:20px;display:flex;flex-direction:column;gap:8px}
 .pg-roadmap .item strong{font-size:16px}
 .pg-roadmap .item span.d{font-size:14px;color:var(--muted);line-height:1.5}
+.pg-roadmap .item p.sum{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
 .pg-roadmap .go{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;text-decoration:none;margin-top:auto}
 .pg-roadmap .tin{width:40px;height:40px;border-radius:12px;background:var(--inset);border:1px solid rgba(51,195,224,0.45);display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box}
 .pg-roadmap .ai{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}

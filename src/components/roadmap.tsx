@@ -99,7 +99,7 @@ export function RoadmapStrip() {
     );
 }
 
-/** Roadmap page: every item not delivered yet. Postponed items are dimmed. Each card opens its details. */
+/** Roadmap page: every item not delivered yet, with its summary. Postponed items are dimmed. Each card opens its details. */
 export function UpNextGrid() {
     const [open, setOpen] = useState<RoadmapItem | null>(null);
 
@@ -116,6 +116,7 @@ export function UpNextGrid() {
                             <OpenButton item={item} onOpen={setOpen} />
                             {item.version && item.version !== 'TBA' && <> <span className="mono" style={{ color: 'var(--faint)', fontWeight: 500 }}>{item.version}</span></>}
                         </strong>
+                        {item.description && <p className="sum">{item.description}</p>}
                         {item.children && item.children.length > 0 && (
                             <ul style={{ margin: '0', padding: '0 0 0 18px', fontSize: '13px', color: 'var(--muted)', lineHeight: '1.6' }}>
                                 {item.children.map((child) => <li key={child}>{child}</li>)}

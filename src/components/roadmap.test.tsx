@@ -25,6 +25,12 @@ describe('roadmap details', () => {
         await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
     });
 
+    it('shows each up-next item with its summary', () => {
+        render(<ChakraProvider value={system}><UpNextGrid /></ChakraProvider>);
+
+        expect(screen.getByText('The BZE roadmap for 2027.')).toBeInTheDocument();
+    });
+
     it('opens an up-next item too', async () => {
         render(<ChakraProvider value={system}><UpNextGrid /></ChakraProvider>);
 
