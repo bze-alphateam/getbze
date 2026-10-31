@@ -38,6 +38,7 @@ jobs:
         run: yarn build
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          NEXT_PUBLIC_FOUNDING_PROGRAM_URL: https://example.com/apply
 
       - name: Every route and the 404 page are exported
         run: |

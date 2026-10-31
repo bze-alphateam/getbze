@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { type ProgramLink, programShown } from './program';
+
 // Search and share metadata for every page, in one place so the pages, the sitemap and
 // the export tests read the same table.
 
@@ -68,6 +70,13 @@ export const PAGES = {
 } satisfies Record<string, PageSeo>;
 
 export type SeoPage = keyof typeof PAGES;
+
+/** The pages that are live (the sitemap): Founding Program only while it is shown. */
+export function listedPages(program: ProgramLink): PageSeo[] {
+    return Object.entries(PAGES)
+        .filter(([key]) => key !== 'program' || programShown(program))
+        .map(([, page]) => page);
+}
 
 export const NOT_FOUND_TITLE = 'Page not found | BeeZee';
 

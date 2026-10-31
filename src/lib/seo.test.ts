@@ -5,7 +5,7 @@ import path from 'node:path';
 import robots from '@/app/robots';
 import sitemap from '@/app/sitemap';
 
-import { homeJsonLd, PAGES, pageMetadata, SOCIAL_PROFILES } from './seo';
+import { homeJsonLd, listedPages, PAGES, pageMetadata, SOCIAL_PROFILES } from './seo';
 
 const APP_DIR = path.resolve(__dirname, '../app');
 
@@ -21,10 +21,18 @@ function appRoutes(dir = APP_DIR, prefix = '/'): string[] {
 }
 
 describe('sitemap', () => {
-    it('lists exactly the routes that have a page', () => {
-        const listed = sitemap().map((entry) => new URL(entry.url).pathname);
+    it('lists exactly the routes that have a page while the program is shown', () => {
+        for (const program of [{ state: 'open', url: 'https://example.com/apply' }, { state: 'soon' }] as const) {
+            const listed = listedPages(program).map((page) => page.path);
 
-        expect([...listed].sort()).toEqual(appRoutes().sort());
+            expect([...listed].sort()).toEqual(appRoutes().sort());
+        }
+    });
+
+    it('leaves Founding Program out while the program is hidden', () => {
+        const listed = listedPages({ state: 'hidden' }).map((page) => page.path);
+
+        expect([...listed].sort()).toEqual(appRoutes().filter((route) => route !== '/founding-program/').sort());
     });
 
     it('uses absolute getbze.com URLs', () => {
