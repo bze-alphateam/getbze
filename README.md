@@ -24,8 +24,12 @@ yarn dev      # local dev server
 yarn build    # static export into out/
 yarn lint     # eslint + tsc
 yarn test     # vitest
+yarn test:export  # after a build: every exported page's metadata and the sitemap
 ```
 
 Public endpoints come from `NEXT_PUBLIC_BLOCKCHAIN_REST_API_HOST` and
 `NEXT_PUBLIC_AGGREGATOR_API_HOST` (see `.env.dist`). The production image is built by
 `docker/prod/Dockerfile` and served by nginx.
+
+Each page's title, description and share tags live in `src/lib/seo.ts`; the sitemap and
+robots.txt are generated from the same table.

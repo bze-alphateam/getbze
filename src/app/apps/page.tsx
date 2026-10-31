@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 
 import { AppsBody } from '@/components/pages/Apps';
 import { PageShell } from '@/components/site/PageShell';
+import { pageMetadata } from '@/lib/seo';
 
 import '@/styles/pages/apps.css';
 
-export const metadata: Metadata = {
-    title: "Apps",
-    description: "Apps that work together. Move between them freely, and your token looks like yours in every one.",
-};
+export const metadata: Metadata = pageMetadata('apps');
 
 export default function AppsPage() {
     return (

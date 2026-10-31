@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 
 import { UnderTheHoodBody } from '@/components/pages/UnderTheHood';
 import { PageShell } from '@/components/site/PageShell';
+import { pageMetadata } from '@/lib/seo';
 
 import '@/styles/pages/network.css';
 
-export const metadata: Metadata = {
-    title: "Under the hood",
-    description: "How BeeZee works: what the chain can do, connected chains, security and audits, explorers and building on BeeZee.",
-};
+export const metadata: Metadata = pageMetadata('network');
 
 export default function UnderTheHoodPage() {
     return (
