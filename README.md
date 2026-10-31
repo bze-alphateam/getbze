@@ -1,59 +1,40 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app) and [ChakraUI](https://v2.chakra-ui.com/)
+# getbze.com
 
-## Available Scripts
+The BeeZee website: a Next.js (App Router) static export, styled with the shared
+Hive Glow theme in its `site` colour.
 
-In the project directory, you can run:
+## Layout
 
-### `yarn start`
+- `src/app/` — one folder per route; `not-found.tsx` becomes `404.html`.
+- `src/components/pages/` — each page's content, ported from the approved design boards.
+- `src/styles/pages/` — each page's styles, scoped to `.pg-<page>` so pages never clash.
+- `src/styles/hive-glow-tokens.css` — a copy of `beezee/apps/theme/tokens.css` from
+  [Official-BZEdge-Graphics](https://github.com/bze-alphateam/Official-BZEdge-Graphics). Change it there, then copy it here.
+- `src/components/live/` — the live parts (chain numbers, raffle, fee-coin minimum, Medium feed)
+  with their loading and failed states. They get their data from the `LiveClient` in
+  `src/lib/live-client.ts`, provided once in the layout.
+- `src/data/roadmap.ts` — the public roadmap, used by Home and `/roadmap`.
+- `src/data/links.ts` — links the design left open.
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scripts
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+```
+yarn install
+yarn dev      # local dev server
+yarn build    # static export into out/
+yarn lint     # eslint + tsc
+yarn test     # vitest
+yarn test:export  # after a build: every exported page's metadata and the sitemap
+```
 
-### `yarn test`
+Public endpoints come from `NEXT_PUBLIC_BLOCKCHAIN_REST_API_HOST` and
+`NEXT_PUBLIC_AGGREGATOR_API_HOST` (see `.env.dist`). The production image is built by
+`docker/prod/Dockerfile` and served by nginx.
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+Each page's title, description and share tags live in `src/lib/seo.ts`; the sitemap and
+robots.txt are generated from the same table.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
-
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The Founding Program follows `NEXT_PUBLIC_FOUNDING_PROGRAM_URL`: an http(s) link enables
+its "Apply now" button (new tab), `soon` shows a disabled "Coming soon" button, and any
+other value, unset included, leaves the program out entirely (its page exports the 404
+page; its Home section, menu and footer links and sitemap entry are dropped).
