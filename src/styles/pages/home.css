@@ -88,5 +88,7 @@ background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,s
 .pg-home .arts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
 .v.pg-home a.art,.pg-home .art{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:var(--inset);border:1px solid var(--hair);text-decoration:none;color:var(--text)}
 .v.pg-home a.art:hover{border-color:var(--line)}
-.pg-home .art-img{display:block;width:100%;aspect-ratio:16 / 9;border-bottom:1px solid var(--hair)}
+.pg-home .art-img{display:block;width:100%;aspect-ratio:1200 / 630;border-bottom:1px solid var(--hair)}
 @media (max-width:520px){.pg-home .arts{grid-template-columns:minmax(0,1fr)}}
+/* Journeys: below 1100px the intro sits above the steps, so the five step columns keep their width. */
+@media (max-width:1100px){.pg-home .jr{grid-template-columns:minmax(0,1fr);gap:24px}}

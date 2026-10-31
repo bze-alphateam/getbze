@@ -81,7 +81,7 @@ export function NewsArticles() {
         <div className="g3">
             {rows.map((a, i) => (
                 <a key={a.url} className="card" href={a.url} target="_blank" rel="noopener" style={{ textDecoration: 'none', color: 'var(--text)', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ height: '150px', background: cover(a.image, CARD_IMAGES[i % 3]), borderBottom: '1px solid var(--hair)' }} />
+                    <div style={{ aspectRatio: '1200 / 630', background: cover(a.image, CARD_IMAGES[i % 3]), borderBottom: '1px solid var(--hair)' }} />
                     <div style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <span className="mono" style={{ fontSize: '12px', color: 'var(--faint)' }}>{dateLine(a)}</span>
                         <strong style={{ fontSize: '16px', lineHeight: '1.4' }}>{a.title}</strong>

@@ -164,6 +164,12 @@ body {
   color: var(--hg-text);
 }
 
+/* Beats each page's ".v.pg-<page> a" link colour, which is loaded after this file. */
+.v .pm a.pm-item,
+.v .pm a.pm-item:hover {
+  color: var(--hg-text);
+}
+
 .v a.pm-item.on {
   padding-left: 12px;
   box-shadow: inset 2px 0 0 #33C3E0;
