@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { MAIN_NAV, type PageKey } from './nav';
 import { PhoneMenu } from './PhoneMenu';
 
-/** The site header: logo, main menu and "Open the apps"; a menu button below 900px. */
+/** The site header: logo and main menu; a menu button below 900px. */
 export function Header({ page }: { page: PageKey }) {
     return (
         <header style={{ position: 'relative', borderBottom: '1px solid var(--div)' }}>
@@ -26,7 +26,6 @@ export function Header({ page }: { page: PageKey }) {
                             </Link>
                         );
                     })}
-                    <Link className="btn btn-p" href="/apps/" style={{ height: '40px', padding: '0 18px' }}>Open the apps</Link>
                     <PhoneMenu page={page} />
                 </nav>
             </div>

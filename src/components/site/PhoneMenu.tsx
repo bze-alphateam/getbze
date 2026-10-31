@@ -67,9 +67,6 @@ export function PhoneMenu({ page }: { page: PageKey }) {
                             );
                         })}
                     </nav>
-                    <div style={{ padding: '24px 16px 0' }}>
-                        <Link className="btn btn-p" href="/apps/" onClick={close} style={{ width: '100%', height: '48px' }}>Open the apps</Link>
-                    </div>
                 </Drawer.Content>
             </Drawer.Positioner>
         </Drawer.Root>
