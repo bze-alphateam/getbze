@@ -72,13 +72,13 @@ describe('pageMetadata', () => {
             description: PAGES.program.description,
             url: 'https://getbze.com/founding-program/',
             locale: 'en_US',
-            images: [{ url: 'https://getbze.com/og-image.png', width: 1200, height: 630 }],
+            images: [{ url: 'https://getbze.com/og/getbze.png', width: 1200, height: 630 }],
         });
         expect(meta.twitter).toMatchObject({
             card: 'summary_large_image',
             site: '@BZEdgeCoin',
             title: PAGES.program.title,
-            images: [{ url: 'https://getbze.com/og-image.png' }],
+            images: [{ url: 'https://getbze.com/og/getbze.png' }],
         });
     });
 });
