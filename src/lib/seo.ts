@@ -11,10 +11,10 @@ export const X_HANDLE = '@BZEdgeCoin';
 
 /** The shared share image (1200 × 630), the getbze.com image of the brand kit. */
 export const OG_IMAGE = {
-    url: '/og-image.png',
+    url: '/og/getbze.png',
     width: 1200,
     height: 630,
-    alt: 'BeeZee, a fast, low-cost blockchain for your project',
+    alt: "BeeZee: a blockchain that's yours to use",
 };
 
 export const SOCIAL_PROFILES = [
