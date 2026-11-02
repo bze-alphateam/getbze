@@ -25,14 +25,14 @@ describe('sitemap', () => {
         for (const program of [{ state: 'open', url: 'https://example.com/apply' }, { state: 'soon' }] as const) {
             const listed = listedPages(program).map((page) => page.path);
 
-            expect([...listed].sort()).toEqual(appRoutes().sort());
+            expect([...listed].sort()).toEqual(appRoutes().filter((route) => route !== '/wallet/add/').sort());
         }
     });
 
     it('leaves Founding Program out while the program is hidden', () => {
         const listed = listedPages({ state: 'hidden' }).map((page) => page.path);
 
-        expect([...listed].sort()).toEqual(appRoutes().filter((route) => route !== '/founding-program/').sort());
+        expect([...listed].sort()).toEqual(appRoutes().filter((route) => route !== '/founding-program/' && route !== '/wallet/add/').sort());
     });
 
     it('uses absolute getbze.com URLs', () => {
@@ -80,6 +80,14 @@ describe('pageMetadata', () => {
             title: PAGES.program.title,
             images: [{ url: 'https://getbze.com/og/getbze.png' }],
         });
+    });
+});
+
+describe('unlisted pages', () => {
+    it('keeps the wallet add page out of the sitemap and out of search', () => {
+        expect(listedPages({ state: 'soon' }).map((page) => page.path)).not.toContain('/wallet/add/');
+        expect(pageMetadata('walletAdd').robots).toEqual({ index: false, follow: false });
+        expect(pageMetadata('walletAdd').alternates?.canonical).toBe('https://getbze.com/wallet/add/');
     });
 });
 

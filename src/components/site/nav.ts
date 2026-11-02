@@ -1,7 +1,7 @@
 import { PROGRAM_LINK } from '@/data/links';
 import { type ProgramLink, programShown } from '@/lib/program';
 
-export type PageKey = 'home' | 'apps' | 'bze' | 'program' | 'network' | 'roadmap' | 'news' | 'notfound';
+export type PageKey = 'home' | 'apps' | 'bze' | 'program' | 'network' | 'roadmap' | 'news' | 'wallet' | 'notfound';
 
 export interface NavItem {
     label: string;
