@@ -93,7 +93,6 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
 }) {
     const [view, setView] = useState<View>({ kind: 'start' });
     const [info, setInfo] = useState<TokenInfo | null>(null);
-    const [browser, setBrowser] = useState<WalletAddBrowser | null>(null);
 
     useEffect(() => {
         const b = getBrowser();
@@ -103,22 +102,21 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
 
             return;
         }
-        setBrowser(b);
-
         const fromQuery = withFrom(b.search, referrerOrigin(b.referrer, b.origin));
         if (fromQuery !== null) {
             b.rewriteUrl(`${b.pathname}${fromQuery}${b.hash}`);
         }
 
         const code = parseCode(b.search);
+        let active = true;
+        // The browser is only readable after mount, so the first view is set from a microtask.
+        queueMicrotask(() => active && setView(code === null ? { kind: 'generic' } : { kind: 'detecting', code }));
         if (code === null) {
-            setView({ kind: 'generic' });
-
-            return;
+            return () => {
+                active = false;
+            };
         }
 
-        let active = true;
-        setView({ kind: 'detecting', code });
         const stop = b.onOpened(() => active && setView({ kind: 'opened', code }));
         const timer = setTimeout(() => active && setView((v) => (v.kind === 'detecting' ? { kind: 'missing', code } : v)), detectMs);
         loadTokenInfo(code, restHost, fetchFn).then((loaded) => active && setInfo(loaded));
@@ -132,7 +130,7 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (view.kind === 'start' || !browser) {
+    if (view.kind === 'start') {
         return null;
     }
 
@@ -155,7 +153,7 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
                 {view.kind === 'missing' && (
                     <>
                         <h1 className="h1" style={{ margin: 0, fontSize: '32px', fontWeight: 800 }}>Add this token with BeePocket</h1>
-                        <TokenCard info={info ?? { code: view.code, unknown: false }} copy={browser.copy} />
+                        <TokenCard info={info ?? { code: view.code, unknown: false }} copy={(text) => getBrowser().copy(text)} />
                         <p style={{ margin: 0, color: 'var(--muted)', maxWidth: '460px' }}>BeePocket is the BeeZee wallet for community tokens. Install it, and it will start with this token.</p>
                         <Install storeUrl={storeUrl} />
                     </>
