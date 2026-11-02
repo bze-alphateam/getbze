@@ -1,0 +1,21 @@
+/* /wallet/add: the shared page chrome (header, footer, phone menu) plus the token card. */
+.v.pg-wallet{--ground:var(--hg-ground);--card:var(--hg-card);--inset:var(--hg-inset);--hair:var(--hg-hairline);--div:var(--hg-divider);--line:var(--hg-line-strong);--text:var(--hg-text);--text-2:var(--hg-text-secondary);--muted:var(--hg-text-muted);--faint:var(--hg-text-faint);--grad:var(--hg-gradient);
+--dex:linear-gradient(135deg,#12C1E1,#1694D2);--stk:linear-gradient(135deg,#B57EDC,#8E44AD);--brn:linear-gradient(135deg,#FF8A1F,#E85A00);--fct:linear-gradient(135deg,#FFC933,#E09B00);--com:linear-gradient(135deg,#3DD07A,#1E9150);--exp:linear-gradient(135deg,#E8ECF2,#8A94A3);
+background:var(--ground);color:var(--text);font-family:var(--font-inter),Inter,system-ui,sans-serif;position:relative;overflow:hidden;--card-h:var(--hg-card-header);--fct-btn:linear-gradient(135deg,#D9A62E,#B07C08);--stk-btn:linear-gradient(135deg,#9D5BD2,#7B3AA6)}
+.v.pg-wallet a{color:#8AD9EC}
+.v.pg-wallet a:hover{color:#BDEAF5}
+.pg-wallet .wrap{max-width:1200px;margin:0 auto;padding:0 24px;box-sizing:border-box;position:relative}
+.pg-wallet .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;box-sizing:border-box}
+.v.pg-wallet a.btn-p{background:var(--grad);color:#04131C;box-shadow:0 8px 24px -8px rgba(51,195,224,0.6)}
+.v.pg-wallet a.btn-p:hover{background:linear-gradient(135deg,#5ACFE7,#12A3D2);color:#04131C}
+.v.pg-wallet a.navl{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;padding:12px 2px}
+.v.pg-wallet a.navl:hover{color:var(--text)}
+.v.pg-wallet a.navl.on{color:var(--text);box-shadow:inset 0 -2px 0 #33C3E0}
+.v.pg-wallet a.fl{color:var(--muted);text-decoration:none;font-size:14px;padding:5px 0}
+.v.pg-wallet a.fl:hover{color:var(--text)}
+.pg-wallet .card{background:var(--card);border:1px solid var(--hair);border-radius:16px;box-sizing:border-box}
+.pg-wallet .mono{font-family:var(--font-mono),"JetBrains Mono",ui-monospace,monospace}
+.pg-wallet .show-m{display:none !important}
+.v.pg-wallet a.menu{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,0.04);color:var(--text);align-items:center;justify-content:center;box-sizing:border-box}
+.pg-wallet .chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--text-2);box-sizing:border-box}
+@media (max-width:900px){.pg-wallet .wrap{padding:0 16px}.pg-wallet .hide-m{display:none !important}.pg-wallet .show-m{display:inline-flex !important}.v.pg-wallet header nav{gap:10px !important}.v.pg-wallet header .btn-p{height:40px !important;padding:0 14px !important;font-size:14px}.pg-wallet .fgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:28px 16px !important}.pg-wallet .fgrid>div:first-child{grid-column:1 / -1}}

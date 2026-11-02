@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_AGGREGATOR_API_HOST: env('AGGREGATOR_API_HOST', 'https://getbze.com/api'),
     NEXT_PUBLIC_BLOCKCHAIN_REST_API_HOST: env('BLOCKCHAIN_REST_API_HOST', 'https://rest.getbze.com'),
+    NEXT_PUBLIC_BEEPOCKET_STORE_URL: env('BEEPOCKET_STORE_URL', ''),
   },
 };
 

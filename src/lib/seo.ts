@@ -29,6 +29,8 @@ export interface PageSeo {
     path: string;
     title: string;
     description: string;
+    /** A page that exists but stays out of the sitemap and search (a link target, not a destination). */
+    unlisted?: boolean;
 }
 
 export const PAGES = {
@@ -67,6 +69,12 @@ export const PAGES = {
         title: 'News, Articles and Community | BeeZee',
         description: 'The latest BeeZee articles and updates, and where to talk with the team and the community on Discord, Telegram and X.',
     },
+    walletAdd: {
+        path: '/wallet/add/',
+        title: 'Add a Token to BeePocket | BeeZee',
+        description: 'Open a community token in BeePocket, the BeeZee wallet for community tokens, or install BeePocket to add it.',
+        unlisted: true,
+    },
 } satisfies Record<string, PageSeo>;
 
 export type SeoPage = keyof typeof PAGES;
@@ -75,7 +83,8 @@ export type SeoPage = keyof typeof PAGES;
 export function listedPages(program: ProgramLink): PageSeo[] {
     return Object.entries(PAGES)
         .filter(([key]) => key !== 'program' || programShown(program))
-        .map(([, page]) => page);
+        .map(([, page]: [string, PageSeo]) => page)
+        .filter((page) => !page.unlisted);
 }
 
 export const NOT_FOUND_TITLE = 'Page not found | BeeZee';
@@ -86,7 +95,7 @@ export function absoluteUrl(path: string): string {
 
 /** Title, description, canonical URL, robots and the Open Graph and X tags of one page. */
 export function pageMetadata(page: SeoPage): Metadata {
-    const { path, title, description } = PAGES[page];
+    const { path, title, description, unlisted } = PAGES[page] as PageSeo;
     const url = absoluteUrl(path);
     const image = { ...OG_IMAGE, url: absoluteUrl(OG_IMAGE.url) };
 
@@ -94,7 +103,7 @@ export function pageMetadata(page: SeoPage): Metadata {
         title: { absolute: title },
         description,
         alternates: { canonical: url },
-        robots: { index: true, follow: true },
+        robots: unlisted ? { index: false, follow: false } : { index: true, follow: true },
         openGraph: {
             type: 'website',
             siteName: SITE_NAME,

@@ -39,7 +39,10 @@ describe('static export', () => {
     });
 
     // A hidden page (Founding Program without a link) is exported as the 404 page: not a route.
-    const routes = existsSync(OUT) ? exportedRoutes().filter((route) => load(path.join(route, 'index.html')).title !== NOT_FOUND) : [];
+    const exported = existsSync(OUT) ? exportedRoutes().filter((route) => load(path.join(route, 'index.html')).title !== NOT_FOUND) : [];
+    // Link-target pages are exported but not listed: noindex, no sitemap entry (checked below).
+    const UNLISTED = ['/wallet/add/'];
+    const routes = exported.filter((route) => !UNLISTED.includes(route));
 
     it.each(routes)('%s carries the search and share tags', (route) => {
         const doc = load(path.join(route, 'index.html'));
@@ -88,6 +91,14 @@ describe('static export', () => {
         const listed = [...xml.getElementsByTagName('loc')].map((loc) => new URL(loc.textContent ?? '').pathname);
 
         expect(listed.sort()).toEqual([...routes].sort());
+    });
+
+    it('exports the wallet add page without listing or indexing it', () => {
+        expect(existsSync(path.join(OUT, 'wallet/add/index.html'))).toBe(true);
+        expect(meta(load('wallet/add/index.html'), 'robots')).toContain('noindex');
+
+        const xml = readFileSync(path.join(OUT, 'sitemap.xml'), 'utf8');
+        expect(xml).not.toContain('/wallet/');
     });
 
     it('points robots.txt to the sitemap', () => {

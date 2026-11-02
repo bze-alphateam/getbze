@@ -6,3 +6,5 @@ export const PROGRAM_LINK = parseProgramLink(process.env.NEXT_PUBLIC_FOUNDING_PR
 export const AUDIT_REPORTS_URL = 'https://github.com/oak-security/audit-reports/tree/main/BeeZee';
 /** The address for private vulnerability reports. */
 export const SECURITY_EMAIL = 'alphateam@getbze.com';
+/** BeePocket's store listing (https only); empty until it is published. */
+export const BEEPOCKET_STORE_URL = (process.env.NEXT_PUBLIC_BEEPOCKET_STORE_URL ?? '').trim();
