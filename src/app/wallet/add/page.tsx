@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { WalletAddClient } from '@/components/wallet-add-client';
-import { PageShell } from '@/components/site/PageShell';
+import { EARLY_SCRIPT } from '@/lib/wallet-add';
 import { pageMetadata } from '@/lib/seo';
 
 import '@/styles/pages/wallet.css';
@@ -9,9 +9,12 @@ import '@/styles/pages/wallet.css';
 export const metadata: Metadata = pageMetadata('walletAdd');
 
 export default function WalletAddPage() {
+    // The header and footer come with the client component: a slash-less URL is redirected
+    // before anything is drawn, and the early script records the wallet's event meanwhile.
     return (
-        <PageShell page="wallet" scope="wallet" glow="inner">
+        <>
+            <script dangerouslySetInnerHTML={{ __html: EARLY_SCRIPT }} />
             <WalletAddClient />
-        </PageShell>
+        </>
     );
 }

@@ -1,6 +1,9 @@
 import { act, render, screen } from '@testing-library/react';
+import type { ReactNode } from 'react';
 
 import type { FetchFn } from '@/lib/live-client';
+
+import { EARLY_FLAG, EARLY_SCRIPT } from '@/lib/wallet-add';
 
 import { WalletAdd, type WalletAddBrowser } from './wallet-add';
 
@@ -8,6 +11,7 @@ const DENOM = 'factory/bze1abcdefghijklmnopqrstuvwxyz0123456789ab/mytoken';
 
 interface FakeBrowser extends WalletAddBrowser {
     fireOpened: () => void;
+    listenerCount: () => number;
 }
 
 function fakeBrowser(over: Partial<WalletAddBrowser> = {}): FakeBrowser {
@@ -19,6 +23,7 @@ function fakeBrowser(over: Partial<WalletAddBrowser> = {}): FakeBrowser {
         hash: '',
         referrer: '',
         origin: 'https://getbze.com',
+        openedEarly: false,
         redirect: vi.fn(),
         rewriteUrl: vi.fn(),
         onOpened: (l) => {
@@ -28,6 +33,7 @@ function fakeBrowser(over: Partial<WalletAddBrowser> = {}): FakeBrowser {
         },
         copy: vi.fn().mockResolvedValue(undefined),
         fireOpened: () => listeners.forEach((l) => l()),
+        listenerCount: () => listeners.size,
         ...over,
     };
 }
@@ -129,6 +135,59 @@ describe('WalletAdd states', () => {
 
         expect(screen.getByRole('heading', { name: 'BeePocket' })).toBeInTheDocument();
         expect(fetchFn).not.toHaveBeenCalled();
+    });
+});
+
+describe('WalletAdd early event', () => {
+    it('shows "Opened" when the wallet answered before the component mounted', async () => {
+        await mount(fakeBrowser({ openedEarly: true }));
+
+        expect(screen.getByRole('heading', { name: 'Opened in BeePocket' })).toBeInTheDocument();
+        await act(async () => {
+            vi.advanceTimersByTime(5000);
+        });
+        expect(screen.getByRole('heading', { name: 'Opened in BeePocket' })).toBeInTheDocument();
+    });
+
+    it('records the event with the inline script, before React runs', () => {
+        const win = window as unknown as Record<string, unknown>;
+        delete win[EARLY_FLAG];
+        new Function(EARLY_SCRIPT)();
+
+        window.dispatchEvent(new Event('beepocket#add-token-opened'));
+
+        expect(win[EARLY_FLAG]).toBe(true);
+        delete win[EARLY_FLAG];
+    });
+
+    it('stops listening and stops the timer on unmount', async () => {
+        const browser = fakeBrowser();
+        const { unmount } = render(<WalletAdd restHost="https://rest.test" storeUrl="" fetchFn={metadataFetch()} getBrowser={() => browser} />);
+        await act(async () => {});
+        expect(browser.listenerCount()).toBe(1);
+
+        unmount();
+
+        expect(browser.listenerCount()).toBe(0);
+        expect(vi.getTimerCount()).toBe(0);
+    });
+});
+
+describe('WalletAdd shell', () => {
+    const shell = (children: ReactNode) => <div data-testid="shell">{children}</div>;
+
+    it('wraps the page in the shell', async () => {
+        render(<WalletAdd restHost="https://rest.test" storeUrl="" fetchFn={metadataFetch()} getBrowser={() => fakeBrowser()} shell={shell} />);
+        await act(async () => {});
+
+        expect(screen.getByTestId('shell')).toBeInTheDocument();
+    });
+
+    it('renders no shell at all while a slash-less URL is redirected', async () => {
+        render(<WalletAdd restHost="https://rest.test" storeUrl="" fetchFn={metadataFetch()} getBrowser={() => fakeBrowser({ pathname: '/wallet/add' })} shell={shell} />);
+        await act(async () => {});
+
+        expect(screen.queryByTestId('shell')).toBeNull();
     });
 });
 

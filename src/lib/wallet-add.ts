@@ -7,6 +7,15 @@ import type { FetchFn } from './live-client';
 /** The window event BeePocket dispatches on this page once its Add-a-token window is open. */
 export const ADD_TOKEN_OPENED_EVENT = 'beepocket#add-token-opened';
 
+/** Set on `window` by EARLY_SCRIPT when the wallet's event has already been dispatched. */
+export const EARLY_FLAG = '__beepocketAddTokenOpened';
+
+/**
+ * Inlined in the page's HTML so it runs while the document is parsed, before React hydrates:
+ * the wallet may dispatch its event before the component has attached its own listener.
+ */
+export const EARLY_SCRIPT = `window.addEventListener(${JSON.stringify(ADD_TOKEN_OPENED_EVENT)},function(){window.${EARLY_FLAG}=true});`;
+
 /** How long the page waits for that event before it treats BeePocket as not installed. */
 export const DETECT_MS = 2000;
 

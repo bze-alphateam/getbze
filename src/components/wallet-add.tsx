@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 
 import type { FetchFn } from '@/lib/live-client';
-import { ADD_TOKEN_OPENED_EVENT, DETECT_MS, loadTokenInfo, parseCode, referrerOrigin, shortCode, type TokenInfo, withFrom } from '@/lib/wallet-add';
+import { ADD_TOKEN_OPENED_EVENT, DETECT_MS, EARLY_FLAG, loadTokenInfo, parseCode, referrerOrigin, shortCode, type TokenInfo, withFrom } from '@/lib/wallet-add';
 
 /** What the page needs from the browser, so tests can hand in a fake one. */
 export interface WalletAddBrowser {
@@ -12,6 +12,8 @@ export interface WalletAddBrowser {
     hash: string;
     referrer: string;
     origin: string;
+    /** True when the wallet's event was dispatched before this component mounted. */
+    openedEarly: boolean;
     /** Navigates without leaving a history entry (location.replace). */
     redirect: (url: string) => void;
     /** Rewrites the address bar without navigating (history.replaceState). */
@@ -28,6 +30,7 @@ export function windowBrowser(): WalletAddBrowser {
         hash: window.location.hash,
         referrer: document.referrer,
         origin: window.location.origin,
+        openedEarly: (window as unknown as Record<string, unknown>)[EARLY_FLAG] === true,
         redirect: (url) => window.location.replace(url),
         rewriteUrl: (url) => window.history.replaceState(window.history.state, '', url),
         onOpened: (listener) => {
@@ -56,7 +59,7 @@ function Install({ storeUrl }: { storeUrl: string }) {
 }
 
 function Brand() {
-    return <img src="/brand/beepocket-icon.png" alt="BeePocket" width={72} height={72} style={{ borderRadius: '18px' }} />;
+    return <img src="/brand/beepocket-portrait.svg" alt="BeePocket" width={160} style={{ height: 'auto', maxWidth: '100%' }} />;
 }
 
 function TokenCard({ info, copy }: { info: TokenInfo | null; copy: (text: string) => Promise<void> }) {
@@ -84,12 +87,14 @@ function TokenCard({ info, copy }: { info: TokenInfo | null; copy: (text: string
  * at build time): fix a slash-less URL, wait for the wallet's event, otherwise offer the install.
  * The code is never sent anywhere except to the chain's REST host for the token's name.
  */
-export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrowser, detectMs = DETECT_MS }: {
+export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrowser, detectMs = DETECT_MS, shell = (children) => children }: {
     restHost: string;
     storeUrl: string;
     fetchFn: FetchFn;
     getBrowser?: () => WalletAddBrowser;
     detectMs?: number;
+    /** Wraps the page in the site's header and footer; not rendered while the URL is being fixed. */
+    shell?: (children: ReactNode) => ReactNode;
 }) {
     const [view, setView] = useState<View>({ kind: 'start' });
     const [info, setInfo] = useState<TokenInfo | null>(null);
@@ -110,7 +115,7 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
         const code = parseCode(b.search);
         let active = true;
         // The browser is only readable after mount, so the first view is set from a microtask.
-        queueMicrotask(() => active && setView(code === null ? { kind: 'generic' } : { kind: 'detecting', code }));
+        queueMicrotask(() => active && setView(code === null ? { kind: 'generic' } : { kind: b.openedEarly ? 'opened' : 'detecting', code }));
         if (code === null) {
             return () => {
                 active = false;
@@ -134,7 +139,7 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
         return null;
     }
 
-    return (
+    return shell(
         <section style={{ padding: '72px 0', minHeight: '560px' }}>
             <div className="wrap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '18px' }}>
                 <Brand />
@@ -166,6 +171,6 @@ export function WalletAdd({ restHost, storeUrl, fetchFn, getBrowser = windowBrow
                     </>
                 )}
             </div>
-        </section>
+        </section>,
     );
 }

@@ -2,6 +2,7 @@
 
 import { BEEPOCKET_STORE_URL } from '@/data/links';
 
+import { PageShell } from './site/PageShell';
 import { WalletAdd } from './wallet-add';
 
 /** The composition root of /wallet/add: the real chain host, store link and fetch. */
@@ -13,6 +14,7 @@ export function WalletAddClient() {
             restHost={process.env.NEXT_PUBLIC_BLOCKCHAIN_REST_API_HOST ?? ''}
             storeUrl={storeUrl}
             fetchFn={(url) => fetch(url)}
+            shell={(children) => <PageShell page="wallet" scope="wallet" glow="inner">{children}</PageShell>}
         />
     );
 }
