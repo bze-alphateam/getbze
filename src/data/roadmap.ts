@@ -421,18 +421,6 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
             version: "v8.2.0"
         },
         {
-            id: "2026-5",
-            title: "Token Community Page release",
-            status: TESTING,
-            description: "A branded, standalone page for every token on BZE, with everything its community needs in one place.",
-            details: [
-                "Every token gets its own page styled with its on-chain brand colours and font, featuring key numbers, token details and a wallet that shows your balance and positions in that token, with Claim all, Send and a quick way to get the token from anything you hold.",
-                "Holders can stake in the token's holders pool and fixed-term programs, discover other ways to earn the token, trade it with an instant swap backed by a price chart, add and remove liquidity in its pools, and follow burns and burning raffles - all without leaving the page.",
-                "Tokens with enough liquidity pay network fees in the token itself by default. A searchable token directory with filters and sorting helps you discover projects. Already completed and currently being tested on testnet."
-            ],
-            quarter: "Q4",
-        },
-        {
             id: "2026-rebrand",
             title: "BZE Apps: Unified Rebranding",
             status: DONE,
@@ -441,6 +429,18 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "Every BeeZee app - DEX, Staking, Burner, Factory, Communities and the Explorer - gets its own icon from a shared family and the same look and feel: one colour theme, the same typography, headers, buttons and drawers everywhere.",
                 "Apps link to each other in a consistent way, so moving between trading, staking, burning and token management feels like using a single product instead of separate websites.",
                 "The rebranded apps are complete and live."
+            ],
+            quarter: "Q4",
+        },
+        {
+            id: "2026-5",
+            title: "Token Community Page release",
+            status: DONE,
+            description: "A branded, standalone page for every token on BZE, with everything its community needs in one place.",
+            details: [
+                "Every token gets its own page styled with its on-chain brand colours and font, featuring key numbers, token details and a wallet that shows your balance and positions in that token, with Claim all, Send and a quick way to get the token from anything you hold.",
+                "Holders can stake in the token's holders pool and fixed-term programs, discover other ways to earn the token, trade it with an instant swap backed by a price chart, add and remove liquidity in its pools, and follow burns and burning raffles - all without leaving the page.",
+                "Tokens with enough liquidity pay network fees in the token itself by default. A searchable token directory with filters and sorting helps you discover projects. Released and live in the Communities app."
             ],
             quarter: "Q4",
         },
@@ -469,7 +469,7 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
         {
             id: "2026-3",
             title: "BZE Blockchain: Blockchain Upgrade",
-            status: IN_PROGRESS,
+            status: TESTING,
             children: [
                 "Cosmos SDK 0.53 & IBC v10",
                 "Native DAO module",
@@ -487,7 +487,8 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
                 "IBC rate limiting caps how much of a token can move in or out over IBC in a given period, limiting the damage if a connected chain is ever compromised.",
                 "Governance can assign a new admin to any factory token, including tokens whose admin was renounced, so a token can be handed over to its DAO.",
                 "Fixes and improvements across trading rewards, fee payments and the burner.",
-                "Every upgrade is now validated by a full end-to-end test suite that runs the real chain software before release."
+                "Every upgrade is now validated by a full end-to-end test suite that runs the real chain software before release.",
+                "The upgrade is complete and currently being tested on testnet."
             ],
             quarter: "Q4",
             version: "v8.3.0"
@@ -495,12 +496,12 @@ export const roadmapData: Record<string, RoadmapItem[]> = {
         {
             id: "2026-beepocket",
             title: "BeePocket: BeeZee Wallet",
-            status: IN_PROGRESS,
+            status: TESTING,
             description: "BeePocket, the wallet built for BeeZee, launching first as a browser extension.",
             details: [
                 "BeePocket is a self-custody wallet dedicated to the BeeZee blockchain: your keys stay on your device and only you control your funds.",
                 "Made for BeeZee and its apps, so the DEX, staking, Factory, Burner and token community pages work together smoothly, with one wallet across all of them.",
-                "The browser extension comes first. More platforms will follow later."
+                "The browser extension comes first. More platforms will follow later. BeePocket is currently being tested."
             ],
             quarter: "Q4"
         },
